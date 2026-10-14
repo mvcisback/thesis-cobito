@@ -74,6 +74,20 @@
         "id": "zGkC",
         "kind": "section"
       }
+    },
+    "prelims.cob": {
+      "cite:DBLP:journals/sigact/Sipser96": {
+        "id": "ZI0j",
+        "kind": "citation"
+      },
+      "def:notation": {
+        "id": "kivt",
+        "kind": "macro"
+      },
+      "sec:kKQ7": {
+        "id": "kKQ7",
+        "kind": "section"
+      }
     }
   }
 }
