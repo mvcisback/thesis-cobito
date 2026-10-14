@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Workspaces and Decision Processes</title>
+<link rel="stylesheet" href="katex/katex.min.css">
+<link rel="stylesheet" href="cob.css">
+
+</head>
+<body>
+<nav class="toc">
+
+<ul>
+<li><a href="index.html">Introduction</a><ul>
+<li><a href="index.html#sec-0GCT">Thesis Preview</a></li>
+<li><a href="index.html#sec-WPSz">Representing tasks</a><ul>
+<li><a href="index.html#ex-recharge">The brittle recharge reward</a></li>
+</ul></li>
+<li><a href="index.html#sec-zGkC">Representing tasks as specifications</a></li>
+<li><a href="index.html#sec-rW5R">Modeling agents</a><ul>
+<li><a href="index.html#def-purposeful">Purposefulness</a></li>
+</ul></li>
+</ul></li>
+<li><a href="concepts-and-their-representations.html">Concepts and their Representations</a><ul>
+<li><a href="concepts-and-their-representations.html#def-concept-class">Concept class</a><ul>
+<li><a href="concepts-and-their-representations.html#ex-concepts-nat">Concepts over the naturals</a></li>
+</ul></li>
+<li><a href="concepts-and-their-representations.html#sec-kKQ7">Formal languages and automata</a><ul>
+<li><a href="concepts-and-their-representations.html#def-string">String</a></li>
+<li><a href="concepts-and-their-representations.html#def-language">Formal language</a></li>
+</ul></li>
+</ul></li>
+<li><a href="workspaces-and-decision-processes.html" aria-current="page">Workspaces and Decision Processes</a><ul>
+<li><a href="workspaces-and-decision-processes.html#def-distributions">Distributions and smooth maxima</a><ul>
+<li><a href="workspaces-and-decision-processes.html#rem-smooth">Smooth maxima relax the hard ones</a></li>
+</ul></li>
+<li><a href="workspaces-and-decision-processes.html#sec-2fDB">Markov decision processes</a><ul>
+<li><a href="workspaces-and-decision-processes.html#def-mdp">Markov decision process</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+<main>
+<section class="docs" id="sec-2" data-nw-file="dynamics.cob" data-nw-line="1"><div class="margin-slot" data-for="sec-2"></div><h1 id="workspaces-and-decision-processes">Workspaces and Decision Processes</h1>
+<blockquote><p>You have brains in your head. You have feet in your shoes. You can steer
+yourself in any direction you choose.</p>
+<p>— Dr. Seuss, Oh, the Places You'll Go!, 1990</p></blockquote>
+<p>The previous chapter reviewed machinery for representing concepts and formal
+languages. This chapter reviews machinery for predicting the behavior of agents
+acting in stochastic environments, starting with a few useful probability
+distributions. We assume familiarity with elementary probability theory.</p>
+
+<h3 id="def-distributions" data-taxon="definition">Distributions and smooth maxima</h3>
+<p>Let <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>X</mi></mrow><annotation encoding="application/x-tex">X</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span></span></span></span> be a discrete set. The <strong>uniform</strong> distribution on <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>X</mi></mrow><annotation encoding="application/x-tex">X</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span></span></span></span> is <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Uniform</mi><mo>⁡</mo><mo stretchy="false">(</mo><mi>X</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\uniform(X)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mop"><span class="mord mathrm">Uniform</span></span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span><span class="mclose">)</span></span></span></span>,
+and the <strong>Dirac</strong> distribution with all mass on <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>∈</mo><mi>X</mi></mrow><annotation encoding="application/x-tex">x \in X</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span></span></span></span> is <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>δ</mi><mi>x</mi></msub></mrow><annotation encoding="application/x-tex">\delta_x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03785em;">δ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:-0.0379em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">x</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>. If <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>X</mi></mrow><annotation encoding="application/x-tex">X</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span></span></span></span>
+carries a map <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo>:</mo><mi>X</mi><mo>→</mo><mi mathvariant="double-struck">R</mi></mrow><annotation encoding="application/x-tex">f : X \to \Reals</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6889em;"></span><span class="mord mathbb">R</span></span></span></span>, the <strong>log-sum-exp</strong> (smooth max) is</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi mathvariant="normal">LSE</mi><mo>⁡</mo><mo stretchy="false">(</mo><mi>f</mi><mo stretchy="false">)</mo><mo><mover><mo><mo>=</mo></mo><mtext>def</mtext></mover></mo><mi>log</mi><mo>⁡</mo><munder><mo>∑</mo><mrow><mi>x</mi><mo>∈</mo><mi>X</mi></mrow></munder><msup><mi>e</mi><mrow><mi>f</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow></msup><mo separator="true">,</mo></mrow><annotation encoding="application/x-tex">\LSE(f) \eqdef \log \sum_{x \in X} e^{f(x)},</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.403em;vertical-align:-0.25em;"></span><span class="mop"><span class="mord mathrm">LSE</span></span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel"><span class="mop op-limits"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:1.153em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span><span class="mop">=</span></span></span><span style="top:-3.5669em;margin-left:0em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord text mtight"><span class="mord mtight">def</span></span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:2.3717em;vertical-align:-1.3217em;"></span><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mop op-limits"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.05em;"><span style="top:-1.8557em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">x</span><span class="mrel mtight">∈</span><span class="mord mathnormal mtight" style="margin-right:0.07847em;">X</span></span></span></span><span style="top:-3.05em;"><span class="pstrut" style="height:3.05em;"></span><span><span class="mop op-symbol large-op">∑</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.3217em;"><span></span></span></span></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal">e</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.938em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.10764em;">f</span><span class="mopen mtight">(</span><span class="mord mathnormal mtight">x</span><span class="mclose mtight">)</span></span></span></span></span></span></span></span></span><span class="mpunct">,</span></span></span></span></span></p>
+<p>and the <strong>softmax</strong> is its gradient read as a distribution, <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">softmax</mi><mo>⁡</mo><mo stretchy="false">(</mo><mi>f</mi><mo stretchy="false">)</mo><mo><mover><mo><mo>=</mo></mo><mtext>def</mtext></mover></mo><mi mathvariant="normal">∇</mi><mi mathvariant="normal">LSE</mi><mo>⁡</mo><mo stretchy="false">(</mo><mi>f</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\softmax(f) \eqdef
+\nabla \LSE(f)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.403em;vertical-align:-0.25em;"></span><span class="mop"><span class="mord mathrm">softmax</span></span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel"><span class="mop op-limits"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:1.153em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span><span class="mop">=</span></span></span><span style="top:-3.5669em;margin-left:0em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord text mtight"><span class="mord mtight">def</span></span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">∇</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mop"><span class="mord mathrm">LSE</span></span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mclose">)</span></span></span></span>, with <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">softmax</mi><mo>⁡</mo><mo stretchy="false">(</mo><mi>f</mi><mo stretchy="false">)</mo><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><mo>∝</mo><msup><mi>e</mi><mrow><mi>f</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow></msup></mrow><annotation encoding="application/x-tex">\softmax(f)(x) \propto e^{f(x)}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mop"><span class="mord mathrm">softmax</span></span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mclose">)</span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">∝</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.888em;"></span><span class="mord"><span class="mord mathnormal">e</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.888em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.10764em;">f</span><span class="mopen mtight">(</span><span class="mord mathnormal mtight">x</span><span class="mclose mtight">)</span></span></span></span></span></span></span></span></span></span></span></span>.</p>
+<h3 id="rem-smooth" data-taxon="remark">Smooth maxima relax the hard ones</h3>
+<p>The smooth max and soft-argmax are differentiable relaxations of <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>max</mi><mo>⁡</mo></mrow><annotation encoding="application/x-tex">\max</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mop">max</span></span></span></span> and
+<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">arg max</mi><mo>⁡</mo></mrow><annotation encoding="application/x-tex">\operatorname{arg\,max}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mop"><span class="mord mathrm" style="margin-right:0.01389em;">arg</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathrm">max</span></span></span></span></span>: one verifies <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn><mo>≤</mo><mi mathvariant="normal">LSE</mi><mo>⁡</mo><mo stretchy="false">(</mo><mi>f</mi><mo stretchy="false">)</mo><mo>−</mo><msub><mrow><mi>max</mi><mo>⁡</mo></mrow><mrow><mi>x</mi><mo>∈</mo><mi>X</mi></mrow></msub><mi>f</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><mo>≤</mo><mi>ln</mi><mo>⁡</mo><mi mathvariant="normal">∣</mi><mi>X</mi><mi mathvariant="normal">∣</mi></mrow><annotation encoding="application/x-tex">0 \le \LSE(f) - \max_{x \in X} f(x) \le \ln
+|X|</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7804em;vertical-align:-0.136em;"></span><span class="mord">0</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mop"><span class="mord mathrm">LSE</span></span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mop"><span class="mop">max</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">x</span><span class="mrel mtight">∈</span><span class="mord mathnormal mtight" style="margin-right:0.07847em;">X</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.1774em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mop">ln</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">∣</span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span><span class="mord">∣</span></span></span></span>, tighter as the gap to the maximum grows, while <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">softmax</mi><mo>⁡</mo><mo stretchy="false">(</mo><mi>f</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\softmax(f)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mop"><span class="mord mathrm">softmax</span></span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mclose">)</span></span></span></span> interpolates
+between the uniform distribution (constant <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi></mrow><annotation encoding="application/x-tex">f</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span></span></span></span>) and the Dirac distribution (a
+dominant maximum).</p>
+<h2 id="sec-2fDB"><a class="sec-uid" href="#sec-2fDB" data-id="2fDB"></a><a class="node-link" href="n/2fDB.html" aria-label="node page"></a>Markov decision processes</h2>
+<p>We model an agent acting in a stochastic domain as a Markov decision process.</p>
+<h3 id="def-mdp" data-taxon="definition">Markov decision process</h3>
+<p>A <strong>probabilistic labeled transition system</strong> (PLTS) is a tuple <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>M</mi><mo>=</mo><mo stretchy="false">⟨</mo><mi>S</mi><mo separator="true">,</mo><msub><mi>s</mi><mn>0</mn></msub><mo separator="true">,</mo><mi>A</mi><mo separator="true">,</mo><mi>P</mi><mo stretchy="false">⟩</mo></mrow><annotation encoding="application/x-tex">M = \langle S,
+s_0, \Act, P \rangle</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">⟨</span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal">s</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">A</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mclose">⟩</span></span></span></span> with a finite set of <strong>states</strong> <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>S</mi></mrow><annotation encoding="application/x-tex">S</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span></span></span></span>, an <strong>initial
+state</strong> <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>s</mi><mn>0</mn></msub><mo>∈</mo><mi>S</mi></mrow><annotation encoding="application/x-tex">s_0 \in S</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6891em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">s</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span></span></span></span>, a finite set of <strong>actions</strong> <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi></mrow><annotation encoding="application/x-tex">\Act</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">A</span></span></span></span>, and a transition
+function <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo>:</mo><mi>S</mi><mo>×</mo><mi>A</mi><mo>→</mo><mtext mathvariant="italic">Distr</mtext><mo stretchy="false">(</mo><mi>S</mi><mo stretchy="false">)</mo><mo>∪</mo><mo stretchy="false">{</mo><mi mathvariant="normal">⊥</mi><mo stretchy="false">}</mo></mrow><annotation encoding="application/x-tex">P : S \times \Act \to \Distr(S) \cup \{\bot\}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7667em;vertical-align:-0.0833em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">A</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord text"><span class="mord textit">Distr</span></span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∪</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">{</span><span class="mord">⊥</span><span class="mclose">}</span></span></span></span>. Writing <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo stretchy="false">(</mo><msup><mi>s</mi><mo mathvariant="normal" lspace="0em" rspace="0em">′</mo></msup><mo>∣</mo><mi>s</mi><mo separator="true">,</mo><mi>a</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">P(s&#x27; \mid s,
+\act)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.0019em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal">s</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7519em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">∣</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">s</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">a</span><span class="mclose">)</span></span></span></span> for the distribution over next states, a PLTS equipped with a <strong>reward</strong>
+<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>r</mi><mo>:</mo><mi>S</mi><mo>→</mo><mi mathvariant="double-struck">R</mi></mrow><annotation encoding="application/x-tex">r : S \to \Reals</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6889em;"></span><span class="mord mathbb">R</span></span></span></span> is a finite <strong>Markov decision process</strong> (MDP). The
+<strong>available actions</strong> at <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>s</mi></mrow><annotation encoding="application/x-tex">s</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">s</span></span></span></span> are <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mo stretchy="false">(</mo><mi>s</mi><mo stretchy="false">)</mo><mo><mover><mo><mo>=</mo></mo><mtext>def</mtext></mover></mo><mo stretchy="false">{</mo><mi>a</mi><mo>∣</mo><mi>P</mi><mo stretchy="false">(</mo><mi>s</mi><mo separator="true">,</mo><mi>a</mi><mo stretchy="false">)</mo><mo mathvariant="normal">≠</mo><mi mathvariant="normal">⊥</mi><mo stretchy="false">}</mo></mrow><annotation encoding="application/x-tex">\EnAct(s) \eqdef \{\act \mid P(s, \act) \neq
+\bot\}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.403em;vertical-align:-0.25em;"></span><span class="mord mathnormal">A</span><span class="mopen">(</span><span class="mord mathnormal">s</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel"><span class="mop op-limits"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:1.153em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span><span class="mop">=</span></span></span><span style="top:-3.5669em;margin-left:0em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord text mtight"><span class="mord mtight">def</span></span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">{</span><span class="mord mathnormal">a</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">∣</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathnormal">s</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">a</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel"><span class="mrel"><span class="mord vbox"><span class="thinbox"><span class="rlap"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="inner"><span class="mord"><span class="mrel"></span></span></span><span class="fix"></span></span></span></span></span><span class="mrel">=</span></span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">⊥</span><span class="mclose">}</span></span></span></span>; a state with none is <strong>terminal</strong> <a class="cite" data-id="eTin" href="#cite-eTin"></a>.</p></section>
+</main>
+<section class="doc-references" aria-label="References"><h2>References</h2>
+<ul><li id="cite-jSpI"><a class="cite-uid" href="n/jSpI.html" data-id="jSpI"></a> Edward Ashford Lee, Sanjit Arunkumar Seshia. Introduction to embedded systems: A cyber-physical systems approach. <em>Mit Press</em>, 2016.</li><li id="cite-8GlT"><a class="cite-uid" href="n/8GlT.html" data-id="8GlT"></a> Colin Higuera. Grammatical inference: learning automata and grammars. <em>Cambridge University Press</em>, 2010.</li><li id="cite-ZbVI"><a class="cite-uid" href="n/ZbVI.html" data-id="ZbVI"></a> Brian D Ziebart. Modeling purposeful adaptive behavior with the principle of maximum causal entropy. 2010.</li><li id="cite-r68q"><a class="cite-uid" href="n/r68q.html" data-id="r68q"></a> Rudolf Emil Kalman. When is a linear control system optimal. 1964.</li><li id="cite-PawB"><a class="cite-uid" href="n/PawB.html" data-id="PawB"></a> Matanya B. Horowitz, Eric M. Wolff, Richard M. Murray. A compositional approach to stochastic optimal control with co-safe temporal logic specifications. <em>IROS</em>, 2014.</li><li id="cite-dSI8"><a class="cite-uid" href="n/dSI8.html" data-id="dSI8"></a> Abhinav Verma, Vijayaraghavan Murali, Rishabh Singh, Pushmeet Kohli, Swarat Chaudhuri. Programmatically Interpretable Reinforcement Learning. <em>ICML</em>, 2018.</li><li id="cite-TpBK"><a class="cite-uid" href="n/TpBK.html" data-id="TpBK"></a> Rodrigo Toro Icarte, Toryn Q. Klassen, Richard Anthony Valenzano, Sheila A. McIlraith. Using Reward Machines for High-Level Task Specification and Decomposition in Reinforcement Learning. <em>ICML</em>, 2018.</li><li id="cite-99KI"><a class="cite-uid" href="n/99KI.html" data-id="99KI"></a> Kandai Watanabe, Nicholas Renninger, Sriram Sankaranarayanan, Morteza Lahijanian. Probabilistic Specification Learning for Planning with Safety Constraints. <em>2021 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)</em>, 2021.</li><li id="cite-RmjQ"><a class="cite-uid" href="n/RmjQ.html" data-id="RmjQ"></a> Jan Leike, Miljan Martic, Victoria Krakovna, Pedro A. Ortega, Tom Everitt, Andrew Lefrancq, Laurent Orseau, Shane Legg. AI Safety Gridworlds. <em>CoRR</em>, 2017.</li><li id="cite-zPt4"><a class="cite-uid" href="n/zPt4.html" data-id="zPt4"></a> Sanjit A. Seshia, Dorsa Sadigh, S. Shankar Sastry. Towards Verified Artificial Intelligence. <em>ArXiv e-prints</em>, 2016.</li><li id="cite-x5NK"><a class="cite-uid" href="n/x5NK.html" data-id="x5NK"></a> Richard Taylor. Purposeful and non-purposeful behavior: A rejoinder. <em>Philosophy of Science</em>, 1950.</li><li id="cite-tMiH"><a class="cite-uid" href="n/tMiH.html" data-id="tMiH"></a> Michael Sipser. Introduction to the Theory of Computation. <em>SIGACT News</em>, 1996.</li><li id="cite-eTin"><a class="cite-uid" href="n/eTin.html" data-id="eTin"></a> R Duncan Luce. Individual choice behavior.. <em>John Wiley</em>, 1959.</li></ul>
+</section>
+<script id="nav-spy">
+// Progressive enhancement only (§5.3): the page renders fully without it. It
+// marks the nav entry for the section you are reading and scrolls the bar to it.
+// It adds no content text, so copy-paste and the annotation quote selectors
+// (§9.2) are untouched.
+(function () {
+  var nav = document.querySelector("nav.toc");
+  if (!nav) return;
+  var links = {};
+  nav.querySelectorAll('a[href*="#sec-"]').forEach(function (a) {
+    var h = a.getAttribute("href"), i = h.indexOf("#");
+    if (i >= 0) links[h.slice(i)] = a;
+  });
+  // Only headings that have a matching nav entry; in document order, so their
+  // tops increase down the page.
+  var heads = Array.prototype.slice.call(
+    document.querySelectorAll('main [id^="sec-"]'))
+    .filter(function (h) { return links["#" + h.id]; });
+  if (!heads.length) return;
+  var current = null;
+  function activate(a) {
+    if (a === current) return;
+    if (current) current.removeAttribute("data-current-section");
+    a.setAttribute("data-current-section", "");
+    current = a;
+    // Centre the active entry in the bar. Scroll the bar's OWN horizontal
+    // overflow only, never scrollIntoView: that would let the browser animate
+    // an ancestor scroller (the page) and fight the reader's live scroll, which
+    // is the jerkiness we are avoiding. This moves the page not at all.
+    var navBox = nav.getBoundingClientRect(), aBox = a.getBoundingClientRect();
+    var delta = (aBox.left + aBox.width / 2) - (navBox.left + navBox.width / 2);
+    nav.scrollBy({ left: delta, behavior: "smooth" });
+  }
+  // The current section is the last heading above a reading line near the top —
+  // the section you are inside, not one that happens to sit in a narrow band.
+  // This is defined at every scroll position, so the mark never goes blank mid
+  // section. A rAF throttle keeps the scroll handler cheap.
+  var ticking = false;
+  function update() {
+    ticking = false;
+    var line = window.innerHeight * 0.3, best = null;
+    for (var i = 0; i < heads.length; i++) {
+      if (heads[i].getBoundingClientRect().top - line <= 0) best = heads[i];
+      else break;
+    }
+    if (best) activate(links["#" + best.id]);
+  }
+  addEventListener("scroll", function () {
+    if (!ticking) { ticking = true; requestAnimationFrame(update); }
+  }, { passive: true });
+  update();
+})();
+</script>
+<script id="cob-transclude">
+// Progressive enhancement (§6.3, §10): a <cob-transclude src="…/n/<id>.html"> lazily
+// fetches a node page, lifts its .node-body into a shadow root — so ids and styles are
+// isolated across every copy and across sites — and shows a backlink header. Without
+// JS, on a file:// URL, or on a failed fetch, the fallback link inside it stays. So the
+// content is always reachable; inline assembly is only the enhancement.
+(function () {
+  if (!("IntersectionObserver" in window) || !window.customElements) return;
+  class CobTransclude extends HTMLElement {
+    connectedCallback() {
+      if (this._wired) return;
+      this._wired = true;
+      var src = this.getAttribute("src");
+      if (!src) return;
+      var io = new IntersectionObserver((entries, obs) => {
+        for (var i = 0; i < entries.length; i++) {
+          if (entries[i].isIntersecting) { obs.disconnect(); this.load(src); break; }
+        }
+      });
+      io.observe(this);
+    }
+    load(src) {
+      var host = this;
+      fetch(src).then(function (r) { return r.ok ? r.text() : Promise.reject(); })
+        .then(function (html) {
+          var doc = new DOMParser().parseFromString(html, "text/html");
+          var body = doc.querySelector(".node-body");
+          if (!body) return; // keep the fallback
+          var base = src.replace(/[^/]*$/, ""); // the source node page's directory
+          // Rebase the copy's relative links/images against the source directory,
+          // so they still resolve when shown on another page or another site.
+          body.querySelectorAll("[href],[src]").forEach(function (el) {
+            ["href", "src"].forEach(function (a) {
+              var v = el.getAttribute(a);
+              if (v && !/^([a-z]+:|\/\/|\/|#)/i.test(v)) el.setAttribute(a, base + v);
+            });
+          });
+          // Clone the host page's own stylesheets so the shadow content is styled
+          // (cob.css + katex) with the host's own correct relative paths.
+          var css = "";
+          document.querySelectorAll('head link[rel="stylesheet"]').forEach(function (l) {
+            css += '<link rel="stylesheet" href="' + l.getAttribute("href") + '">';
+          });
+          var link = host.querySelector("a");
+          var header = link
+            ? '<header class="tx-chrome"><a href="' + link.getAttribute("href") + '">'
+              + link.textContent + "</a></header>"
+            : "";
+          var root = host.attachShadow({ mode: "open" });
+          root.innerHTML = css + '<section class="transclusion">' + header + body.innerHTML + "</section>";
+        })
+        .catch(function () { /* keep the fallback link */ });
+    }
+  }
+  customElements.define("cob-transclude", CobTransclude);
+})();
+</script>
+<script id="cob-backlinks">
+// Progressive enhancement (§16): a <cob-backlinks src="<id>.backlinks.html"> lazily
+// fetches the reverse backlinks a `cob backlinks` pass wrote for this node — who, across
+// the forest, references/cites/transcludes it — and shows them. Its links are absolute
+// (other forests), so no rebasing. Without the pass, the fragment, or JS it shows
+// nothing: a producer cannot know its consumers at its own build time.
+(function () {
+  if (!("IntersectionObserver" in window) || !window.customElements) return;
+  class CobBacklinks extends HTMLElement {
+    connectedCallback() {
+      if (this._wired) return;
+      this._wired = true;
+      var src = this.getAttribute("src");
+      if (!src) return;
+      var io = new IntersectionObserver((entries, obs) => {
+        for (var i = 0; i < entries.length; i++) {
+          if (entries[i].isIntersecting) { obs.disconnect(); this.load(src); break; }
+        }
+      });
+      io.observe(this);
+    }
+    load(src) {
+      var host = this;
+      fetch(src).then(function (r) { return r.ok ? r.text() : Promise.reject(); })
+        .then(function (html) { host.innerHTML = html; })
+        .catch(function () { /* no backlinks yet */ });
+    }
+  }
+  customElements.define("cob-backlinks", CobBacklinks);
+})();
+</script>
+<footer class="pagination">
+<a rel="prev" href="concepts-and-their-representations.html">&larr; Concepts and their Representations</a>
+<a class="sitemap-link" href="sitemap.html">Sitemap</a>
+<span></span>
+</footer>
+</body>
+</html>

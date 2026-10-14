@@ -1,6 +1,16 @@
 {
   "schema": "1.0.0",
   "labels": {
+    "dynamics.cob": {
+      "def:dynamics-notation": {
+        "id": "HKyj",
+        "kind": "macro"
+      },
+      "sec:2fDB": {
+        "id": "2fDB",
+        "kind": "section"
+      }
+    },
     "intro.cob": {
       "cite:DBLP:conf/esweek/LeeS10": {
         "id": "jSpI",
@@ -22,12 +32,20 @@
         "id": "RmjQ",
         "kind": "citation"
       },
+      "cite:DBLP:journals/sigact/Sipser96": {
+        "id": "tMiH",
+        "kind": "citation"
+      },
       "cite:de2010grammatical": {
         "id": "8GlT",
         "kind": "citation"
       },
       "cite:kalman1964linear": {
         "id": "r68q",
+        "kind": "citation"
+      },
+      "cite:luce1959individual": {
+        "id": "eTin",
         "kind": "citation"
       },
       "cite:mceThesis": {

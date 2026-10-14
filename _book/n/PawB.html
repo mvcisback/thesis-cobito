@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Horowitz 2014</title>
+<link rel="stylesheet" href="../katex/katex.min.css">
+<link rel="stylesheet" href="../cob.css">
+
+</head>
+<body>
+<nav class="toc">
+
+<ul>
+<li><a href="../index.html">Introduction</a><ul>
+<li><a href="../index.html#sec-0GCT">Thesis Preview</a></li>
+<li><a href="../index.html#sec-WPSz">Representing tasks</a><ul>
+<li><a href="../index.html#ex-recharge">The brittle recharge reward</a></li>
+</ul></li>
+<li><a href="../index.html#sec-zGkC">Representing tasks as specifications</a></li>
+<li><a href="../index.html#sec-rW5R">Modeling agents</a><ul>
+<li><a href="../index.html#def-purposeful">Purposefulness</a></li>
+</ul></li>
+</ul></li>
+<li><a href="../concepts-and-their-representations.html">Concepts and their Representations</a><ul>
+<li><a href="../concepts-and-their-representations.html#def-concept-class">Concept class</a><ul>
+<li><a href="../concepts-and-their-representations.html#ex-concepts-nat">Concepts over the naturals</a></li>
+</ul></li>
+<li><a href="../concepts-and-their-representations.html#sec-kKQ7">Formal languages and automata</a><ul>
+<li><a href="../concepts-and-their-representations.html#def-string">String</a></li>
+<li><a href="../concepts-and-their-representations.html#def-language">Formal language</a></li>
+</ul></li>
+</ul></li>
+<li><a href="../workspaces-and-decision-processes.html">Workspaces and Decision Processes</a><ul>
+<li><a href="../workspaces-and-decision-processes.html#def-distributions">Distributions and smooth maxima</a><ul>
+<li><a href="../workspaces-and-decision-processes.html#rem-smooth">Smooth maxima relax the hard ones</a></li>
+</ul></li>
+<li><a href="../workspaces-and-decision-processes.html#sec-2fDB">Markov decision processes</a><ul>
+<li><a href="../workspaces-and-decision-processes.html#def-mdp">Markov decision process</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+<main class="node">
+<article class="node-body"><div class="reference">Matanya B. Horowitz, Eric M. Wolff, Richard M. Murray. A compositional approach to stochastic optimal control with co-safe temporal logic specifications. <em>IROS</em>, 2014.</div></article>
+
+<section class="backlinks">
+<h2>Cited by</h2>
+<ul><li><a href="WPSz.html">Representing tasks</a></li></ul>
+</section>
+<cob-backlinks src="PawB.backlinks.html"></cob-backlinks>
+</main>
+<footer class="pagination">
+<span></span>
+<a class="sitemap-link" href="../sitemap.html">Sitemap</a>
+<span></span>
+</footer>
+<script id="nav-spy">
+// Progressive enhancement only (§5.3): the page renders fully without it. It
+// marks the nav entry for the section you are reading and scrolls the bar to it.
+// It adds no content text, so copy-paste and the annotation quote selectors
+// (§9.2) are untouched.
+(function () {
+  var nav = document.querySelector("nav.toc");
+  if (!nav) return;
+  var links = {};
+  nav.querySelectorAll('a[href*="#sec-"]').forEach(function (a) {
+    var h = a.getAttribute("href"), i = h.indexOf("#");
+    if (i >= 0) links[h.slice(i)] = a;
+  });
+  // Only headings that have a matching nav entry; in document order, so their
+  // tops increase down the page.
+  var heads = Array.prototype.slice.call(
+    document.querySelectorAll('main [id^="sec-"]'))
+    .filter(function (h) { return links["#" + h.id]; });
+  if (!heads.length) return;
+  var current = null;
+  function activate(a) {
+    if (a === current) return;
+    if (current) current.removeAttribute("data-current-section");
+    a.setAttribute("data-current-section", "");
+    current = a;
+    // Centre the active entry in the bar. Scroll the bar's OWN horizontal
+    // overflow only, never scrollIntoView: that would let the browser animate
+    // an ancestor scroller (the page) and fight the reader's live scroll, which
+    // is the jerkiness we are avoiding. This moves the page not at all.
+    var navBox = nav.getBoundingClientRect(), aBox = a.getBoundingClientRect();
+    var delta = (aBox.left + aBox.width / 2) - (navBox.left + navBox.width / 2);
+    nav.scrollBy({ left: delta, behavior: "smooth" });
+  }
+  // The current section is the last heading above a reading line near the top —
+  // the section you are inside, not one that happens to sit in a narrow band.
+  // This is defined at every scroll position, so the mark never goes blank mid
+  // section. A rAF throttle keeps the scroll handler cheap.
+  var ticking = false;
+  function update() {
+    ticking = false;
+    var line = window.innerHeight * 0.3, best = null;
+    for (var i = 0; i < heads.length; i++) {
+      if (heads[i].getBoundingClientRect().top - line <= 0) best = heads[i];
+      else break;
+    }
+    if (best) activate(links["#" + best.id]);
+  }
+  addEventListener("scroll", function () {
+    if (!ticking) { ticking = true; requestAnimationFrame(update); }
+  }, { passive: true });
+  update();
+})();
+</script>
+<script id="cob-transclude">
+// Progressive enhancement (§6.3, §10): a <cob-transclude src="…/n/<id>.html"> lazily
+// fetches a node page, lifts its .node-body into a shadow root — so ids and styles are
+// isolated across every copy and across sites — and shows a backlink header. Without
+// JS, on a file:// URL, or on a failed fetch, the fallback link inside it stays. So the
+// content is always reachable; inline assembly is only the enhancement.
+(function () {
+  if (!("IntersectionObserver" in window) || !window.customElements) return;
+  class CobTransclude extends HTMLElement {
+    connectedCallback() {
+      if (this._wired) return;
+      this._wired = true;
+      var src = this.getAttribute("src");
+      if (!src) return;
+      var io = new IntersectionObserver((entries, obs) => {
+        for (var i = 0; i < entries.length; i++) {
+          if (entries[i].isIntersecting) { obs.disconnect(); this.load(src); break; }
+        }
+      });
+      io.observe(this);
+    }
+    load(src) {
+      var host = this;
+      fetch(src).then(function (r) { return r.ok ? r.text() : Promise.reject(); })
+        .then(function (html) {
+          var doc = new DOMParser().parseFromString(html, "text/html");
+          var body = doc.querySelector(".node-body");
+          if (!body) return; // keep the fallback
+          var base = src.replace(/[^/]*$/, ""); // the source node page's directory
+          // Rebase the copy's relative links/images against the source directory,
+          // so they still resolve when shown on another page or another site.
+          body.querySelectorAll("[href],[src]").forEach(function (el) {
+            ["href", "src"].forEach(function (a) {
+              var v = el.getAttribute(a);
+              if (v && !/^([a-z]+:|\/\/|\/|#)/i.test(v)) el.setAttribute(a, base + v);
+            });
+          });
+          // Clone the host page's own stylesheets so the shadow content is styled
+          // (cob.css + katex) with the host's own correct relative paths.
+          var css = "";
+          document.querySelectorAll('head link[rel="stylesheet"]').forEach(function (l) {
+            css += '<link rel="stylesheet" href="' + l.getAttribute("href") + '">';
+          });
+          var link = host.querySelector("a");
+          var header = link
+            ? '<header class="tx-chrome"><a href="' + link.getAttribute("href") + '">'
+              + link.textContent + "</a></header>"
+            : "";
+          var root = host.attachShadow({ mode: "open" });
+          root.innerHTML = css + '<section class="transclusion">' + header + body.innerHTML + "</section>";
+        })
+        .catch(function () { /* keep the fallback link */ });
+    }
+  }
+  customElements.define("cob-transclude", CobTransclude);
+})();
+</script>
+<script id="cob-backlinks">
+// Progressive enhancement (§16): a <cob-backlinks src="<id>.backlinks.html"> lazily
+// fetches the reverse backlinks a `cob backlinks` pass wrote for this node — who, across
+// the forest, references/cites/transcludes it — and shows them. Its links are absolute
+// (other forests), so no rebasing. Without the pass, the fragment, or JS it shows
+// nothing: a producer cannot know its consumers at its own build time.
+(function () {
+  if (!("IntersectionObserver" in window) || !window.customElements) return;
+  class CobBacklinks extends HTMLElement {
+    connectedCallback() {
+      if (this._wired) return;
+      this._wired = true;
+      var src = this.getAttribute("src");
+      if (!src) return;
+      var io = new IntersectionObserver((entries, obs) => {
+        for (var i = 0; i < entries.length; i++) {
+          if (entries[i].isIntersecting) { obs.disconnect(); this.load(src); break; }
+        }
+      });
+      io.observe(this);
+    }
+    load(src) {
+      var host = this;
+      fetch(src).then(function (r) { return r.ok ? r.text() : Promise.reject(); })
+        .then(function (html) { host.innerHTML = html; })
+        .catch(function () { /* no backlinks yet */ });
+    }
+  }
+  customElements.define("cob-backlinks", CobBacklinks);
+})();
+</script>
+</body>
+</html>
