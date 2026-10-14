@@ -3,7 +3,7 @@
 > Since I am neither a neurologist nor a psychiatrist, but a mathematician, the
 > work that follows requires some explanation and justification.
 >
-> — John von Neumann, *The Computer and the Brain*, 1957
+> — John von Neumann, \emph{The Computer and the Brain}, 1957
 
 Consider a car turning at a busy intersection. Ideally, the car should be able to
 infer the intent of other agents, such as cars and pedestrians, from past
