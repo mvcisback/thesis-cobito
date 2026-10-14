@@ -88,6 +88,22 @@ must recharge while avoiding lava. Removing a recharging station from the
 workspace (\ref{fig:bug2}) makes the agent enter the lava to take a shortcut to
 another station.
 
+## Representing tasks as specifications {#sec:zGkC}
+
+An alternative approach, championed throughout this thesis, is to make the set of
+desirable behaviors explicit.\sidenote{Again, subject to a common vocabulary for
+describing observations.} Realized by a formal specification, this set gives a
+dynamics-independent classification of behaviors as good or bad. The relative
+preferences induced by the dynamics now only encode how risky a behavior is: the
+possibility of slipping makes a good path near the ledge worse than a good path
+away from it.\sidenote{Formally, the ordering is lexicographic — first a
+dynamics-independent split into good and bad, then a dynamics-dependent preference.}
+Even when two world models disagree on the ordering, the set of acceptable
+behaviors is stable, eliminating entire classes of reward-hacking bugs
+\cite{DBLP:journals/corr/abs-1711-09883}. Focusing on Boolean specifications also
+lets us express temporal dependencies, exploit compositionality, and reuse formal
+methods for planning and verification \cite{seshia-arxiv16}.
+
 ## Modeling agents {#sec:rW5R}
 
 First and foremost, the Control (or Prediction) problem asks: how can one robustly

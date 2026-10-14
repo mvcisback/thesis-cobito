@@ -18,6 +18,10 @@
         "id": "PawB",
         "kind": "citation"
       },
+      "cite:DBLP:journals/corr/abs-1711-09883": {
+        "id": "RmjQ",
+        "kind": "citation"
+      },
       "cite:de2010grammatical": {
         "id": "8GlT",
         "kind": "citation"
@@ -28,6 +32,10 @@
       },
       "cite:mceThesis": {
         "id": "ZbVI",
+        "kind": "citation"
+      },
+      "cite:seshia-arxiv16": {
+        "id": "zPt4",
         "kind": "citation"
       },
       "cite:taylor1950purposeful": {
@@ -60,6 +68,10 @@
       },
       "sec:rW5R": {
         "id": "rW5R",
+        "kind": "section"
+      },
+      "sec:zGkC": {
+        "id": "zGkC",
         "kind": "section"
       }
     }
