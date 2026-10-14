@@ -1,0 +1,67 @@
+{
+  "schema": "1.0.0",
+  "labels": {
+    "intro.cob": {
+      "cite:DBLP:conf/esweek/LeeS10": {
+        "id": "jSpI",
+        "kind": "citation"
+      },
+      "cite:DBLP:conf/icml/IcarteKVM18": {
+        "id": "TpBK",
+        "kind": "citation"
+      },
+      "cite:DBLP:conf/icml/VermaMSKC18": {
+        "id": "dSI8",
+        "kind": "citation"
+      },
+      "cite:DBLP:conf/iros/HorowitzWM14": {
+        "id": "PawB",
+        "kind": "citation"
+      },
+      "cite:de2010grammatical": {
+        "id": "8GlT",
+        "kind": "citation"
+      },
+      "cite:kalman1964linear": {
+        "id": "r68q",
+        "kind": "citation"
+      },
+      "cite:mceThesis": {
+        "id": "ZbVI",
+        "kind": "citation"
+      },
+      "cite:taylor1950purposeful": {
+        "id": "x5NK",
+        "kind": "citation"
+      },
+      "cite:watanabe2021probabilistic": {
+        "id": "99KI",
+        "kind": "citation"
+      },
+      "def:tiles": {
+        "id": "i2u1",
+        "kind": "macro"
+      },
+      "fig:bug2": {
+        "id": "X3Wx",
+        "kind": "figure"
+      },
+      "fig:yr2": {
+        "id": "cTk1",
+        "kind": "figure"
+      },
+      "sec:0GCT": {
+        "id": "0GCT",
+        "kind": "section"
+      },
+      "sec:WPSz": {
+        "id": "WPSz",
+        "kind": "section"
+      },
+      "sec:rW5R": {
+        "id": "rW5R",
+        "kind": "section"
+      }
+    }
+  }
+}

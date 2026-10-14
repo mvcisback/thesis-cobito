@@ -1,0 +1,3 @@
+# The thesis forest's bibliography (§14): \cite resolves against this BibTeX file.
+[cite]
+bib = "references.bib"
