@@ -244,3 +244,119 @@ Let $\trc$ be a complete path with pivot $\prefix$ such that $\trc \in \spec \if
 under $\policy_\spec$, so it has a large effect on $\pival$, and the gradient
 $\frac{\partial \hat{\surprise}}{\partial \pival_\prefix}$ is large in absolute
 value, then $\spec$ may mislabel $\trc$.
+
+## Specification search {#sec:spec-search}
+
+```macros \label{def:diss-notation}
+We write $\EX$ for a set of labeled examples and $\identify$ for the
+identification algorithm.
+
+\def\EX{\mathbb{X}}
+\def\identify{\mathcal{I}}
+```
+
+This section turns the earlier insights into the Demonstration Informed
+Specification Search (DISS) algorithm, which systematizes the question: given the
+current candidate task, which counter-factuals still need an explanation?
+
+DISS assumes a multiset of expert demonstrations $\Demos$; \emph{black-box}
+access to an identification algorithm $\identify$ that maps labeled paths to a
+distribution over tasks; and \emph{black-box} access to a planner that estimates
+the probability of a path under a candidate task (a later part). DISS cycles
+between three components (the DISS cycle, \ref{fig:diss-overview}):
+
+1. \strong{Candidate sampler.} A candidate task $\spec$ is sampled from
+   $\identify(\bullet \mid \EX, \spec')$, where $\EX$ is a set of labeled examples
+   (initially empty) and $\spec'$ is the task proposed before.
+2. \strong{Surprisal guided sampler.} Using the surprisal gradient, the planner
+   finds paths the current task may mislabel.
+3. \strong{Example buffer.} From the data seen so far, the buffer yields a set of
+   positive and negative example paths. It is the buffer that lets DISS backtrack
+   and drop labeled paths that do not usefully constrain the identifier.
+
+The candidate sampler is user-provided, so what remains is the surprisal guided
+sampler and the example buffer.
+
+\taxon{remark}
+
+### DISS is a guided random walk {#rem:diss-walk}
+
+DISS is a random walk through labeled-example space, guided by the surprisal
+gradient of the sampled tasks. Each new labeled example constrains the next task
+to address a counter-factual, and this accumulation of corrective constraints
+focuses the candidate sampler on ever more probable — lower energy — tasks.
+
+\taxon{remark}
+
+### DISS is representation-agnostic {#rem:diss-repr}
+
+Adapting DISS to a new representation class only changes the identifier. We have
+discussed learning DFAs from positive examples; similar algorithms exist for
+decision diagrams \cite{DBLP:conf/fmcad/TorfahSCAS21}, linear temporal logic
+\cite{DBLP:conf/fmcad/NeiderG18}, and syntactically defined programs
+\cite{DBLP:conf/fmcad/AlurBJMRSSSTU13}.
+
+### Surprisal guided sampler {#sec:sgs}
+
+The surprisal guided sampler (\ref{alg:sgs}) builds on the gradient analysis and
+the toggle criterion.
+
+```algorithm \label{alg:sgs}
+\caption{Surprisal Guided Sampler (SGS)}
+\Input $\spec$, $\EX$, $\prefixtree$, $M$, $\beta$
+\State compute the planner $\policy_\spec$ from $M$ and $\prefixtree$
+\State sample a path $\trc \sim (\policy_\spec, M)$ and a pivot $\prefix \sim \softmax_i \left|\tfrac{1}{\beta} \cdot \frac{\partial \hat{\surprise}}{\partial \pival_i}\right|$ subject to: (i) $\trc$ pivots at $\prefix$; (ii) $\trc \in \spec \iff \frac{\partial \hat{\surprise}}{\partial \pival_\prefix} > 0$; and (iii) some $\spec' \in \RepresentationClass$ is consistent with $\EX \cup \{(\trc, \trc \notin \spec)\}$
+\Return $\trc$ \Comment{conjecture a mislabeled path}
+```
+
+The sampler takes the current task $\spec$, the labeled examples $\EX$, the
+prefix tree $\prefixtree$, the MDP $M$, and a temperature $\beta$. It builds the
+maximum causal entropy planner $\policy_\spec$, then forms a joint distribution
+over pivots and paths: a $\beta$-annealed softmax over pivots from the surprisal
+gradient, and a path distribution from $\policy_\spec$. It samples a pivot
+$\prefix$ and path $\trc$ conditioned on $\trc$ pivoting at $\prefix$, the label
+of $\trc$ agreeing with the gradient, and $\trc$ keeping some task in the class
+consistent. The first two conditions follow the earlier argument that a likely
+path with a large pivot value is likely mislabeled; the third keeps attention
+inside the representation class — labeling a path through a red tile as positive,
+say, is inconsistent with the class.
+
+```figure \label{fig:sgs}
+\caption{Overview of the surprisal guided sampler.}
+<img src="imgs/sggs.svg" alt="The surprisal guided sampler: plan, score pivots by the surprisal gradient, sample a path.">
+```
+
+\taxon{example}
+
+### The gradient flags the detour {#ex:sgs}
+
+Recall the ad-hoc analysis of the gridworld in the running example
+(\ref{sec:diss-running-example}). Under the "reach $\yellowTile$, avoid
+$\redTile$" hypothesis $\spec$, it is surprising that the agent moves up from
+$\blueTile$ rather than following the red dashed suffix: there is a non-trivial
+probability to deviate at that prefix, call it $k$. With a 15-step horizon,
+$\frac{\partial \hat{\surprise}}{\partial \pival_k}$ is positive and larger in
+magnitude than at any other pivot. The monotonicity and gradient propositions
+(\ref{prop:monotone}, \ref{prop:grad}) then suggest sampling, under
+$\policy_\spec$, a new path $\trc$ that pivots at $k$ and satisfies $\spec$ — the
+red dashed suffix fits. Finally, the toggle criterion (\ref{rem:toggle})
+prescribes marking $\trc$ as a negative path, which matches the ad-hoc analysis
+at the start of the chapter.
+
+\taxon{remark}
+
+### Rejection sampling over pivots {#rem:sgs-reject}
+
+For some pivots no path satisfies all three conditions — a pivot into a fail-sink
+of a DFA cannot yield a positive path, say. So we sample a pivot first, then an
+extension; a pivot where a condition is impossible has zero mass and drops out.
+This rejection sampling repeats until it finds a (pivot, path) pair.
+
+\taxon{remark}
+
+### Only black-box planner access {#rem:sgs-blackbox}
+
+The sampler needs only black-box access to $\policy_\spec$ to assign edge
+probabilities $\Pr(i \rightsquigarrow j \mid \pival)$ and to sample suffixes from
+a pivot. If the satisfaction probability of an action is also known, Bayes' rule
+samples suffixes more efficiently.
