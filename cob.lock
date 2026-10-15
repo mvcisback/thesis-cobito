@@ -225,6 +225,48 @@
         "kind": "section"
       }
     },
+    "sgs.cob": {
+      "def:prefix-notation": {
+        "id": "rBIL",
+        "kind": "macro"
+      },
+      "def:prefix-tree": {
+        "id": "T2mV",
+        "kind": "section"
+      },
+      "ex:pivot-determines": {
+        "id": "ReeC",
+        "kind": "section"
+      },
+      "ex:pivots": {
+        "id": "wwgS",
+        "kind": "section"
+      },
+      "fig:computation-tree": {
+        "id": "67JP",
+        "kind": "figure"
+      },
+      "fig:prefix-tree": {
+        "id": "mBdP",
+        "kind": "figure"
+      },
+      "prop:monotone": {
+        "id": "fhgI",
+        "kind": "section"
+      },
+      "sec:grad-independence": {
+        "id": "V4tH",
+        "kind": "section"
+      },
+      "sec:local-benefits": {
+        "id": "LTuE",
+        "kind": "section"
+      },
+      "sec:prefix-tree": {
+        "id": "DTvc",
+        "kind": "section"
+      }
+    },
     "taskspecs.cob": {
       "def:competent": {
         "id": "r44l",
