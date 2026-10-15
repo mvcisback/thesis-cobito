@@ -115,3 +115,164 @@ review a number of folk modeling tricks that show how expressive it is to mix
 task specifications and MDPs. We end the chapter with the special case in which
 the entropy of the agent's actions, causally conditioned on the revealed states,
 equals the entropy of the actions conditioned on all states, past and future.
+
+## Task specifications {#sec:task-specs}
+
+We now adapt the machinery of the previous two chapters to Boolean task
+specifications, defined below. We reuse the notation of those chapters and add a
+little more.
+
+```macros \label{def:spec-notation}
+We write $\RepresentationClass$ for a representation class, $\spec$ for a task
+specification, $\Path$ for the paths in an MDP, $\CompletePaths$ for the complete
+paths, $\trc$ for a trace, and $\policy$ for a policy.
+
+\def\RepresentationClass{\mathcal{R}}
+\def\spec{\varphi}
+\def\Path{\operatorname{Paths}}
+\def\CompletePaths{\operatorname{Paths}_\$}
+\def\trc{\xi}
+\def\policy{\pi}
+\def\E{\mathbb{E}}
+\def\rat{\lambda}
+\def\last{\operatorname{last}}
+\def\Demos{\xi_1, \ldots, \xi_m}
+\def\argmax{\operatorname*{arg\,max}}
+```
+
+\taxon{definition}
+
+### Boolean task specification {#def:task-spec}
+
+Let $M$ be an MDP and let $\RepresentationClass$ be a representation class for
+sets of complete paths $\CompletePaths$ in $M$ — that is, for all $\spec \in
+\RepresentationClass$, $\operatorname{concept}(\spec) \subseteq \CompletePaths$.
+A representation $\spec$ from $\RepresentationClass$ is a Boolean \strong{task
+specification}.
+
+\taxon{remark}
+
+### Shorthand {#rem:spec-shorthand}
+
+When the context is clear, we shorten "Boolean task specification" to task
+specification, specification, or even task.
+
+\taxon{remark}
+
+### Closure under Boolean operations {#rem:spec-closure}
+
+We generally assume task specifications are closed under the Boolean operations.
+Given two specifications $\spec, \spec'$, we assume there exist specifications
+$(\spec \wedge \spec')$ and $\neg \spec$ with
+
+$$\operatorname{concept}(\neg \spec) = \CompletePaths \setminus
+\operatorname{concept}(\spec), \qquad \operatorname{concept}(\spec \wedge \spec')
+= \operatorname{concept}(\spec) \cap \operatorname{concept}(\spec').$$
+
+So we can discuss avoiding a task, and doing several tasks at once. Because
+conjunction and negation realize any Boolean circuit, we can also represent
+doing at least one task in a list, or an assume-guarantee task — for example,
+"assuming the other car does not enter the intersection, cross the road".
+
+\taxon{definition}
+
+### Featurized task specification {#def:featurized}
+
+Let $\alphabet$ be an alphabet. A \strong{feature} function (or observation
+function) is a prefix-preserving map $f : \Path \to \alphabet^*$: if $\trc \in
+\Path$ is a prefix of $\trc' \in \Path$, then $f(\trc)$ is a prefix of
+$f(\trc')$. The image of $f$ restricted to $\spec$, written $\widehat{\spec}$, is
+an \strong{abstract task specification}.
+
+A task specification $\spec$ (or an abstract one $\widehat{\spec}$) is
+\emph{regular} if it is a regular language, and so recognized by a finite-state
+machine.
+
+\taxon{example}
+
+### A regular abstract specification {#ex:parity}
+
+Take the parity feature map $f$ that sends each state to its index modulo two.
+The parity language — the traces whose feature sum is even,
+$\sum_{\sigma \in f(\trc)} \sigma \equiv 0 \pmod 2$ — is an abstract task
+specification $\widehat{\spec}$. A two-state DFA recognizes it, so
+$\widehat{\spec}$ is regular.
+
+## Task-conditioned behavior prediction {#sec:task-behavior}
+
+The machinery of the dynamics chapter predicts the behavior of an agent that
+optimizes a sum of state-based rewards. We can adapt that same machinery to task
+specifications. We abuse notation and read a specification as a sparse binary
+reward,
+
+$$\spec : \Path \to \{0, 1\}, \qquad \spec(\trc) = [\trc \in \spec] \text{ if }
+\trc \text{ is complete, else } 0.$$
+
+If an automaton represents $\spec$, we make this reward Markovian by augmenting
+the MDP state with the automaton state.
+
+A task specification corresponds only to complete paths, so it is prefix-free.
+Given a policy $\policy$ and an MDP $M$, the probability $\Pr(\trc \in \spec \mid
+\policy, M)$ is therefore well defined. This lets us define how competent an
+agent is.
+
+\taxon{definition}
+
+### Competent policy {#def:competent}
+
+Given a fixed MDP $M$, a policy $\policy$ is $(p, \spec)$-\strong{competent} if
+$\Pr(\trc \in \spec \mid \policy, M) = p$. We call $p$ the \strong{satisfaction
+probability} of $\policy$.
+
+With this terminology we can state the inference problem this part studies.
+
+\taxon{problem}
+
+### Task inference from demonstrations {#prob:tifd}
+
+Let $M$, $\RepresentationClass$, and $P$ be a fixed MDP, a task specification
+representation class, and a task prior. Let $\policy^*$ be a $(p^*,
+\spec^*)$-competent policy, where $p^*$, $\spec^*$, and $\policy^*$ are all
+unknown. Given a multiset of i.i.d. demonstrations $\Demos \sim (\policy^*, M)$,
+find
+
+$$\spec \in \argmax_{\psi \in \RepresentationClass} \Pr(\Demos \mid \psi, M)
+\cdot P(\psi \mid M).$$
+
+By itself this is ill-posed, because $\Pr(\Demos \mid M, \spec)$ is undefined. As
+in the dynamics chapter, a popular and effective answer is the principle of
+maximum causal entropy.
+
+Since $\policy^*$ is unknown, we use as a proxy the maximum causal entropy policy
+that is $(p^*, M)$-competent. The competency is also unknown, so we either treat
+it as a hyper-parameter or estimate it empirically, $p^* \approx \frac{1}{m}
+\sum_{i=1}^{m} \spec(\trc_i)$. The first is useful with few demonstrations, the
+second with many. Either way, a competency estimator and the principle of
+maximum causal entropy define a map from a task to a policy, and so to a
+likelihood,
+
+$$\operatorname{maxEntPlanner} : \spec \mapsto \policy_\spec,$$
+
+where $\policy_\spec$ belongs to the entropy-regularized family defined by the
+smooth Bellman backup
+
+$$V_\rat(\trc) = \begin{cases}
+\rat \cdot \spec(\trc) & \trc \in \CompletePaths, \\
+\LSE_{a \in \Act(\last(\trc))} V_\rat(\trc \concat a) & \trc \in \Path \setminus
+\CompletePaths, \\
+\E_{s'}\!\left[ V_\rat(\trc \concat s') \mid s, a \right] & \trc = x \concat s
+\concat a,
+\end{cases}$$
+
+with $\ln \policy(a \mid \trc) \eqdef V_\rat(\trc \concat a) - V_\rat(\trc)$. The
+satisfaction probability of $\policy_\rat$ is monotonic in $\rat$, so we find a
+$\rat$ that matches $p^*$ by a bracketed search such as bisection.\sidenote{The
+upper end of the bracket may need to be found first by repeated doubling.}
+
+\taxon{remark}
+
+### The planner as a black box {#rem:planner-blackbox}
+
+Where we can, we use the maximum causal entropy planner as a black box and refer
+to the policy $\policy_\spec$ and its value function $V_\spec$. A later part
+describes how to implement the planner.

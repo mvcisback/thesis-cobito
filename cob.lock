@@ -136,6 +136,10 @@
       }
     },
     "taskspecs.cob": {
+      "def:spec-notation": {
+        "id": "q2SY",
+        "kind": "macro"
+      },
       "fig:bug": {
         "id": "sHYW",
         "kind": "figure"
@@ -150,6 +154,14 @@
       },
       "sec:bool-case": {
         "id": "TeB1",
+        "kind": "section"
+      },
+      "sec:task-behavior": {
+        "id": "89kB",
+        "kind": "section"
+      },
+      "sec:task-specs": {
+        "id": "U0PK",
         "kind": "section"
       },
       "sec:ts-contributions": {
