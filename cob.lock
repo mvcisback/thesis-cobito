@@ -2,9 +2,21 @@
   "schema": "1.0.0",
   "labels": {
     "dynamics.cob": {
+      "def:distributions": {
+        "id": "0TEl",
+        "kind": "section"
+      },
       "def:dynamics-notation": {
         "id": "HKyj",
         "kind": "macro"
+      },
+      "def:mdp": {
+        "id": "UzE2",
+        "kind": "section"
+      },
+      "rem:smooth": {
+        "id": "8x1p",
+        "kind": "section"
       },
       "sec:2fDB": {
         "id": "2fDB",
@@ -92,9 +104,17 @@
         "id": "zt1v",
         "kind": "citation"
       },
+      "def:purposeful": {
+        "id": "MJUz",
+        "kind": "section"
+      },
       "def:tiles": {
         "id": "i2u1",
         "kind": "macro"
+      },
+      "ex:recharge": {
+        "id": "d0cM",
+        "kind": "section"
       },
       "fig:bug2": {
         "id": "X3Wx",
@@ -126,9 +146,25 @@
         "id": "ZI0j",
         "kind": "citation"
       },
+      "def:concept-class": {
+        "id": "dNLx",
+        "kind": "section"
+      },
+      "def:language": {
+        "id": "zoOg",
+        "kind": "section"
+      },
       "def:notation": {
         "id": "kivt",
         "kind": "macro"
+      },
+      "def:string": {
+        "id": "BjyY",
+        "kind": "section"
+      },
+      "ex:concepts-nat": {
+        "id": "yPXt",
+        "kind": "section"
       },
       "sec:kKQ7": {
         "id": "kKQ7",
@@ -136,9 +172,29 @@
       }
     },
     "taskspecs.cob": {
+      "def:competent": {
+        "id": "r44l",
+        "kind": "section"
+      },
+      "def:featurized": {
+        "id": "H1fP",
+        "kind": "section"
+      },
       "def:spec-notation": {
         "id": "q2SY",
         "kind": "macro"
+      },
+      "def:task-spec": {
+        "id": "Uwyo",
+        "kind": "section"
+      },
+      "ex:intro": {
+        "id": "TsL4",
+        "kind": "section"
+      },
+      "ex:parity": {
+        "id": "hpGY",
+        "kind": "section"
       },
       "fig:bug": {
         "id": "sHYW",
@@ -151,6 +207,22 @@
       "fig:yr": {
         "id": "7zGs",
         "kind": "figure"
+      },
+      "prob:tifd": {
+        "id": "wQqq",
+        "kind": "section"
+      },
+      "rem:planner-blackbox": {
+        "id": "dpTC",
+        "kind": "section"
+      },
+      "rem:spec-closure": {
+        "id": "NIPY",
+        "kind": "section"
+      },
+      "rem:spec-shorthand": {
+        "id": "W0ta",
+        "kind": "section"
       },
       "sec:bool-case": {
         "id": "TeB1",
