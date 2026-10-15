@@ -1,6 +1,40 @@
 {
   "schema": "1.0.0",
   "labels": {
+    "diss.cob": {
+      "def:diss-tiles": {
+        "id": "lyrO",
+        "kind": "macro"
+      },
+      "fig:diss-overview": {
+        "id": "YXuK",
+        "kind": "figure"
+      },
+      "fig:episodic-learning": {
+        "id": "BIr8",
+        "kind": "figure"
+      },
+      "fig:gw8x8": {
+        "id": "BJ7m",
+        "kind": "figure"
+      },
+      "fig:target-dfa": {
+        "id": "V26i",
+        "kind": "figure"
+      },
+      "rem:why-dfas": {
+        "id": "51db",
+        "kind": "section"
+      },
+      "sec:diss-contributions": {
+        "id": "O6zO",
+        "kind": "section"
+      },
+      "sec:diss-running-example": {
+        "id": "l4VC",
+        "kind": "section"
+      }
+    },
     "dynamics.cob": {
       "def:distributions": {
         "id": "0TEl",
@@ -24,6 +58,10 @@
       }
     },
     "intro.cob": {
+      "cite:DBLP:conf/cdc/KasenbergS17": {
+        "id": "wzyR",
+        "kind": "citation"
+      },
       "cite:DBLP:conf/esweek/LeeS10": {
         "id": "jSpI",
         "kind": "citation"
@@ -36,8 +74,24 @@
         "id": "dSI8",
         "kind": "citation"
       },
+      "cite:DBLP:conf/icra/Yoon021": {
+        "id": "0lL0",
+        "kind": "citation"
+      },
       "cite:DBLP:conf/iros/HorowitzWM14": {
         "id": "PawB",
+        "kind": "citation"
+      },
+      "cite:DBLP:conf/nips/ShahKSL18": {
+        "id": "yzf6",
+        "kind": "citation"
+      },
+      "cite:DBLP:conf/nips/Vazquez-Chanlatte18": {
+        "id": "NnQV",
+        "kind": "citation"
+      },
+      "cite:DBLP:conf/rss/ChouOB20": {
+        "id": "BCxp",
         "kind": "citation"
       },
       "cite:DBLP:journals/corr/abs-1711-09883": {
