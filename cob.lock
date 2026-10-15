@@ -106,6 +106,10 @@
         "id": "BCxp",
         "kind": "citation"
       },
+      "cite:DBLP:conf/wsc/SkiscimG83": {
+        "id": "mPbw",
+        "kind": "citation"
+      },
       "cite:DBLP:journals/corr/abs-1711-09883": {
         "id": "RmjQ",
         "kind": "citation"
@@ -238,6 +242,10 @@
       }
     },
     "sgs.cob": {
+      "alg:diss": {
+        "id": "4Wpf",
+        "kind": "algorithm"
+      },
       "alg:sgs": {
         "id": "e5n0",
         "kind": "algorithm"
@@ -294,6 +302,10 @@
         "id": "fhgI",
         "kind": "section"
       },
+      "rem:annealing": {
+        "id": "sVrm",
+        "kind": "section"
+      },
       "rem:diss-repr": {
         "id": "uBdK",
         "kind": "section"
@@ -314,8 +326,20 @@
         "id": "e0jg",
         "kind": "section"
       },
+      "rem:theta": {
+        "id": "aSYg",
+        "kind": "section"
+      },
       "rem:toggle": {
         "id": "KZRq",
+        "kind": "section"
+      },
+      "sec:diss-algorithm": {
+        "id": "Z0hH",
+        "kind": "section"
+      },
+      "sec:example-buffer": {
+        "id": "y0D2",
         "kind": "section"
       },
       "sec:grad-independence": {
@@ -340,6 +364,10 @@
       },
       "sec:sgs": {
         "id": "FRRz",
+        "kind": "section"
+      },
+      "sec:simulated-annealing": {
+        "id": "KNqE",
         "kind": "section"
       },
       "sec:spec-search": {

@@ -360,3 +360,95 @@ The sampler needs only black-box access to $\policy_\spec$ to assign edge
 probabilities $\Pr(i \rightsquigarrow j \mid \pival)$ and to sample suffixes from
 a pivot. If the satisfaction probability of an action is also known, Bayes' rule
 samples suffixes more efficiently.
+
+### Example buffer and backtracking {#sec:example-buffer}
+
+The last component is the example buffer. It manages the "state" of DISS: which
+subset of the labeled examples seen so far is currently constraining the
+identifier. This matters because SGS only approximates which counter-factuals to
+label, so a greedy accumulation of examples can make a mistake and fall into a
+local optimum. To avoid this, the buffer runs a variant of simulated annealing, a
+standard technique for heuristic global optimization.
+
+### Simulated annealing {#sec:simulated-annealing}
+
+\emph{Simulated annealing} (SA) \cite{DBLP:conf/wsc/SkiscimG83} is a
+probabilistic method that minimizes an energy $U : Z \to \Reals \cup \{\infty\}$.
+It needs a \emph{cooling schedule} (a decreasing sequence of temperatures), a
+\emph{proposal} distribution $q(z' \mid z)$, and a \emph{reset} schedule that
+periodically sets the current state to one of the lowest-energy candidates seen
+so far. SA picks an initial $z_0$, picks a temperature $T_t$ from the schedule,
+samples a neighbor $z' \sim q(\bullet \mid z_t)$, and accepts it with probability
+
+$$\Pr(\text{accept} \mid z', z_t) = \begin{cases} 1 & dU > 0, \\ \min\{1,
+e^{dU / T_t}\} & \text{otherwise}, \end{cases}$$
+
+where $dU \eqdef U(z_t) - U(z')$; a triggered reset instead samples $z_{t+1}$
+from the earlier candidates, for example uniformly on the argmin.
+
+For specification inference we take the task posterior to be $\Pr(\spec \mid
+\Demos, M) \propto e^{-U(\spec)}$ with energy
+
+$$U(\spec) \eqdef \surprise(\spec \mid \Demos) + \theta \cdot \size(\spec),$$
+
+where $\theta \in \Reals$ sets the weight of the surprisal. By Occam's razor the
+task distribution is biased towards simpler tasks, where simplicity is the
+description length $\size(\spec)$, and towards tasks that explain $\Demos$, whose
+description length is the surprisal.
+
+\taxon{remark}
+
+### What the weight controls {#rem:theta}
+
+$\theta$ plays two roles. It makes $\surprise$ and $\size$ comparable — bits to
+nats — and it sets the geometric prior over $\size(\spec)$, with mean
+$\tfrac{1}{\theta}$. So set $\tfrac{1}{\theta}$ larger than the description length
+of a "large" representation. Below we use $\theta = \tfrac{1}{50}$, telling DISS
+the task needs not much more than 50 nats; the ground-truth DFA uses about 40.
+
+### Demonstration informed specification search {#sec:diss-algorithm}
+
+In the language of SA, DISS (\ref{alg:diss}) takes $Z$ to be the tuples of a
+labeled-example set and a task, each adjoined with $\bot$, and starts at $z_0 =
+(\bot, \bot)$. Its proposal $q(\EX', \spec' \mid \EX, \spec)$ first samples a task
+$\spec' \sim \identify(\bullet \mid \EX, \spec)$, runs SGS on $\spec'$ to
+conjecture a labeled path $\trc$ giving $\EX'' = \EX \cup \{(\trc, \trc \notin
+\spec')\}$, then drops each example with probability $p_{\text{drop}}$ to get
+$\EX'$. A reset every $\kappa$ steps resamples $\EX$ from the low-energy tasks and
+restarts the task from $\identify(\bullet \mid \EX, \bot)$.
+
+```algorithm \label{alg:diss}
+\caption{Demonstration Informed Specification Search (DISS)}
+\Input $(\trc_1, \ldots, \trc_m)$, $M$, $\theta$, $N$, $\kappa$, $p_{\text{drop}}$
+\State compute $\prefixtree$ from $(\trc_1, \ldots, \trc_m)$ \Comment{build the prefix tree}
+\State $\ConceptClass \gets \emptyset$
+\For{$t$ in $1, \ldots, N$}
+  \If{$t \equiv 0 \pmod \kappa$}
+    \State $\EX \sim \argmax_{\psi \in \ConceptClass} U(\psi)$ \Comment{reset periodically}
+    \State $(\spec, d\EX) \gets (\bot, \emptyset)$
+  \EndIf
+  \State $\EX' \gets \operatorname{update}(\EX, d\EX, p_{\text{drop}})$ \Comment{add and drop examples}
+  \State $\spec' \sim \identify(\bullet \mid \EX', \spec)$ \Comment{sample a candidate task}
+  \State $\ConceptClass \gets \ConceptClass \cup \{\spec'\}$ \Comment{record visited tasks}
+  \State $T \gets \text{cooling schedule}(t)$
+  \State $dU \gets U(\spec') - U(\spec)$
+  \State $\alpha \sim \operatorname{Uniform}(0, 1)$
+  \If{$dU < 0$ or $\exp(-dU / T) \le \alpha$}
+    \State $(\spec, \EX) \gets (\spec', \EX')$
+    \State $d\EX \gets \{\operatorname{SGS}(\spec, T, M)\}$ \Comment{conjecture a labeled example}
+  \Else
+    \State $d\EX \gets \emptyset$ \Comment{reject the proposal}
+  \EndIf
+\EndFor
+\Return $\ConceptClass$
+```
+
+\taxon{remark}
+
+### What annealing buys {#rem:annealing}
+
+Annealing guides the search through labeled-example space for constraints on the
+identifier. Three mechanisms keep the examples useful. A proposal that does not
+lower the energy is only sometimes accepted. Each step may drop an example, so the
+examples that persist are the ones repeatedly re-conjectured when missing. And
+resets make global progress after a mistake leads to a local minimum.
