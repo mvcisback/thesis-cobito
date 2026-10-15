@@ -234,6 +234,14 @@
         "id": "T2mV",
         "kind": "section"
       },
+      "def:surprisal": {
+        "id": "nj5G",
+        "kind": "section"
+      },
+      "def:surprisal-notation": {
+        "id": "ZsGy",
+        "kind": "macro"
+      },
       "ex:pivot-determines": {
         "id": "ReeC",
         "kind": "section"
@@ -250,20 +258,48 @@
         "id": "mBdP",
         "kind": "figure"
       },
+      "prop:grad": {
+        "id": "tS5H",
+        "kind": "section"
+      },
       "prop:monotone": {
         "id": "fhgI",
+        "kind": "section"
+      },
+      "rem:surprisal-nll": {
+        "id": "e0jg",
+        "kind": "section"
+      },
+      "rem:toggle": {
+        "id": "KZRq",
         "kind": "section"
       },
       "sec:grad-independence": {
         "id": "V4tH",
         "kind": "section"
       },
+      "sec:heuristics": {
+        "id": "TGJ7",
+        "kind": "section"
+      },
       "sec:local-benefits": {
         "id": "LTuE",
         "kind": "section"
       },
+      "sec:mislabeled": {
+        "id": "K82y",
+        "kind": "section"
+      },
       "sec:prefix-tree": {
         "id": "DTvc",
+        "kind": "section"
+      },
+      "sec:surprisal": {
+        "id": "j2Ob",
+        "kind": "section"
+      },
+      "sec:surprisal-gradients": {
+        "id": "hwZS",
         "kind": "section"
       }
     },

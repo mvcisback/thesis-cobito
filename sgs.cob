@@ -130,3 +130,117 @@ that in an expressive enough class, such as minimal DFAs, we can always build tw
 tasks $\spec, \spec'$ whose languages differ on a single path. Since pivot values
 strictly increase as a language grows (the proposition above), $\pival^\spec$ and
 $\pival^{\spec'}$ then differ in a single coordinate.
+
+## Manipulating likelihoods and surprisal {#sec:surprisal}
+
+```macros \label{def:surprisal-notation}
+We write $\surprise$ for surprisal and $\size$ for description length.
+
+\def\surprise{h}
+\def\size{\operatorname{size}}
+```
+
+The question that drives the algorithm is: given the current candidate task,
+which counter-factuals still need an explanation? We make it precise in three
+steps. We measure how surprising the demonstrations are, in nats, under the pivot
+values of the current task. We see how the description length changes as the
+pivot values change. And we turn a suggested change in pivot values into a change
+in the task.
+
+\taxon{definition}
+
+### Pivot and task surprisal {#def:surprisal}
+
+Let $\prefixtree = (\Nodes, \Edges)$ be a prefix tree of demonstrations $\Demos$.
+The \strong{pivot surprisal} is a map $\hat{\surprise} : \Reals^d \to \Reals$,
+where $d$ is the number of nodes that can pivot, with
+
+$$\hat{\surprise}(\pival) \eqdef -\sum_{(i,j) \in \Edges} \#_{(i,j)} \cdot \ln
+\Pr(i \rightsquigarrow j \mid \pival).$$
+
+The \strong{task surprisal} of a task $\spec$ is the pivot surprisal of
+$\pival^\spec$: $\surprise(\spec \mid \Demos) \eqdef \hat{\surprise}(\pival^\spec)$.
+
+\taxon{remark}
+
+### Surprisal is the negative log likelihood {#rem:surprisal-nll}
+
+The task surprisal is the negative log likelihood of the demonstrations,
+$\Pr(\Demos \mid \spec, M) = e^{-\surprise(\spec \mid \Demos)}$. We work with
+surprisal, not likelihood, for two reasons. The gradient of $\hat{\surprise}$ has
+a simple form. And surprisal reads as a description length, so we can treat the
+combined description length of the demonstrations and the task as one object: a
+size prior on tasks gives $\Pr(\spec \mid \Demos, M) \propto \exp\big(-(\surprise(\spec
+\mid \Demos) + \size(\spec))\big)$. We seek a task that is easy to describe and
+also explains the demonstrations.
+
+### Pivot surprisal gradients {#sec:surprisal-gradients}
+
+We now ask: how could the pivot values change to make the demonstrations more
+likely? For an ego node we might want the observed actions to have a large value
+and the pivot value a small one, so the agent has no incentive to pivot. Changing
+a pivot value changes the policy non-locally — changing $\pival_9$ in the
+computation tree also changes nodes 9, 8, 2, and 1 — but the gradient of
+$\hat{\surprise}$ summarizes these upstream effects.
+
+\taxon{proposition}
+
+### The surprisal gradient is set by the local policy {#prop:grad}
+
+Let $p_{xy}(\pival)$ be the probability of starting at node $x$ and pivoting at
+$y$,
+
+$$p_{xy}(\pival) \eqdef \Pr(x \rightsquigarrow y \mid \pival) \cdot \Big(1 -
+\sum_{(y,z) \in \Edges} \Pr(y \rightsquigarrow z \mid \pival)\Big).$$
+
+Then
+
+$$\frac{\partial \hat{\surprise}}{\partial \pival_k} = \sum_{\substack{(i,j) \in
+\Edges \\ i \text{ ego}}} \#_{(i,j)} \cdot \big(p_{ik}(\pival) - p_{jk}(\pival)\big).$$
+
+The proof is mechanical and sits at the end of the chapter. The proposition shows
+the gradient is simple to compute from the policy on the prefix tree alone.
+
+### Relation to heuristics {#sec:heuristics}
+
+The gradient captures a few intuitive heuristics for changing $\pival$ to make
+the demonstrations more likely. Consider an ego edge $(i, j)$, an action the
+agent took. Pivoting at $i$ (that is, $k = i$) gives $p_{jk}(\pival) = 0$, so the
+edge contributes positively to the gradient; since we minimize surprisal, this
+says to decrease $\pival_k$ and so make the action the agent took look more
+valuable by comparison. When $k = j$, $p_{ik} - p_{jk} = \Pr(i \rightsquigarrow j
+\mid \pival) \cdot p_{jk} - p_{jk} \le 0$, with equality only when one action is
+available, so the edge contributes negatively; this says to increase $\pival_k$,
+and so the value of the action used on $(i, j)$. The two readings are:
+
+1. Make the actions taken more optimal, by decreasing the value of the other actions.
+2. Make the actions taken less risky, by increasing the value of the possible outcomes.
+
+### Mislabeled counter-factuals {#sec:mislabeled}
+
+We read $-\nabla \hat{\surprise}(\pival^\spec)$ as a prescription for changing the
+pivot values to make the demonstrations less surprising. But a class as
+expressive as DFAs risks overfitting the demonstrations and ignoring the prior,
+so the goal is not to descend $\nabla \hat{\surprise}$ but to identify
+counter-factual paths that need an explanation.
+
+If $\frac{\partial \hat{\surprise}}{\partial \pival_\prefix} > 0$ at a pivot
+$\prefix$, we can decrease the surprise by decreasing $\pival_\prefix$. By the
+monotonicity proposition, one concrete way to decrease $\pival_\prefix$ is to
+remove a path from the language of $\spec$. So a large
+$\frac{\partial \hat{\surprise}}{\partial \pival_\prefix}$ is evidence of a
+counter-factual path $\trc \in \spec$ that pivots at $\prefix$ and needs an
+explanation — "the agent did not take the shortcut through the lava because it
+avoids lava". A negative gradient suggests a counter-factual path that should be
+\emph{added} to $\spec$ — "the agent moved near the ledge because, even if it
+slips, $\trc$ still completes the task".
+
+\taxon{remark}
+
+### The toggle criterion {#rem:toggle}
+
+Let $\trc$ be a complete path with pivot $\prefix$ such that $\trc \in \spec \iff
+\frac{\partial \hat{\surprise}}{\partial \pival_\prefix} > 0$. If $\trc$ is likely
+under $\policy_\spec$, so it has a large effect on $\pival$, and the gradient
+$\frac{\partial \hat{\surprise}}{\partial \pival_\prefix}$ is large in absolute
+value, then $\spec$ may mislabel $\trc$.
