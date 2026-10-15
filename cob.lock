@@ -32,16 +32,36 @@
         "id": "RmjQ",
         "kind": "citation"
       },
+      "cite:DBLP:journals/nips/Abel22": {
+        "id": "rho9",
+        "kind": "citation"
+      },
       "cite:DBLP:journals/sigact/Sipser96": {
         "id": "tMiH",
+        "kind": "citation"
+      },
+      "cite:amodei2016concrete": {
+        "id": "IX4B",
         "kind": "citation"
       },
       "cite:de2010grammatical": {
         "id": "8GlT",
         "kind": "citation"
       },
+      "cite:ghosh2018repair": {
+        "id": "G2xq",
+        "kind": "citation"
+      },
+      "cite:ho_teaching_2015": {
+        "id": "4RdD",
+        "kind": "citation"
+      },
       "cite:kalman1964linear": {
         "id": "r68q",
+        "kind": "citation"
+      },
+      "cite:littman_environment-independent_2017": {
+        "id": "djls",
         "kind": "citation"
       },
       "cite:luce1959individual": {
@@ -50,6 +70,10 @@
       },
       "cite:mceThesis": {
         "id": "ZbVI",
+        "kind": "citation"
+      },
+      "cite:pineau2003point": {
+        "id": "GZ1K",
         "kind": "citation"
       },
       "cite:seshia-arxiv16": {
@@ -62,6 +86,10 @@
       },
       "cite:watanabe2021probabilistic": {
         "id": "99KI",
+        "kind": "citation"
+      },
+      "cite:ziebart2008maximum": {
+        "id": "zt1v",
         "kind": "citation"
       },
       "def:tiles": {
@@ -104,6 +132,28 @@
       },
       "sec:kKQ7": {
         "id": "kKQ7",
+        "kind": "section"
+      }
+    },
+    "taskspecs.cob": {
+      "fig:bug": {
+        "id": "sHYW",
+        "kind": "figure"
+      },
+      "fig:gridworld": {
+        "id": "9jg3",
+        "kind": "figure"
+      },
+      "fig:yr": {
+        "id": "7zGs",
+        "kind": "figure"
+      },
+      "sec:bool-case": {
+        "id": "TeB1",
+        "kind": "section"
+      },
+      "sec:ts-contributions": {
+        "id": "EYRn",
         "kind": "section"
       }
     }
