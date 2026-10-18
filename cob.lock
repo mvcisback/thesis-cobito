@@ -94,6 +94,10 @@
         "id": "PawB",
         "kind": "citation"
       },
+      "cite:DBLP:conf/lata/UlyantsevZS15": {
+        "id": "aAPX",
+        "kind": "citation"
+      },
       "cite:DBLP:conf/nips/ShahKSL18": {
         "id": "yzf6",
         "kind": "citation"
@@ -270,6 +274,10 @@
         "id": "ZsGy",
         "kind": "macro"
       },
+      "ex:concept-sampler": {
+        "id": "TFEU",
+        "kind": "section"
+      },
       "ex:pivot-determines": {
         "id": "ReeC",
         "kind": "section"
@@ -284,6 +292,18 @@
       },
       "fig:computation-tree": {
         "id": "67JP",
+        "kind": "figure"
+      },
+      "fig:learned-dfas": {
+        "id": "E1zs",
+        "kind": "figure"
+      },
+      "fig:mass-inc": {
+        "id": "MYng",
+        "kind": "figure"
+      },
+      "fig:mass-mono": {
+        "id": "LG2m",
         "kind": "figure"
       },
       "fig:prefix-tree": {
@@ -334,12 +354,28 @@
         "id": "KZRq",
         "kind": "section"
       },
+      "sec:baselines": {
+        "id": "K9jw",
+        "kind": "section"
+      },
       "sec:diss-algorithm": {
         "id": "Z0hH",
         "kind": "section"
       },
+      "sec:diss-params": {
+        "id": "QMui",
+        "kind": "section"
+      },
+      "sec:diversity": {
+        "id": "6exs",
+        "kind": "section"
+      },
       "sec:example-buffer": {
         "id": "y0D2",
+        "kind": "section"
+      },
+      "sec:experiments": {
+        "id": "UN70",
         "kind": "section"
       },
       "sec:grad-independence": {
@@ -360,6 +396,10 @@
       },
       "sec:prefix-tree": {
         "id": "DTvc",
+        "kind": "section"
+      },
+      "sec:results": {
+        "id": "ATXN",
         "kind": "section"
       },
       "sec:sgs": {

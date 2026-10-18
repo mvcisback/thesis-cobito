@@ -452,3 +452,110 @@ identifier. Three mechanisms keep the examples useful. A proposal that does not
 lower the energy is only sometimes accepted. Each step may drop an example, so the
 examples that persist are the ones repeatedly re-conjectured when missing. And
 resets make global progress after a mistake leads to a local minimum.
+
+## Experiments {#sec:experiments}
+
+We show that DISS works by having it search for a ground-truth specification — a
+DFA — from the expert demonstrations $\trc_b, \trc_g$ of the running example
+(\ref{fig:gw8x8}). The green dotted path $\trc_g$ goes straight to $\yellowTile$.
+The black solid path $\trc_b$ slips onto $\blueTile$, visits $\brownTile$, then
+heads for $\yellowTile$; it is incomplete, with a possible extension $\sigma_b$
+shown dotted. The ground-truth task is the DFA of \ref{fig:target-dfa}.
+
+We run two inference problems, varying the representation class and the
+demonstrations:
+
+1. \strong{Monolithic.} $\trc_g$ and $\trc_b \concat \sigma_b$ are given as
+   unlabeled \emph{complete} demonstrations; the class is minimal DFA.
+2. \strong{Incremental.} $\trc_b$ is given as a single unlabeled
+   \emph{incomplete} demonstration. The class $\RepresentationClass$ is a variant
+   of minimal DFA: writing $\spec'$ for the three-state DFA that avoids
+   $\redTile$ and reaches $\yellowTile$, a task $\spec \in \RepresentationClass$
+   has $\{\yellowTile, \yellowTile\yellowTile\} \subseteq
+   \operatorname{concept}(\spec) \subseteq \operatorname{concept}(\spec')$ — prior
+   knowledge that the agent must reach $\yellowTile$, must avoid $\redTile$, and
+   two positive examples. Its size is $\size(\spec) = \size'(\spec) -
+   \size'(\spec')$, where $\size'$ is the minimal-DFA size.
+
+The surprisal weight is $\theta = \tfrac{1}{50}$ for both. Two inductive biases,
+needed to make the baselines competitive, also apply: we drop white tiles
+$\square$ from labeled examples, and we collapse a run of one color to a single
+symbol, biasing towards DFAs that do not count — for example $\square \blueTile
+\blueTile \square \yellowTile \blueTile \mapsto \blueTile \yellowTile \blueTile$.
+
+### DISS parameters {#sec:diss-params}
+
+Our DISS resets every 30 iterations, uses $p_{\text{drop}} = \tfrac{1}{20}$, and
+the cooling schedule $T_t = 100 \cdot (1 - \tfrac{t}{100}) + 1$. The experiment
+sweeps the SGS temperature $\beta \in [2^{-10}, \infty)$. The maximum causal
+entropy planner — described in a later part — uses a 15-step horizon; with one or
+two demonstrations the rationality $\lambda$ of $\policy_\spec$ is $10$ for every
+specification.
+
+\taxon{example}
+
+### The concept sampler fixes a blind spot {#ex:concept-sampler}
+
+The concept sampler $\identify(\bullet \mid \EX, \spec')$ respects the relative
+size prior,\sidenote{The relative size for a minimal DFA is the bits to describe
+the change — in states, edges, and the accepting set.} so $\identify(\spec \mid
+\EX, \spec') \propto \exp(-\size(\spec \mid \spec'))$ when $\spec$ agrees with
+$\EX$, else $0$. We adapt a SAT-based DFA identification algorithm
+\cite{DBLP:conf/lata/UlyantsevZS15} to enumerate the first twenty consistent
+DFAs, ordered by states then non-self-loops, sample one weighted by $\exp(-\size(\spec
+\mid \spec'))$, and — to cover the order's blind spot for sink states — if a set
+of symbols $\alphabet'$ carries only negative examples, intersect the sampled
+DFA with the strings that avoid $\alphabet'$. For $\EX = \{(\yellowTile\redTile,
+1), (\blueTile\redTile, 0)\}$, say, $\alphabet' = \{\blueTile\}$ and the sampler
+returns a DFA that also rejects every string with $\blueTile$.
+
+### Baselines {#sec:baselines}
+
+Existing specification learners use syntactic classes with their own biases, so
+we implement two DFA-adapted proxies. \strong{Prior-guided enumeration} uses the
+same SAT identifier to list the $N$ smallest DFAs lexicographically, then orders
+them by $\size$ ($N = 80$ monolithic, $40$ incremental); as an alternative to
+DISS's competency assumption, it may restrict the search to tasks that accept the
+demonstrations. \strong{Random-pivot DISS} is the $\beta = \infty$ ablation: the
+same mutation search, but it samples pivots uniformly rather than by the
+surprisal gradient (it still conditions the suffix on the gradient's sign).
+
+### Results {#sec:results}
+
+```custom[latexfig] \label{fig:mass-mono}
+\caption{The monolithic experiment: DISS finds the minimum-energy DFA far faster than enumeration.}
+\includegraphics{imgs/mass_mono.pdf}
+```
+
+```custom[latexfig] \label{fig:mass-inc}
+\caption{The incremental experiment: a few incomplete, unlabeled examples suffice.}
+\includegraphics{imgs/mass_inc.pdf}
+```
+
+We measure time in iterations — sampled DFAs — not wall-clock, for three
+reasons. The wall-clock time is dominated by synthesizing a planner per unique
+DFA, an implementation detail.\sidenote{Our planner took about 4–10 seconds per
+DFA.} Many DISS iterations revisit the same DFA (resets and rejections), so
+enumeration explores far more \emph{unique} DFAs than DISS. And enumeration
+first lists DFAs without planning, then computes energies, a sizeable fixed
+overhead. Wall-clock time would therefore flatter DISS.
+
+For both experiments (\ref{fig:mass-mono}, \ref{fig:mass-inc}) DISS beats the
+enumeration baseline and degrades as $\beta$ grows. For $\ln \beta < -5$ the
+monolithic run finds an energy-minimizing DFA in 10–30 iterations; the
+incremental run needs only 1–2, against enumeration's 13. The takeaways: DISS is
+far more cycle-efficient than prior-guided enumeration; the surprisal gradient (a
+low pivot temperature) drives efficient exploration of a large class; a stronger
+prior, such as partial knowledge of the specification, helps further; and DISS
+works even from a few incomplete, unlabeled examples.
+
+### Diversity of the learned DFAs {#sec:diversity}
+
+DISS also finds \emph{more} high-probability DFAs than the baselines. For both
+experiments it learns that a visit to $\blueTile$ obliges a visit to $\brownTile$
+before $\yellowTile$.
+
+```figure \label{fig:learned-dfas}
+\caption{The most probable DFA DISS found — monolithic (left), incremental (right).}
+<img src="imgs/learned_dfas.svg" alt="The most probable learned DFAs for the two experiments.">
+```
