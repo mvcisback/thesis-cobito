@@ -80,9 +80,9 @@ $\hat{V}_k(\pival)$ for the \emph{derived} value at node $k$, and $\Pr(i
 \rightsquigarrow k \mid \pival)$ for the probability of moving from node $i$ to
 node $k$ under the local policy, $e^{\hat{V}_k(\pival) - \hat{V}_i(\pival)}$.
 
-```figure \label{fig:computation-tree}
+```custom[latexfig] \label{fig:computation-tree}
 \caption{The computation tree of the $\hat{V}$ values for each node of the prefix tree, from the smooth Bellman backup and the pivot values $\pival$.}
-<img src="imgs/computation_tree.svg" alt="A computation tree deriving node values from pivot values.">
+imgs/computation_tree.pdf_tex
 ```
 
 \taxon{example}
@@ -321,9 +321,9 @@ path with a large pivot value is likely mislabeled; the third keeps attention
 inside the representation class — labeling a path through a red tile as positive,
 say, is inconsistent with the class.
 
-```figure \label{fig:sgs}
+```custom[latexfig] \label{fig:sgs}
 \caption{Overview of the surprisal guided sampler.}
-<img src="imgs/sggs.svg" alt="The surprisal guided sampler: plan, score pivots by the surprisal gradient, sample a path.">
+imgs/sggs.pdf_tex
 ```
 
 \taxon{example}

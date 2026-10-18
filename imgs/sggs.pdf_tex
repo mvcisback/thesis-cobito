@@ -1,0 +1,69 @@
+%% Creator: Inkscape 1.1.1 (3bf5ae0d25, 2021-09-20, custom), www.inkscape.org
+%% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
+%% Accompanies image file 'sggs.pdf' (pdf, eps, ps)
+%%
+%% To include the image in your LaTeX document, write
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics{<filename>.pdf}
+%% To scale the image, write
+%%   \def\svgwidth{<desired width>}
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics[width=<desired width>]{<filename>.pdf}
+%%
+%% Images with a different path to the parent latex file can
+%% be accessed with the `import' package (which may need to be
+%% installed) using
+%%   \usepackage{import}
+%% in the preamble, and then including the image with
+%%   \import{<path to file>}{<filename>.pdf_tex}
+%% Alternatively, one can specify
+%%   \graphicspath{{<path to file>/}}
+%% 
+%% For more information, please see info/svg-inkscape on CTAN:
+%%   http://tug.ctan.org/tex-archive/info/svg-inkscape
+%%
+\begingroup%
+  \makeatletter%
+  \providecommand\color[2][]{%
+    \errmessage{(Inkscape) Color is used for the text in Inkscape, but the package 'color.sty' is not loaded}%
+    \renewcommand\color[2][]{}%
+  }%
+  \providecommand\transparent[1]{%
+    \errmessage{(Inkscape) Transparency is used (non-zero) for the text in Inkscape, but the package 'transparent.sty' is not loaded}%
+    \renewcommand\transparent[1]{}%
+  }%
+  \providecommand\rotatebox[2]{#2}%
+  \newcommand*\fsize{\dimexpr\f@size pt\relax}%
+  \newcommand*\lineheight[1]{\fontsize{\fsize}{#1\fsize}\selectfont}%
+  \ifx\svgwidth\undefined%
+    \setlength{\unitlength}{467.09695816bp}%
+    \ifx\svgscale\undefined%
+      \relax%
+    \else%
+      \setlength{\unitlength}{\unitlength * \real{\svgscale}}%
+    \fi%
+  \else%
+    \setlength{\unitlength}{\svgwidth}%
+  \fi%
+  \global\let\svgwidth\undefined%
+  \global\let\svgscale\undefined%
+  \makeatother%
+  \begin{picture}(1,0.13989204)%
+    \lineheight{1}%
+    \setlength\tabcolsep{0pt}%
+    \put(0.12384819,0.09518572){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}task $\spec$\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=1]{sggs.pdf}}%
+    \put(0.48617406,0.0721714){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{0.85000002}\smash{\begin{tabular}[t]{c}MaxEnt\\Planner\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=2]{sggs.pdf}}%
+    \put(0.70138604,0.07133827){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{0.85000002}\smash{\begin{tabular}[t]{c}Pivot \& Path\\Sampler\end{tabular}}}}%
+    \put(0.37655858,0.08574957){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}$\text{psat}_\spec$\end{tabular}}}}%
+    \put(0.59524406,0.08007165){\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}$\policy_\spec$\end{tabular}}}}%
+    \put(0.09234739,0.02806111){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Demos $\Demos$\\\end{tabular}}}}%
+    \put(0.86083275,0.04017719){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}labeled example\\$(\trc', \trc' \notin \spec)$\\\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=3]{sggs.pdf}}%
+    \put(0.26496214,0.07327635){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{0.85000002}\smash{\begin{tabular}[t]{c}Estimate\\Competency\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=4]{sggs.pdf}}%
+  \end{picture}%
+\endgroup%

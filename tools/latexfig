@@ -1,0 +1,103 @@
+#!/usr/bin/env python3
+"""A cob `custom[latexfig]` handler (§6.6): render an Inkscape .pdf_tex figure.
+
+cob sends a JSON blob on stdin: the fence `body` is the path to a figure's
+`.pdf_tex` (an Inkscape "PDF + LaTeX" export), `defs` are the macros in scope,
+`label`/`caption` the float's, and `outdir` a writable dir. We build a standalone
+LaTeX document that DEFINES cob's macros and \\input's the figure, compile it with
+pdflatex (date-stripped for determinism), convert the PDF to SVG with pdf2svg,
+give the SVG a white background, and return a <figure> with the SVG as an asset.
+
+The point of the macros: the figure's text uses the thesis notation (\\spec,
+\\pival, ...). We feed it cob's OWN definitions, so the figure typesets in the
+same notation as the prose. A macro a figure needs but cob does not define is an
+undefined-control-sequence error here — add it to a `macros` fence or the figure.
+"""
+import json
+import os
+import re
+import subprocess
+import sys
+from pathlib import Path
+
+
+def fail(msg):
+    sys.stderr.write(msg.strip()[-3000:])
+    sys.exit(1)
+
+
+def main():
+    d = json.load(sys.stdin)
+    body = d["body"].strip()
+    defs = d.get("defs", {})
+    label = d.get("label") or ""
+    caption = d.get("caption") or ""
+    outdir = Path(d["outdir"])
+
+    # The fence body is the figure's .pdf_tex path, relative to the project root
+    # (cob runs us there). Resolve it absolutely so \input and the figure's own
+    # \includegraphics{...pdf} resolve no matter where the temp .tex lives.
+    fig = Path(os.getcwd()) / body
+    if not fig.exists():
+        fail(f"latexfig: figure not found: {fig}")
+    graphicspath = str(fig.parent) + "/"
+
+    # cob's macros as 0-ary \providecommand. A parametric macro (its expansion
+    # names #1) is skipped — a figure label rarely needs one.
+    providers = "\n".join(
+        r"\providecommand{%s}{%s}" % (name, exp)
+        for name, exp in defs.items()
+        if "#" not in exp
+    )
+
+    # Determinism (§8): SOURCE_DATE_EPOCH fixes the PDF dates and \today; the
+    # pdfTeX \pdftrailerid primitive fixes the otherwise-random /ID. Both guarded
+    # so the document still builds on an engine that lacks them.
+    tex = r"""\documentclass[border=2pt]{standalone}
+\ifdefined\pdftrailerid\pdftrailerid{}\fi
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{amsmath,amssymb}
+\graphicspath{{%s}}
+%s
+\begin{document}
+\input{%s}
+\end{document}
+""" % (graphicspath, providers, fig)
+
+    (outdir / "fig.tex").write_text(tex)
+    env = dict(os.environ, SOURCE_DATE_EPOCH="0")
+    run = subprocess.run(
+        ["pdflatex", "-interaction=nonstopmode", "-halt-on-error",
+         "-output-directory", str(outdir), str(outdir / "fig.tex")],
+        cwd=os.getcwd(), env=env, capture_output=True, text=True,
+    )
+    if run.returncode != 0 or not (outdir / "fig.pdf").exists():
+        fail("latexfig: pdflatex failed:\n" + run.stdout + run.stderr)
+
+    svg = outdir / "fig.svg"
+    conv = subprocess.run(
+        ["pdf2svg", str(outdir / "fig.pdf"), str(svg)],
+        capture_output=True, text=True,
+    )
+    if conv.returncode != 0 or not svg.exists():
+        fail("latexfig: pdf2svg failed:\n" + conv.stderr)
+
+    # Determinism + readability: strip any comment, add a white background rect.
+    s = svg.read_text()
+    s = re.sub(r"<!--.*?-->", "", s, flags=re.S)
+    m = re.search(r'viewBox="([-\d.\s]+)"', s)
+    if m:
+        x, y, w, h = m.group(1).split()
+        gt = s.index(">", s.index("<svg"))
+        s = s[:gt + 1] + f'<rect x="{x}" y="{y}" width="{w}" height="{h}" fill="#ffffff"/>' + s[gt + 1:]
+    svg.write_text(s)
+
+    pub = "imgs/%s.svg" % (label.replace(":", "-") or "latexfig")
+    cap = f"<figcaption>{caption}</figcaption>" if caption else ""
+    html = f'<figure class="latexfig" id="{label}">{cap}<img src="{pub}" alt=""></figure>'
+    json.dump({"html": html, "assets": {pub: "fig.svg"}}, sys.stdout)
+
+
+if __name__ == "__main__":
+    main()

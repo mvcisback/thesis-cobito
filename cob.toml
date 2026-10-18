@@ -1,3 +1,6 @@
 # The thesis forest's bibliography (§14): \cite resolves against this BibTeX file.
 [cite]
 bib = "references.bib"
+
+[fence.latexfig]
+cmd = ["python3", "tools/latexfig"]

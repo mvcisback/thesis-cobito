@@ -32,9 +32,9 @@ to explain why the agent did not take a particular shortcut. The answer is a
 series of supervised learning problems, where each surprising counter-factual is
 addressed — the shortcut is not taken because it is a negative example.
 
-```figure \label{fig:diss-overview}
+```custom[latexfig] \label{fig:diss-overview}
 \caption{A DISS cycle: guess a task, find a counter-factual that needs explanation, and choose which counter-factuals to focus on next.}
-<img src="imgs/diss_overview3.svg" alt="A cycle between guessing a task, finding a counter-factual, and selecting counter-factuals.">
+imgs/diss_overview3.pdf_tex
 ```
 
 The result is an approximate solution to the \ref{prob:tifd} of the previous
