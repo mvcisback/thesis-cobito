@@ -21,7 +21,7 @@
         cp -r ${self} work && chmod -R +w work && cd work
         # The book is the ordered chapter list woven as one document (page-split
         # at each h1). Add a chapter here to include it.
-        ${cob}/bin/cob weave intro.cob prelims.cob dynamics.cob learning.cob taskspecs.cob diss.cob sgs.cob luce-axiom.cob prop-grad.cob bibliographic-notes-30s.cob teaching.cob --out $out
+        ${cob}/bin/cob weave intro.cob prelims.cob dynamics.cob learning.cob taskspecs.cob diss.cob sgs.cob luce-axiom.cob prop-grad.cob bibliographic-notes-30s.cob teaching.cob control.cob erci.cob circuits.cob bdd.cob outro.cob --out $out
       '';
       packages.${system}.default = cob;
       devShells.${system}.default = pkgs.mkShell { packages = [ cob ]; };

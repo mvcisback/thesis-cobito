@@ -25,7 +25,7 @@ TEXBIN=$(nix build --impure --no-link --print-out-paths --expr \
   | tail -1)/bin
 export PATH="$COBBIN:$PYBIN:$SVGBIN:$TEXBIN:$PATH"
 
-BOOK="intro.cob prelims.cob dynamics.cob learning.cob taskspecs.cob diss.cob sgs.cob luce-axiom.cob prop-grad.cob bibliographic-notes-30s.cob teaching.cob"   # keep in sync with flake.nix
+BOOK="intro.cob prelims.cob dynamics.cob learning.cob taskspecs.cob diss.cob sgs.cob luce-axiom.cob prop-grad.cob bibliographic-notes-30s.cob teaching.cob control.cob erci.cob circuits.cob bdd.cob outro.cob"   # keep in sync with flake.nix
 
 nix shell nixpkgs#git-lfs --command bash -c 'git lfs install --local && git lfs pull'   # first time only; pdf/svg figures are LFS
 
@@ -52,6 +52,23 @@ rm -rf "$DEST" && mkdir -p "$DEST" && cp -r _site/. "$DEST/"
 Review URL (tailnet-only): <https://pages.chanlatte.casa/pi/thesis/index.html>
 
 NOTE: the review URL is under `pi/`, not `pages/tmp/` as older notes said.
+
+## New handler: custom[tikzfig]
+
+A new handler `custom[tikzfig]` was added to support web-native TikZ/PGF rendering
+without a LaTeX toolchain. It uses `node-tikzjax` (a WASM TeX engine) and supports:
+
+- inline TikZ pictures (in fenced content)
+- inline PGF plots (e.g., matplotlib exports)
+- inline `.tex` or `.pgf` files (via path body)
+
+The handler is vendored from `cobito/tools/tikzfig` and configured in `cob.toml`:
+
+```toml
+[fence.tikzfig]
+  cmd = ["node", "tools/tikzfig/index.js"]
+  preamble_file = "tools/tikz-preamble.tex"
+```
 
 ## Credentials for LFS
 
