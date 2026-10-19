@@ -66,6 +66,7 @@ const DEFAULT_LIBRARIES = [
   'decorations.pathreplacing',
   'decorations.markings',
   'shadings',
+  'intersections',
 ].join(',');
 
 function fail(msg) {
@@ -102,6 +103,47 @@ function whiteBackground(svg) {
   return svg.slice(0, gt + 1)
     + `<rect x="${x}" y="${y}" width="${w}" height="${h}" fill="#ffffff"/>`
     + svg.slice(gt + 1);
+}
+
+// A figure file lifted from a paper is often a whole float: `figure*` around
+// `subfigure` panels, each with a `\caption`, and an outer `\caption`/`\label`.
+// The one-shot TikZ document has no float machinery (no `subcaption`), so keep the
+// drawing and drop the float: a panel becomes a top-aligned minipage and its
+// caption small text under it; the outer caption goes, because cob's fence carries
+// the figure's own caption; a `\label` goes, because cob labels the fence.
+function flattenFloats(s) {
+  if (!/\\begin\{(figure\*?|subfigure)\}/.test(s)) return s;
+  s = s
+    .replace(/\\begin\{subfigure\}(?:\[[^\]]*\])?\{([^}]*)\}/g, '\\begin{minipage}[t]{$1}')
+    .replace(/\\end\{subfigure\}/g, '\\end{minipage}')
+    .replace(/\\(?:begin|end)\{figure\*?\}(?:\[[^\]]*\])?/g, '')
+    .replace(/\\centering\b/g, '');
+  // Brace-balanced end of the group whose body starts at `from`.
+  const groupEnd = (str, from) => {
+    let i = from, d = 1;
+    while (i < str.length && d) {
+      const c = str[i++];
+      if (c === '\\') i++;
+      else if (c === '{') d++;
+      else if (c === '}') d--;
+    }
+    return i;
+  };
+  const re = /\\begin\{minipage\}|\\end\{minipage\}|\\caption\s*(?:\[[^\]]*\])?\s*\{|\\label\s*\{/g;
+  let out = '', pos = 0, depth = 0, m;
+  while ((m = re.exec(s))) {
+    out += s.slice(pos, m.index);
+    if (m[0].startsWith('\\begin')) { depth++; out += m[0]; pos = re.lastIndex; }
+    else if (m[0].startsWith('\\end')) { depth--; out += m[0]; pos = re.lastIndex; }
+    else {
+      const end = groupEnd(s, re.lastIndex);
+      const arg = s.slice(re.lastIndex, end - 1);
+      out += m[0].startsWith('\\caption') && depth > 0 ? '\\par{\\small ' + arg + '}' : '';
+      pos = end;
+      re.lastIndex = end;
+    }
+  }
+  return out + s.slice(pos);
 }
 
 function main() {
@@ -141,6 +183,7 @@ async function run(d) {
     if (!fs.existsSync(cand)) fail('tikzfig: body looks like a path but no such file: ' + body);
     content = fs.readFileSync(cand, 'utf8');
   }
+  content = flattenFloats(content);
 
   // Assemble the document. TikZJax's format is standalone with documents begun
   // by the caller's input.

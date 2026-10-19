@@ -42,10 +42,13 @@ def main():
     cand = root / body
     if "\n" not in body and " " not in body and cand.exists():
         content = r"\input{%s}" % cand
-        graphicspath = str(cand.parent) + "/"
+        search = [cand.parent]
     else:
         content = body
-        graphicspath = str(root) + "/"
+        # Inline LaTeX may \input an Inkscape .pdf_tex, which finds its PDF by bare
+        # name, so search the figure directory as well as the project root.
+        search = [root, root / "imgs"]
+    graphicspath = "".join("{%s/}" % p for p in search)
 
     # cob's macros as 0-ary \providecommand. A parametric macro (its expansion
     # names #1) is skipped — a figure label rarely needs one.
@@ -61,9 +64,10 @@ def main():
     tex = r"""\documentclass[border=2pt]{standalone}
 \ifdefined\pdftrailerid\pdftrailerid{}\fi
 \usepackage{graphicx}
+\usepackage{pgf}
 \usepackage{xcolor}
 \usepackage{amsmath,amssymb}
-\graphicspath{{%s}}
+\graphicspath{%s}
 %s
 \begin{document}
 %s

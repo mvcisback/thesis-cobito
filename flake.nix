@@ -14,16 +14,27 @@
       texSet = pkgs.texlive.withPackages (ps: with ps; [
         scheme-small standalone xcolor amsmath pgf
       ]);
-      figTools = [ texSet pkgs.pdf2svg pkgs.python3 ];
+      # The `custom[tikzfig]` fence renders TikZ with a WebAssembly TeX engine
+      # (node-tikzjax). Its npm dependencies come from the lockfile, so the render
+      # needs no network in the sandbox.
+      tikzModules = pkgs.importNpmLock.buildNodeModules {
+        npmRoot = ./tools/tikzfig;
+        inherit (pkgs) nodejs;
+      };
+      figTools = [ texSet pkgs.pdf2svg pkgs.python3 pkgs.nodejs ];
     in {
-      # `nix build .#site` weaves the forest to _site/ (cob reads KaTeX from its wrapper).
-      packages.${system}.site = pkgs.runCommand "thesis-site" { nativeBuildInputs = figTools; } ''
-        cp -r ${self} work && chmod -R +w work && cd work
-        # The book is the ordered chapter list woven as one document (page-split
-        # at each h1). Add a chapter here to include it.
-        ${cob}/bin/cob weave intro.cob prelims.cob dynamics.cob learning.cob taskspecs.cob diss.cob sgs.cob luce-axiom.cob prop-grad.cob bibliographic-notes-30s.cob teaching.cob control.cob erci.cob circuits.cob bdd.cob outro.cob --out $out
-      '';
-      packages.${system}.default = cob;
+      packages.${system} = {
+        # `nix build .#site` weaves the forest to a directory (cob reads KaTeX from
+        # its wrapper).
+        site = pkgs.runCommand "thesis-site" { nativeBuildInputs = figTools; } ''
+          cp -r ${self} work && chmod -R +w work && cd work
+          ln -s ${tikzModules}/node_modules tools/tikzfig/node_modules
+          # The book is the `files` list of the [[document]] table in cob.toml: the
+          # reading order is written there and nowhere else. Add a chapter there.
+          ${cob}/bin/cob weave --locked --out $out
+        '';
+        default = cob;
+      };
       devShells.${system}.default = pkgs.mkShell { packages = [ cob ]; };
     };
 }
