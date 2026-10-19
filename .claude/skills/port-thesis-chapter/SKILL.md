@@ -73,15 +73,21 @@ improvise cob features; if a source construct is not in this skill, escalate.
 ### Theorem-like environments → node fences
 
 A `\begin{ENV}[optional title]\label{k} ... \end{ENV}` becomes a **`node` fence**.
-The node is exactly the fence: the prose after the environment is not in it.
+A node fence is a small document, logically a separate file transcluded right here.
+Its first line is its own title line; the lines under it are its content. The node is
+exactly the fence: the prose after the environment is not in it.
 
 ````
-```node[ENV] \label{ns:name}
-\title{Optional title}
+```node
+# Optional title \taxon{ENV} \label{ns:name}
 ...the environment body, as command Markdown...
 ```
 ````
 
+- The **first line** is `# title \taxon{...} \label{...}`. It is a single `#`. The
+  title is the text left once `\taxon{...}` and `\label{...}` are taken out; the two
+  commands may come in either order and either may be left out. With no title, write
+  `# \taxon{definition} \label{def:x}`.
 - `ENV` maps to a taxon name, lowercase: `theorem`, `lemma`, `proposition`,
   `corollary`, `definition` (also `mddef`), `example`, `remark`, `problem` (an
   `\mdframed` "Problem" box), `observation`, and so on.
@@ -92,17 +98,20 @@ The node is exactly the fence: the prose after the environment is not in it.
 - `\label{ns:name}` takes the source label's name with a node namespace (see
   below). Without a label the node has no id, no page, and cannot be referenced.
   Label every environment that the source labels, and any that the source refers to.
-- `\title{...}` is the environment's optional title (`\begin{theorem}[Pumping]`).
-  Leave it out when the source has none. **Do not invent a title.**
+- The title is the environment's optional title (`\begin{theorem}[Pumping]`). Leave
+  it out when the source has none. **Do not invent a title.**
 - `definition/theorem/lemma/proposition/corollary/problem` render **boxed**;
   `example/remark` render as a label only. CSS does this; you do nothing.
 - `\begin{proof} ... \end{proof}` belongs to its statement: put it **inside the
   statement's fence**, after the statement, as a paragraph led by `\emph{Proof.}`.
-- The body is full command Markdown: math, lists, `\sidenote`, `\cite`, `\ref`. A
-  heading inside is an error. A fence inside a fence needs the outer one to have
-  more backticks (four).
-- An `\mdframed` callout with no theorem inside is a `node[remark]` if the source
-  states a result or definition, or plain prose if it is an aside.
+- The body is full command Markdown: math, lists, `\sidenote`, `\cite`, `\ref`.
+  **A heading below the title line is an error** — a node has no sub-sections. A
+  fence inside a fence needs the outer one to have more backticks (four).
+- **Macros are inherited.** A node sees every macro already in scope, so you do not
+  re-define notation inside it. (A real separate file would have to import it.)
+- Nothing goes on the info line: ```` ```node ```` and nothing else.
+- An `\mdframed` callout with no theorem inside is a `node` with `\taxon{remark}` if
+  the source states a result or definition, or plain prose if it is an aside.
 - The older form `\taxon{ENV}` before a `###` heading still works, but it makes the
   node run to the next heading. Use it only for a *section* that really is the node
   (the whole subsection is the definition's discussion). Prefer the fence.
@@ -225,7 +234,7 @@ PY
    It flags `THIN`, `NODES`, `FIGS`, `MATH`, `CITES`, and `PLACEHOLDER`, and lists
    missing headings and uncited keys. A chapter is done when it is not flagged.
 5. **Fence syntax is exactly** ```` ```kind \label{ns:name} ```` — kinds `figure`,
-   `table`, `math`, `algorithm`, `node[taxon]`, `macros`, `verbatim`, `html-escape`, and
+   `table`, `math`, `algorithm`, `node`, `macros`, `verbatim`, `html-escape`, and
    `custom[handler]`. A pandoc attribute block such as ```` ```{.figure #fig:x} ````
    is an error. A `\remark{...}` command does not exist; use a `\taxon{remark}`
    node.
