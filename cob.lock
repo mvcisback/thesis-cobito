@@ -1,495 +1,619 @@
 {
   "schema": "1.0.0",
   "labels": {
+    "bibliographic-notes-30s.cob": {
+      "sec:bibliographic-notes-30s": {
+        "id": "cmmj",
+        "kind": "section"
+      }
+    },
     "diss.cob": {
       "def:diss-tiles": {
-        "id": "lyrO",
+        "id": "Fl8U",
         "kind": "macro"
       },
       "fig:diss-overview": {
-        "id": "YXuK",
+        "id": "UYza",
         "kind": "figure"
       },
       "fig:episodic-learning": {
-        "id": "BIr8",
+        "id": "bXAQ",
         "kind": "figure"
       },
       "fig:gw8x8": {
-        "id": "BJ7m",
+        "id": "4LHK",
         "kind": "figure"
       },
       "fig:target-dfa": {
-        "id": "V26i",
+        "id": "GfvY",
         "kind": "figure"
       },
       "rem:why-dfas": {
-        "id": "51db",
+        "id": "6Tne",
         "kind": "section"
       },
       "sec:diss-contributions": {
-        "id": "O6zO",
+        "id": "sEkx",
         "kind": "section"
       },
       "sec:diss-running-example": {
-        "id": "l4VC",
+        "id": "m22U",
         "kind": "section"
       }
     },
     "dynamics.cob": {
       "def:distributions": {
-        "id": "0TEl",
+        "id": "Bp1E",
         "kind": "section"
       },
       "def:dynamics-notation": {
-        "id": "HKyj",
+        "id": "xl4p",
         "kind": "macro"
       },
       "def:mdp": {
-        "id": "UzE2",
+        "id": "2LCA",
         "kind": "section"
       },
       "rem:smooth": {
-        "id": "8x1p",
+        "id": "Mm72",
         "kind": "section"
       },
       "sec:2fDB": {
-        "id": "2fDB",
+        "id": "2wzp",
         "kind": "section"
       }
     },
     "intro.cob": {
       "cite:DBLP:conf/cdc/KasenbergS17": {
-        "id": "wzyR",
+        "id": "aD67",
+        "kind": "citation"
+      },
+      "cite:DBLP:conf/cie/Adriaans07": {
+        "id": "ScAm",
         "kind": "citation"
       },
       "cite:DBLP:conf/esweek/LeeS10": {
-        "id": "jSpI",
+        "id": "jb2L",
         "kind": "citation"
       },
       "cite:DBLP:conf/fmcad/AlurBJMRSSSTU13": {
-        "id": "kD7J",
+        "id": "xkOH",
         "kind": "citation"
       },
       "cite:DBLP:conf/fmcad/NeiderG18": {
-        "id": "94AR",
+        "id": "Q2WU",
         "kind": "citation"
       },
       "cite:DBLP:conf/fmcad/TorfahSCAS21": {
-        "id": "MwiG",
+        "id": "LMJH",
+        "kind": "citation"
+      },
+      "cite:DBLP:conf/hri/DraganLS13": {
+        "id": "JBbk",
+        "kind": "citation"
+      },
+      "cite:DBLP:conf/icgi/HeuleV10": {
+        "id": "Aekr",
         "kind": "citation"
       },
       "cite:DBLP:conf/icml/IcarteKVM18": {
-        "id": "TpBK",
+        "id": "kPK4",
         "kind": "citation"
       },
       "cite:DBLP:conf/icml/VermaMSKC18": {
-        "id": "dSI8",
+        "id": "GHjy",
         "kind": "citation"
       },
       "cite:DBLP:conf/icra/Yoon021": {
-        "id": "0lL0",
+        "id": "psJZ",
         "kind": "citation"
       },
       "cite:DBLP:conf/iros/HorowitzWM14": {
-        "id": "PawB",
+        "id": "BfWj",
         "kind": "citation"
       },
       "cite:DBLP:conf/lata/UlyantsevZS15": {
-        "id": "aAPX",
+        "id": "omJE",
+        "kind": "citation"
+      },
+      "cite:DBLP:conf/nips/HoLMCA16": {
+        "id": "IGj4",
         "kind": "citation"
       },
       "cite:DBLP:conf/nips/ShahKSL18": {
-        "id": "yzf6",
+        "id": "OWQf",
         "kind": "citation"
       },
       "cite:DBLP:conf/nips/Vazquez-Chanlatte18": {
-        "id": "NnQV",
+        "id": "Bvdp",
         "kind": "citation"
       },
       "cite:DBLP:conf/rss/ChouOB20": {
-        "id": "BCxp",
+        "id": "44yD",
         "kind": "citation"
       },
       "cite:DBLP:conf/wsc/SkiscimG83": {
-        "id": "mPbw",
+        "id": "lWFR",
+        "kind": "citation"
+      },
+      "cite:DBLP:journals/acta/JhaS17": {
+        "id": "wU9Q",
         "kind": "citation"
       },
       "cite:DBLP:journals/corr/abs-1711-09883": {
-        "id": "RmjQ",
+        "id": "pOqR",
         "kind": "citation"
       },
       "cite:DBLP:journals/nips/Abel22": {
-        "id": "rho9",
+        "id": "6TEF",
+        "kind": "citation"
+      },
+      "cite:DBLP:journals/pieee/Seshia15": {
+        "id": "bYzJ",
         "kind": "citation"
       },
       "cite:DBLP:journals/sigact/Sipser96": {
-        "id": "tMiH",
+        "id": "mGFM",
+        "kind": "citation"
+      },
+      "cite:DBLP:phd/basesearch/Carrillo21": {
+        "id": "uMUo",
         "kind": "citation"
       },
       "cite:amodei2016concrete": {
-        "id": "IX4B",
+        "id": "rtJe",
         "kind": "citation"
       },
       "cite:de2010grammatical": {
-        "id": "8GlT",
+        "id": "eKK5",
         "kind": "citation"
       },
       "cite:ghosh2018repair": {
-        "id": "G2xq",
+        "id": "4aJX",
+        "kind": "citation"
+      },
+      "cite:goodman2016pragmatic": {
+        "id": "ZqA4",
         "kind": "citation"
       },
       "cite:ho_teaching_2015": {
-        "id": "4RdD",
+        "id": "4R0U",
         "kind": "citation"
       },
       "cite:kalman1964linear": {
-        "id": "r68q",
+        "id": "ncr7",
         "kind": "citation"
       },
       "cite:littman_environment-independent_2017": {
-        "id": "djls",
+        "id": "kWlr",
         "kind": "citation"
       },
       "cite:luce1959individual": {
-        "id": "eTin",
+        "id": "WrbW",
         "kind": "citation"
       },
       "cite:mceThesis": {
-        "id": "ZbVI",
+        "id": "nJR4",
         "kind": "citation"
       },
       "cite:pineau2003point": {
-        "id": "GZ1K",
+        "id": "ZNfK",
         "kind": "citation"
       },
       "cite:seshia-arxiv16": {
-        "id": "zPt4",
+        "id": "4zor",
         "kind": "citation"
       },
       "cite:taylor1950purposeful": {
-        "id": "x5NK",
+        "id": "WeYv",
         "kind": "citation"
       },
       "cite:watanabe2021probabilistic": {
-        "id": "99KI",
+        "id": "tK8e",
         "kind": "citation"
       },
       "cite:ziebart2008maximum": {
-        "id": "zt1v",
+        "id": "AUQG",
         "kind": "citation"
       },
       "def:purposeful": {
-        "id": "MJUz",
+        "id": "U7t2",
         "kind": "section"
       },
       "def:tiles": {
-        "id": "i2u1",
+        "id": "GhAX",
         "kind": "macro"
       },
       "ex:recharge": {
-        "id": "d0cM",
+        "id": "kpbi",
         "kind": "section"
       },
       "fig:bug2": {
-        "id": "X3Wx",
+        "id": "NfPO",
         "kind": "figure"
       },
       "fig:yr2": {
-        "id": "cTk1",
+        "id": "SyoK",
         "kind": "figure"
       },
       "sec:0GCT": {
-        "id": "0GCT",
+        "id": "xAGG",
         "kind": "section"
       },
       "sec:WPSz": {
-        "id": "WPSz",
+        "id": "N456",
         "kind": "section"
       },
       "sec:rW5R": {
-        "id": "rW5R",
+        "id": "kfdo",
         "kind": "section"
       },
       "sec:zGkC": {
-        "id": "zGkC",
+        "id": "wUQp",
+        "kind": "section"
+      }
+    },
+    "luce-axiom.cob": {
+      "def:value-distinguishability": {
+        "id": "9EAe",
+        "kind": "section"
+      },
+      "ex:luce-violation": {
+        "id": "Q2zc",
+        "kind": "section"
+      },
+      "rem:luce-reachable": {
+        "id": "PhID",
+        "kind": "section"
+      },
+      "sec:cegar": {
+        "id": "YjRm",
+        "kind": "section"
+      },
+      "sec:luce-axiom": {
+        "id": "6FDO",
         "kind": "section"
       }
     },
     "prelims.cob": {
-      "cite:DBLP:journals/sigact/Sipser96": {
-        "id": "ZI0j",
-        "kind": "citation"
-      },
       "def:concept-class": {
-        "id": "dNLx",
+        "id": "Ern0",
         "kind": "section"
       },
       "def:language": {
-        "id": "zoOg",
+        "id": "PQ6v",
         "kind": "section"
       },
       "def:notation": {
-        "id": "kivt",
+        "id": "q2XV",
         "kind": "macro"
       },
       "def:string": {
-        "id": "BjyY",
+        "id": "wrfo",
         "kind": "section"
       },
       "ex:concepts-nat": {
-        "id": "yPXt",
+        "id": "HXqw",
         "kind": "section"
       },
       "sec:kKQ7": {
-        "id": "kKQ7",
+        "id": "tHiy",
+        "kind": "section"
+      }
+    },
+    "prop-grad.cob": {
+      "lem:grad": {
+        "id": "7T36",
+        "kind": "section"
+      },
+      "sec:proofs": {
+        "id": "j9Sp",
         "kind": "section"
       }
     },
     "sgs.cob": {
       "alg:diss": {
-        "id": "4Wpf",
+        "id": "GkiE",
         "kind": "algorithm"
       },
       "alg:sgs": {
-        "id": "e5n0",
+        "id": "qNK0",
         "kind": "algorithm"
       },
       "def:diss-notation": {
-        "id": "FvOx",
+        "id": "dyfX",
         "kind": "macro"
       },
       "def:prefix-notation": {
-        "id": "rBIL",
+        "id": "fvHY",
         "kind": "macro"
       },
       "def:prefix-tree": {
-        "id": "T2mV",
+        "id": "bM62",
         "kind": "section"
       },
       "def:surprisal": {
-        "id": "nj5G",
+        "id": "VGG0",
         "kind": "section"
       },
       "def:surprisal-notation": {
-        "id": "ZsGy",
+        "id": "bRBI",
         "kind": "macro"
       },
       "ex:concept-sampler": {
-        "id": "TFEU",
+        "id": "MTGg",
         "kind": "section"
       },
       "ex:pivot-determines": {
-        "id": "ReeC",
+        "id": "ICia",
         "kind": "section"
       },
       "ex:pivots": {
-        "id": "wwgS",
+        "id": "dnaD",
         "kind": "section"
       },
       "ex:sgs": {
-        "id": "pFVj",
+        "id": "MEqD",
         "kind": "section"
       },
       "fig:computation-tree": {
-        "id": "67JP",
+        "id": "aZxf",
         "kind": "figure"
       },
       "fig:learned-dfas": {
-        "id": "E1zs",
+        "id": "P1tx",
         "kind": "figure"
       },
       "fig:mass-inc": {
-        "id": "MYng",
+        "id": "qu9N",
         "kind": "figure"
       },
       "fig:mass-mono": {
-        "id": "LG2m",
+        "id": "yWhL",
         "kind": "figure"
       },
       "fig:prefix-tree": {
-        "id": "mBdP",
+        "id": "2X6I",
         "kind": "figure"
       },
       "fig:sgs": {
-        "id": "LPq2",
+        "id": "vtSE",
         "kind": "figure"
       },
       "prop:grad": {
-        "id": "tS5H",
+        "id": "P69T",
         "kind": "section"
       },
       "prop:monotone": {
-        "id": "fhgI",
+        "id": "GkR0",
         "kind": "section"
       },
       "rem:annealing": {
-        "id": "sVrm",
+        "id": "PHIn",
         "kind": "section"
       },
       "rem:diss-repr": {
-        "id": "uBdK",
+        "id": "3o8x",
         "kind": "section"
       },
       "rem:diss-walk": {
-        "id": "Befq",
+        "id": "5iY3",
         "kind": "section"
       },
       "rem:sgs-blackbox": {
-        "id": "gc6t",
+        "id": "kSIL",
         "kind": "section"
       },
       "rem:sgs-reject": {
-        "id": "E0va",
+        "id": "vcMf",
         "kind": "section"
       },
       "rem:surprisal-nll": {
-        "id": "e0jg",
+        "id": "hl5O",
         "kind": "section"
       },
       "rem:theta": {
-        "id": "aSYg",
+        "id": "wWxB",
         "kind": "section"
       },
       "rem:toggle": {
-        "id": "KZRq",
+        "id": "N48m",
         "kind": "section"
       },
       "sec:baselines": {
-        "id": "K9jw",
+        "id": "C4lg",
         "kind": "section"
       },
       "sec:diss-algorithm": {
-        "id": "Z0hH",
+        "id": "89UK",
         "kind": "section"
       },
       "sec:diss-params": {
-        "id": "QMui",
+        "id": "i8O9",
         "kind": "section"
       },
       "sec:diversity": {
-        "id": "6exs",
+        "id": "IKBV",
         "kind": "section"
       },
       "sec:example-buffer": {
-        "id": "y0D2",
+        "id": "2G5P",
         "kind": "section"
       },
       "sec:experiments": {
-        "id": "UN70",
+        "id": "jN1T",
         "kind": "section"
       },
       "sec:grad-independence": {
-        "id": "V4tH",
+        "id": "Xoy7",
         "kind": "section"
       },
       "sec:heuristics": {
-        "id": "TGJ7",
+        "id": "L6Gg",
         "kind": "section"
       },
       "sec:local-benefits": {
-        "id": "LTuE",
+        "id": "x4tH",
         "kind": "section"
       },
       "sec:mislabeled": {
-        "id": "K82y",
+        "id": "XiSw",
         "kind": "section"
       },
       "sec:prefix-tree": {
-        "id": "DTvc",
+        "id": "sbSp",
         "kind": "section"
       },
       "sec:results": {
-        "id": "ATXN",
+        "id": "rGFT",
         "kind": "section"
       },
       "sec:sgs": {
-        "id": "FRRz",
+        "id": "PcqD",
         "kind": "section"
       },
       "sec:simulated-annealing": {
-        "id": "KNqE",
+        "id": "bo2W",
         "kind": "section"
       },
       "sec:spec-search": {
-        "id": "Kr9M",
+        "id": "oESR",
         "kind": "section"
       },
       "sec:surprisal": {
-        "id": "j2Ob",
+        "id": "Xd4H",
         "kind": "section"
       },
       "sec:surprisal-gradients": {
-        "id": "hwZS",
+        "id": "Ouco",
         "kind": "section"
       }
     },
     "taskspecs.cob": {
       "def:competent": {
-        "id": "r44l",
+        "id": "Dit6",
         "kind": "section"
       },
       "def:featurized": {
-        "id": "H1fP",
+        "id": "VFeI",
         "kind": "section"
       },
       "def:spec-notation": {
-        "id": "q2SY",
+        "id": "7NUr",
         "kind": "macro"
       },
       "def:task-spec": {
-        "id": "Uwyo",
+        "id": "KCQs",
         "kind": "section"
       },
       "ex:intro": {
-        "id": "TsL4",
+        "id": "JSkx",
         "kind": "section"
       },
       "ex:parity": {
-        "id": "hpGY",
+        "id": "lD1E",
         "kind": "section"
       },
       "fig:bug": {
-        "id": "sHYW",
+        "id": "zrqT",
         "kind": "figure"
       },
       "fig:gridworld": {
-        "id": "9jg3",
+        "id": "mcwf",
         "kind": "figure"
       },
       "fig:yr": {
-        "id": "7zGs",
+        "id": "39Xf",
         "kind": "figure"
       },
       "prob:tifd": {
-        "id": "wQqq",
+        "id": "TqfV",
         "kind": "section"
       },
       "rem:planner-blackbox": {
-        "id": "dpTC",
+        "id": "TdEP",
         "kind": "section"
       },
       "rem:spec-closure": {
-        "id": "NIPY",
+        "id": "vvWu",
         "kind": "section"
       },
       "rem:spec-shorthand": {
-        "id": "W0ta",
+        "id": "6brm",
         "kind": "section"
       },
       "sec:bool-case": {
-        "id": "TeB1",
+        "id": "SHOg",
         "kind": "section"
       },
       "sec:task-behavior": {
-        "id": "89kB",
+        "id": "w5Kx",
         "kind": "section"
       },
       "sec:task-specs": {
-        "id": "U0PK",
+        "id": "sLUv",
         "kind": "section"
       },
       "sec:ts-contributions": {
-        "id": "EYRn",
+        "id": "xldf",
+        "kind": "section"
+      }
+    },
+    "teaching.cob": {
+      "fig:teaching-demo": {
+        "id": "KHnU",
+        "kind": "figure"
+      },
+      "rem:gen-ped-demo": {
+        "id": "CZFQ",
+        "kind": "section"
+      },
+      "rem:proposal": {
+        "id": "IRYy",
+        "kind": "section"
+      },
+      "sec:0IOg": {
+        "id": "g66u",
+        "kind": "section"
+      },
+      "sec:CZHQ": {
+        "id": "7nRA",
+        "kind": "section"
+      },
+      "sec:CokX": {
+        "id": "TGKb",
+        "kind": "section"
+      },
+      "sec:M9eM": {
+        "id": "HOxt",
+        "kind": "section"
+      },
+      "sec:N3Wk": {
+        "id": "dbks",
+        "kind": "section"
+      },
+      "sec:Ug8C": {
+        "id": "SEC2",
+        "kind": "section"
+      },
+      "sec:Wr9H": {
+        "id": "WYkb",
+        "kind": "section"
+      },
+      "sec:vCFR": {
+        "id": "H8ZU",
+        "kind": "section"
+      },
+      "sec:vcXe": {
+        "id": "6tiJ",
+        "kind": "section"
+      },
+      "sec:voxN": {
+        "id": "DGxQ",
+        "kind": "section"
+      },
+      "sec:y4dE": {
+        "id": "NCfl",
         "kind": "section"
       }
     }
