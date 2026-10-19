@@ -1,0 +1,66 @@
+\begin{tikzpicture}
+    \node[sstate, initial, initial text=,initial where=left] (a1) {$s_0$}; 
+    
+    \node[right=of a1,color=blue] (a1r) {$\lambda$ }; 
+    \draw[dotted,blue, thick] (a1) -- (a1r);
+    
+	\node[sstate,below=0.6cm of a1,xshift=8em] (a2) {$s_1$};
+	
+	\node[astate,below=0.6cm of a1,xshift=-8em] (a0) {$s_2$};
+	\node[sstate,below=0.6cm of a0,xshift=-5em] (s1) {$s_3$};
+	\node[sstate,below=0.6cm  of a0,xshift=7em] (s2) {$s_4$};
+	
+	
+	
+	\node[below=0.1cm of s1, inner sep=0.3pt] (x1) {};
+	
+	\node[below=0.1cm of s2, inner sep=0.3pt] (x2) {};
+		\node[below=0.1cm of a2, inner sep=0.3pt] (x3) {};
+	
+	\draw[->] (a0) -- node[actnode] (x) {}
+					  node[pos=0.4,elab,right,xshift=2mm] {$a$}  (s1);
+	\draw[->] (a0) -- node[actnode] {}
+					  node[pos=0.4,elab,left,xshift=-2mm] {$b$}  (s2);
+					  
+	\draw[->] (a1) -- node[actnode] {}
+					  node[pos=0.4,elab,right,xshift=2mm] {$a$}  (a0);
+	\draw[->] (a1) -- node[actnode] {}
+					  node[pos=0.4,elab,left,xshift=-2mm] {$b$}  (a2);
+					  
+	\draw[->, red] (a0) -- (x);
+	
+	\node[right=0.4cm of s1,color=blue] (s3r) {$\lambda$ }; 
+    \draw[dotted,blue, thick] (s1) -- (s3r);
+    \node[right=0.4cm of s2,color=blue] (s4r) {$\lambda' \geq \lambda $}; 
+    \draw[dotted,blue, thick] (s2) -- (s4r);
+    \node[right=0.4cm of a2,color=blue] (a2r) {$\lambda$ }; 
+    \draw[dotted,blue, thick] (a2) -- (a2r);
+    \node[left=0.4cm of s1,color=red] (s3r) {$\lambda \mapsto h_3$ }; 
+    \draw[dashed,red, thick] (s1) -- (s3r);
+    \node[left=0.4cm of s2,color=red] (s4r) {$\lambda \mapsto h_4 \geq h_3$}; 
+    \draw[dashed,red, thick] (s2) -- (s4r);
+    \node[left=0.4cm of a2,color=red] (a2r) {$\lambda \mapsto h_1$ }; 
+    \draw[dashed,red, thick] (a2) -- (a2r);
+    \node[left=0.4cm of a0,color=red] (s2r) {$\lambda \mapsto h_3$ }; 
+    \draw[dashed,red, thick] (a0) -- (s2r);
+    			  
+				  
+	
+	\draw[dashed] (x1) -- +(1,-1) -- +(-1,-1) coordinate  (fa) -- (x1);
+	\draw[dashed] (x2) -- +(1,-1) coordinate (fb) -- +(-1,-1)  -- (x2);
+	
+	\draw[dashed] (x3) -- +(1,-1) -- +(-1,-1)  -- (x3);
+	
+	\node[below=3mm of x1] {{\tiny MDP}};
+	\node[below=3mm of x2] {{\tiny MDP}};
+	\node[below=3mm of x3] {{\tiny MDP}};
+	
+%	\node[fit=(a0)(x1)(x2)(fa)(fb), inner sep = 6pt, dotted,draw] {};
+	
+	
+\end{tikzpicture}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "main"
+%%% End:

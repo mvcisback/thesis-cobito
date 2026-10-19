@@ -4,3 +4,7 @@ bib = "references.bib"
 
 [fence.latexfig]
 cmd = ["python3", "tools/latexfig"]
+
+[fence.tikzfig]
+cmd = ["node", "tools/tikzfig/index.js"]
+preamble_file = "tools/tikz-preamble.tex"
