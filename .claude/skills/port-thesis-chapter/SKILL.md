@@ -70,37 +70,50 @@ improvise cob features; if a source construct is not in this skill, escalate.
 | `\nicefrac{a}{b}` | `\tfrac{a}{b}` |
 | `\DeclareMathOperator{\F}{F}` / `\DeclareMathOperator*` | define `\F` as `\operatorname{F}` / `\operatorname*{F}` in a macros fence |
 
-### Theorem-like environments → taxa
+### Theorem-like environments → node fences
 
-A `\begin{ENV}[optional title]\label{k} ... \end{ENV}` becomes a **taxon node**:
+A `\begin{ENV}[optional title]\label{k} ... \end{ENV}` becomes a **`node` fence**.
+The node is exactly the fence: the prose after the environment is not in it.
 
+````
+```node[ENV] \label{ns:name}
+\title{Optional title}
+...the environment body, as command Markdown...
 ```
-\taxon{ENV}
+````
 
-### Title {#ns:name}
-
-...body...
-```
-
-- `ENV` maps to a taxon name: `theorem`, `lemma`, `proposition`, `corollary`,
-  `definition` (also `mddef`), `example`, `remark`, `problem` (an `\mdframed`
-  "Problem" box), `observation`, etc. — lowercase.
-- Give the heading a short title (invent one from the statement if the source has
-  none) and a `{#ns:name}` label (see namespaces below). The label makes it
-  referenceable and gives it a node page.
+- `ENV` maps to a taxon name, lowercase: `theorem`, `lemma`, `proposition`,
+  `corollary`, `definition` (also `mddef`), `example`, `remark`, `problem` (an
+  `\mdframed` "Problem" box), `observation`, and so on.
+- The fence holds **only** what is inside the `\begin{ENV}...\end{ENV}`. Put the
+  prose that follows the environment *after* the closing fence, as ordinary
+  paragraphs. This is the reason the fence exists: a definition must not swallow
+  the discussion after it.
+- `\label{ns:name}` takes the source label's name with a node namespace (see
+  below). Without a label the node has no id, no page, and cannot be referenced.
+  Label every environment that the source labels, and any that the source refers to.
+- `\title{...}` is the environment's optional title (`\begin{theorem}[Pumping]`).
+  Leave it out when the source has none. **Do not invent a title.**
 - `definition/theorem/lemma/proposition/corollary/problem` render **boxed**;
-  `example/remark` render as a label only. Nothing else to do — CSS handles it.
-- `\begin{proof} ... \end{proof}` → plain prose led by `\emph{Proof.}`, inside the
-  statement's node (no separate heading).
-- An `\mdframed`/`\begin{mdframed}` callout with no theorem inside → a
-  `\taxon{remark}` with a short title, or just prose if it is an aside.
+  `example/remark` render as a label only. CSS does this; you do nothing.
+- `\begin{proof} ... \end{proof}` belongs to its statement: put it **inside the
+  statement's fence**, after the statement, as a paragraph led by `\emph{Proof.}`.
+- The body is full command Markdown: math, lists, `\sidenote`, `\cite`, `\ref`. A
+  heading inside is an error. A fence inside a fence needs the outer one to have
+  more backticks (four).
+- An `\mdframed` callout with no theorem inside is a `node[remark]` if the source
+  states a result or definition, or plain prose if it is an aside.
+- The older form `\taxon{ENV}` before a `###` heading still works, but it makes the
+  node run to the next heading. Use it only for a *section* that really is the node
+  (the whole subsection is the definition's discussion). Prefer the fence.
 
 ### Label namespaces
 
 `sec:` (section) · `def:` (definition) · `thm:` (theorem) · `lem:` · `cor:` ·
 `prop:` · `ex:` (example) · `rem:` (remark) · `prob:` (problem) · `fig:` ·
-`tbl:` · `eq:` · `alg:` (algorithm). Any heading with a `{#ns:name}` becomes a
-node and `\ref{ns:name}` resolves to it — across pages of the same book.
+`tbl:` · `eq:` · `alg:` (algorithm). A `node` fence or a heading with a
+`{#ns:name}` becomes a node and `\ref{ns:name}` resolves to it — across pages of the
+same book. A `node` fence label must be a node namespace, never `fig:`/`tbl:`/`eq:`/`alg:`.
 
 **Chapter and part refs resolve** when the h1 carries a `ch:`/`part:` label (see
 "A `.cob` file's shape"). Keep every `Ch~\ref{ch:foo}` and `Part~\ref{part:foo}`
@@ -212,7 +225,7 @@ PY
    It flags `THIN`, `NODES`, `FIGS`, `MATH`, `CITES`, and `PLACEHOLDER`, and lists
    missing headings and uncited keys. A chapter is done when it is not flagged.
 5. **Fence syntax is exactly** ```` ```kind \label{ns:name} ```` — kinds `figure`,
-   `table`, `math`, `algorithm`, `macros`, `verbatim`, `html-escape`, and
+   `table`, `math`, `algorithm`, `node[taxon]`, `macros`, `verbatim`, `html-escape`, and
    `custom[handler]`. A pandoc attribute block such as ```` ```{.figure #fig:x} ````
    is an error. A `\remark{...}` command does not exist; use a `\taxon{remark}`
    node.

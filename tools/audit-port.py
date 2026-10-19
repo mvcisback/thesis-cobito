@@ -111,7 +111,8 @@ def count_nodes_src(s):
 
 
 def count_nodes_cob(s):
-    return len(re.findall(r"^\\taxon\{", s, flags=re.M))
+    # A node is a `\\taxon{..}` heading or a `node[..]` fence (cobito §10).
+    return len(re.findall(r"^\\taxon\{|^`{3,}node\[", s, flags=re.M))
 
 
 def count_figs_src(s):
