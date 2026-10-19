@@ -1,4 +1,4 @@
-# Teaching Tasks using Demonstrations
+# Teaching Tasks using Demonstrations {#ch:teach}
 
 > "The more I think about language, the more it amazes me that people ever understand each other at all." — Kurt Gödel, Logician, 1906‑1978
 

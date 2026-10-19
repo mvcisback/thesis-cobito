@@ -1,4 +1,4 @@
-# Workspaces and Decision Processes
+# Workspaces and Decision Processes {#ch:dyn-prelim}
 
 > You have brains in your head. You have feet in your shoes. You can steer
 > yourself in any direction you choose.

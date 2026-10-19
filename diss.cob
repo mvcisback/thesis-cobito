@@ -1,4 +1,4 @@
-# Finding Explanatory Specifications
+# Finding Explanatory Specifications {#ch:DISS}
 
 > For every complex problem there is an answer that is clear, simple, and wrong.
 >

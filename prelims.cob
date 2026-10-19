@@ -1,4 +1,4 @@
-# Concepts and their Representations
+# Concepts and their Representations {#ch:concepts}
 
 > \strong{Knight}: The name of the song is called 'Haddocks' Eyes'!
 >

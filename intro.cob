@@ -1,4 +1,4 @@
-# Introduction
+# Introduction {#ch:intro}
 
 > Since I am neither a neurologist nor a psychiatrist, but a mathematician, the
 > work that follows requires some explanation and justification.

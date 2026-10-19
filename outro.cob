@@ -1,4 +1,4 @@
-# Final Words
+# Final Words {#ch:outro}
 
 In this thesis, we have explored the theory and practice of prediction and control
 in sequential decision-making problems. We have presented several frameworks and
@@ -13,7 +13,7 @@ The work presented here opens up several directions for future research. These
 include extending the frameworks to more complex domains, developing more
 efficient algorithms, and exploring applications in real-world scenarios.
 
-## Summary of Contributions
+## Summary of Contributions {#sec:Joud}
 
 Our main contributions are:
 
@@ -26,7 +26,7 @@ Our main contributions are:
 3. The application of Binary Decision Diagrams (BDDs) to control policy
    encoding, enabling efficient manipulation of complex policies.
 
-## Future Work
+## Future Work {#sec:TjN1}
 
 Several directions for future work emerge from this research:
 

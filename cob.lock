@@ -1,13 +1,143 @@
 {
   "schema": "1.0.0",
   "labels": {
+    "bdd.cob": {
+      "ch:bdd": {
+        "id": "frGi",
+        "kind": "section"
+      },
+      "fig:bdd-size-horizon": {
+        "id": "7Fg8",
+        "kind": "figure"
+      },
+      "sec:2c8S": {
+        "id": "2c8S",
+        "kind": "section"
+      },
+      "sec:70WG": {
+        "id": "70WG",
+        "kind": "section"
+      },
+      "sec:8hba": {
+        "id": "8hba",
+        "kind": "section"
+      },
+      "sec:J0az": {
+        "id": "J0az",
+        "kind": "section"
+      },
+      "sec:Oa6H": {
+        "id": "Oa6H",
+        "kind": "section"
+      },
+      "sec:TT6l": {
+        "id": "TT6l",
+        "kind": "section"
+      },
+      "sec:guUb": {
+        "id": "guUb",
+        "kind": "section"
+      },
+      "sec:nw7P": {
+        "id": "nw7P",
+        "kind": "section"
+      },
+      "sec:yvK9": {
+        "id": "yvK9",
+        "kind": "section"
+      }
+    },
     "bibliographic-notes-30s.cob": {
       "sec:bibliographic-notes-30s": {
         "id": "cmmj",
         "kind": "section"
       }
     },
+    "circuits.cob": {
+      "ch:circ": {
+        "id": "M2nS",
+        "kind": "section"
+      },
+      "def:circuits-notation": {
+        "id": "1CO7",
+        "kind": "macro"
+      },
+      "fig:circuit-1": {
+        "id": "Ilm7",
+        "kind": "figure"
+      },
+      "fig:circuit-2": {
+        "id": "Nzej",
+        "kind": "figure"
+      },
+      "fig:circuit-3": {
+        "id": "Aihg",
+        "kind": "figure"
+      },
+      "fig:historical-circuit": {
+        "id": "PhvV",
+        "kind": "figure"
+      },
+      "fig:mux-mapping": {
+        "id": "sDgy",
+        "kind": "figure"
+      },
+      "fig:sequential-circuit": {
+        "id": "WLqN",
+        "kind": "figure"
+      },
+      "sec:1r74": {
+        "id": "1r74",
+        "kind": "section"
+      },
+      "sec:C5HO": {
+        "id": "C5HO",
+        "kind": "section"
+      },
+      "sec:Gg7a": {
+        "id": "Gg7a",
+        "kind": "section"
+      },
+      "sec:diiN": {
+        "id": "diiN",
+        "kind": "section"
+      },
+      "sec:geMe": {
+        "id": "geMe",
+        "kind": "section"
+      },
+      "sec:l2fY": {
+        "id": "l2fY",
+        "kind": "section"
+      },
+      "sec:p9ny": {
+        "id": "p9ny",
+        "kind": "section"
+      },
+      "sec:stYr": {
+        "id": "stYr",
+        "kind": "section"
+      },
+      "sec:y4v4": {
+        "id": "y4v4",
+        "kind": "section"
+      },
+      "sec:yTlQ": {
+        "id": "yTlQ",
+        "kind": "section"
+      }
+    },
+    "control.cob": {
+      "part:control": {
+        "id": "lqiZ",
+        "kind": "section"
+      }
+    },
     "diss.cob": {
+      "ch:DISS": {
+        "id": "nc5D",
+        "kind": "section"
+      },
       "def:diss-tiles": {
         "id": "Fl8U",
         "kind": "macro"
@@ -42,6 +172,10 @@
       }
     },
     "dynamics.cob": {
+      "ch:dyn-prelim": {
+        "id": "R5ng",
+        "kind": "section"
+      },
       "def:distributions": {
         "id": "Bp1E",
         "kind": "section"
@@ -63,7 +197,153 @@
         "kind": "section"
       }
     },
+    "erci.cob": {
+      "ch:erci": {
+        "id": "jhcZ",
+        "kind": "section"
+      },
+      "def:erci-notation": {
+        "id": "QcCZ",
+        "kind": "macro"
+      },
+      "fig:bdd_sizes": {
+        "id": "dJJ2",
+        "kind": "figure"
+      },
+      "fig:drciOnSgs": {
+        "id": "DjFH",
+        "kind": "figure"
+      },
+      "fig:exp_times": {
+        "id": "Coe6",
+        "kind": "figure"
+      },
+      "fig:geometric": {
+        "id": "sFwt",
+        "kind": "figure"
+      },
+      "fig:minimal:entropy": {
+        "id": "4n1o",
+        "kind": "figure"
+      },
+      "fig:minimal:mdp": {
+        "id": "clE3",
+        "kind": "figure"
+      },
+      "fig:minimal:soft": {
+        "id": "AMIR",
+        "kind": "figure"
+      },
+      "fig:motivating": {
+        "id": "Pseq",
+        "kind": "figure"
+      },
+      "fig:sg:simplest": {
+        "id": "MvxD",
+        "kind": "figure"
+      },
+      "sec:1efJ": {
+        "id": "1efJ",
+        "kind": "section"
+      },
+      "sec:4B9u": {
+        "id": "4B9u",
+        "kind": "section"
+      },
+      "sec:5fUd": {
+        "id": "5fUd",
+        "kind": "section"
+      },
+      "sec:79vO": {
+        "id": "79vO",
+        "kind": "section"
+      },
+      "sec:E6a7": {
+        "id": "E6a7",
+        "kind": "section"
+      },
+      "sec:EHDd": {
+        "id": "EHDd",
+        "kind": "section"
+      },
+      "sec:Ewm0": {
+        "id": "Ewm0",
+        "kind": "section"
+      },
+      "sec:Fu8E": {
+        "id": "Fu8E",
+        "kind": "section"
+      },
+      "sec:G2b3": {
+        "id": "G2b3",
+        "kind": "section"
+      },
+      "sec:HCXF": {
+        "id": "HCXF",
+        "kind": "section"
+      },
+      "sec:Ht4m": {
+        "id": "Ht4m",
+        "kind": "section"
+      },
+      "sec:KiIx": {
+        "id": "KiIx",
+        "kind": "section"
+      },
+      "sec:LQSI": {
+        "id": "LQSI",
+        "kind": "section"
+      },
+      "sec:SXcM": {
+        "id": "SXcM",
+        "kind": "section"
+      },
+      "sec:Tvdi": {
+        "id": "Tvdi",
+        "kind": "section"
+      },
+      "sec:Wv2i": {
+        "id": "Wv2i",
+        "kind": "section"
+      },
+      "sec:ZnYc": {
+        "id": "ZnYc",
+        "kind": "section"
+      },
+      "sec:dUY4": {
+        "id": "dUY4",
+        "kind": "section"
+      },
+      "sec:f8bD": {
+        "id": "f8bD",
+        "kind": "section"
+      },
+      "sec:l2uZ": {
+        "id": "l2uZ",
+        "kind": "section"
+      },
+      "sec:nEqW": {
+        "id": "nEqW",
+        "kind": "section"
+      },
+      "sec:tak0": {
+        "id": "tak0",
+        "kind": "section"
+      },
+      "sec:uB3X": {
+        "id": "uB3X",
+        "kind": "section"
+      },
+      "sec:xeiv": {
+        "id": "xeiv",
+        "kind": "section"
+      }
+    },
     "intro.cob": {
+      "ch:intro": {
+        "id": "BpRE",
+        "kind": "section"
+      },
       "cite:DBLP:conf/cdc/KasenbergS17": {
         "id": "aD67",
         "kind": "citation"
@@ -253,6 +533,12 @@
         "kind": "section"
       }
     },
+    "learning.cob": {
+      "part:learn": {
+        "id": "n1FY",
+        "kind": "section"
+      }
+    },
     "luce-axiom.cob": {
       "def:value-distinguishability": {
         "id": "9EAe",
@@ -275,7 +561,25 @@
         "kind": "section"
       }
     },
+    "outro.cob": {
+      "ch:outro": {
+        "id": "S8PG",
+        "kind": "section"
+      },
+      "sec:Joud": {
+        "id": "Joud",
+        "kind": "section"
+      },
+      "sec:TjN1": {
+        "id": "TjN1",
+        "kind": "section"
+      }
+    },
     "prelims.cob": {
+      "ch:concepts": {
+        "id": "Cu8R",
+        "kind": "section"
+      },
       "def:concept-class": {
         "id": "Ern0",
         "kind": "section"
@@ -490,6 +794,10 @@
       }
     },
     "taskspecs.cob": {
+      "ch:task_spec": {
+        "id": "BPvL",
+        "kind": "section"
+      },
       "def:competent": {
         "id": "Dit6",
         "kind": "section"
@@ -560,6 +868,10 @@
       }
     },
     "teaching.cob": {
+      "ch:teach": {
+        "id": "c7Dr",
+        "kind": "section"
+      },
       "fig:teaching-demo": {
         "id": "KHnU",
         "kind": "figure"
@@ -614,6 +926,176 @@
       },
       "sec:y4dE": {
         "id": "NCfl",
+        "kind": "section"
+      }
+    },
+    "thesis.cob": {
+      "cite:DBLP:conf/cdc/KasenbergS17": {
+        "id": "0rEr",
+        "kind": "citation"
+      },
+      "cite:DBLP:conf/cie/Adriaans07": {
+        "id": "fiif",
+        "kind": "citation"
+      },
+      "cite:DBLP:conf/esweek/LeeS10": {
+        "id": "NV4L",
+        "kind": "citation"
+      },
+      "cite:DBLP:conf/fmcad/AlurBJMRSSSTU13": {
+        "id": "FY3O",
+        "kind": "citation"
+      },
+      "cite:DBLP:conf/fmcad/NeiderG18": {
+        "id": "9zes",
+        "kind": "citation"
+      },
+      "cite:DBLP:conf/fmcad/TorfahSCAS21": {
+        "id": "3mFU",
+        "kind": "citation"
+      },
+      "cite:DBLP:conf/hri/DraganLS13": {
+        "id": "mq4q",
+        "kind": "citation"
+      },
+      "cite:DBLP:conf/icgi/HeuleV10": {
+        "id": "V8Zt",
+        "kind": "citation"
+      },
+      "cite:DBLP:conf/icml/IcarteKVM18": {
+        "id": "X5Cg",
+        "kind": "citation"
+      },
+      "cite:DBLP:conf/icml/VermaMSKC18": {
+        "id": "knTG",
+        "kind": "citation"
+      },
+      "cite:DBLP:conf/icra/Yoon021": {
+        "id": "9XKF",
+        "kind": "citation"
+      },
+      "cite:DBLP:conf/iros/HorowitzWM14": {
+        "id": "PVHI",
+        "kind": "citation"
+      },
+      "cite:DBLP:conf/lata/UlyantsevZS15": {
+        "id": "f0fs",
+        "kind": "citation"
+      },
+      "cite:DBLP:conf/nips/HoLMCA16": {
+        "id": "FLGT",
+        "kind": "citation"
+      },
+      "cite:DBLP:conf/nips/ShahKSL18": {
+        "id": "ofaX",
+        "kind": "citation"
+      },
+      "cite:DBLP:conf/nips/Vazquez-Chanlatte18": {
+        "id": "pYyK",
+        "kind": "citation"
+      },
+      "cite:DBLP:conf/rss/ChouOB20": {
+        "id": "Utqf",
+        "kind": "citation"
+      },
+      "cite:DBLP:conf/wsc/SkiscimG83": {
+        "id": "olj8",
+        "kind": "citation"
+      },
+      "cite:DBLP:journals/acta/JhaS17": {
+        "id": "V2iD",
+        "kind": "citation"
+      },
+      "cite:DBLP:journals/corr/abs-1711-09883": {
+        "id": "ZqlU",
+        "kind": "citation"
+      },
+      "cite:DBLP:journals/nips/Abel22": {
+        "id": "rZUG",
+        "kind": "citation"
+      },
+      "cite:DBLP:journals/pieee/Seshia15": {
+        "id": "BsCj",
+        "kind": "citation"
+      },
+      "cite:DBLP:journals/sigact/Sipser96": {
+        "id": "VfTu",
+        "kind": "citation"
+      },
+      "cite:DBLP:phd/basesearch/Carrillo21": {
+        "id": "wOwc",
+        "kind": "citation"
+      },
+      "cite:amodei2016concrete": {
+        "id": "sofm",
+        "kind": "citation"
+      },
+      "cite:de2010grammatical": {
+        "id": "Tnjo",
+        "kind": "citation"
+      },
+      "cite:ghosh2018repair": {
+        "id": "EzBH",
+        "kind": "citation"
+      },
+      "cite:goodman2016pragmatic": {
+        "id": "cOHD",
+        "kind": "citation"
+      },
+      "cite:ho_teaching_2015": {
+        "id": "RAqB",
+        "kind": "citation"
+      },
+      "cite:kalman1964linear": {
+        "id": "cTn7",
+        "kind": "citation"
+      },
+      "cite:littman_environment-independent_2017": {
+        "id": "Bx5g",
+        "kind": "citation"
+      },
+      "cite:luce1959individual": {
+        "id": "sXWG",
+        "kind": "citation"
+      },
+      "cite:mceThesis": {
+        "id": "a7Pe",
+        "kind": "citation"
+      },
+      "cite:pineau2003point": {
+        "id": "wZBX",
+        "kind": "citation"
+      },
+      "cite:seshia-arxiv16": {
+        "id": "Gfa3",
+        "kind": "citation"
+      },
+      "cite:taylor1950purposeful": {
+        "id": "Y5Jn",
+        "kind": "citation"
+      },
+      "cite:watanabe2021probabilistic": {
+        "id": "i7O4",
+        "kind": "citation"
+      },
+      "cite:ziebart2008maximum": {
+        "id": "fnOK",
+        "kind": "citation"
+      },
+      "sec:abstract": {
+        "id": "mu32",
+        "kind": "section"
+      },
+      "sec:acknowledgements": {
+        "id": "VT9g",
+        "kind": "section"
+      },
+      "sec:contents": {
+        "id": "eCmp",
+        "kind": "section"
+      },
+      "sec:glance": {
+        "id": "F6iD",
         "kind": "section"
       }
     }

@@ -1,3 +1,31 @@
+# The book. The order of `files` is the reading order, and the only place it is
+# written down: `cob lock` and `cob weave` read it when given no file arguments.
+# A chapter file that starts at a "##" heading (sgs, luce-axiom, prop-grad,
+# bibliographic-notes-30s) joins the page of the chapter before it.
+[[document]]
+id = "thesis"
+title = "Specifications from Demonstrations: Learning, Teaching, and Control"
+authors = ["Marcell Jose Vazquez-Chanlatte"]
+files = [
+  "thesis.cob",
+  "intro.cob",
+  "prelims.cob",
+  "dynamics.cob",
+  "learning.cob",
+  "taskspecs.cob",
+  "diss.cob",
+  "sgs.cob",
+  "luce-axiom.cob",
+  "prop-grad.cob",
+  "bibliographic-notes-30s.cob",
+  "teaching.cob",
+  "control.cob",
+  "erci.cob",
+  "circuits.cob",
+  "bdd.cob",
+  "outro.cob",
+]
+
 # The thesis forest's bibliography (§14): \cite resolves against this BibTeX file.
 [cite]
 bib = "references.bib"
@@ -8,3 +36,4 @@ cmd = ["python3", "tools/latexfig"]
 [fence.tikzfig]
 cmd = ["node", "tools/tikzfig/index.js"]
 preamble_file = "tools/tikz-preamble.tex"
+texPackages = { amssymb = "", amsmath = "" }
