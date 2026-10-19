@@ -1,0 +1,59 @@
+\begin{tikzpicture}[scale=2.5]	
+     	
+  	\node at (0.6,0.3) (x1) {};
+  		\node at (0.3,0.8) (x2) {};
+  	
+  		\node at (0.5,0.57778) (x3) {};
+  		
+  					\draw[draw=none,pattern= bricks, pattern color=black!50] (1,0) rectangle (x1);
+  					
+  					\draw[draw=none,pattern= bricks, pattern color=black!50] (0,1) rectangle (x2);
+  	
+  		\draw[fill=green!10!white,draw=green] (0,0) rectangle (x1);
+  			\draw[fill=green!10!white,draw=green] (0,0) rectangle (x2);
+  			
+  				\draw[fill=purple!20!white,draw=red!0!white] (1,1) rectangle (x1);
+  			\draw[fill=purple!20!white,draw=red!0!white] (1,1) rectangle (x2);
+  					\draw[fill=purple!20!white,draw=red!0!white] (1,1) rectangle (x3);
+  						\draw[draw=purple!80!black,dashed] (1,1) rectangle (x1);
+  			\draw[draw=purple!80!black,dashed] (1,1) rectangle (x2);
+  					\draw[draw= purple!80!black,dashed] (1,1) rectangle (x3);
+  					
+  					\draw[draw=none,dashed,pattern=dots, pattern color=red] (1,1) rectangle (x1);
+  					\draw[draw=none,dashed,pattern=dots, pattern color=red] (1,1) rectangle (x2);
+  					\draw[draw=none,dashed,pattern=dots, pattern color=red] (1,1) rectangle (x3);
+  					
+  					
+  			
+  		 \draw[thick, ->] (-0.05, 0) -- (1, 0) node[below]{$\rndp$};
+  	\draw[thick, ->] (0, -0.05) -- (0, 1) node[above] {$\scp$};
+  	
+  	
+  	 \fill[draw=green!50!black] (x2.center) -- (x3.center) -- (x1.center);
+    \fill[color=green!10!white] (x2.center) -- (x3.center) -- (x1.center) --  (0.3,0.3);
+    
+%  		\draw[name path=f, domain=0.3:0.6, smooth, variable=\x, green!50!black,thick] plot ({\x}, {-5.555*(\x-0.3)*(\x-0.3) + 0.8});
+%    
+  	
+  	\draw[dashed] (0,0) -| (x1);
+  	\draw[dashed] (0,0) -| (x2);
+  	 \draw[dashed] (0,0) |- (x1);
+  	\draw[dashed] (0,0) |- (x2);
+  	
+  		\draw[-,thick,color=green!50!black] (0,0.8) -- (x2);
+  	\draw[-,thick,color=green!50!black] (0.6,0.0) -- (x1);
+  	 
+  	\draw (x1) node[circle,fill=green, inner sep=1.5pt,draw=green!50!black] {};
+  \draw (x2) node[circle,fill=green, inner sep=1.5pt,draw=green!50!black] {};
+  \draw (x3) node[circle,fill=green, inner sep=1.5pt,draw=green!50!black] {};
+  \node[anchor=north] at (0.6,0) {$\rndopt$};
+  		
+  		\node[anchor=north] at (0.3,0) {$\rndmin$};
+  		
+  		\node[anchor=east] at (0,0.85) {$\scopt$};
+  		
+  		\node[anchor=east] at (0,0.3) {$\scmin$};
+  
+  	
+  	
+\end{tikzpicture}

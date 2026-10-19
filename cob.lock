@@ -206,6 +206,30 @@
         "id": "QcCZ",
         "kind": "macro"
       },
+      "def:stochastic-game": {
+        "id": "ngh0",
+        "kind": "section"
+      },
+      "eq:erci-incomplete": {
+        "id": "qQN7",
+        "kind": "equation"
+      },
+      "eq:erci-incomplete-eq": {
+        "id": "51rb",
+        "kind": "equation"
+      },
+      "eq:mdp-smooth-bellman": {
+        "id": "kW8k",
+        "kind": "equation"
+      },
+      "eq:scalarization": {
+        "id": "3qhq",
+        "kind": "equation"
+      },
+      "ex:approximation": {
+        "id": "LAxj",
+        "kind": "section"
+      },
       "fig:bdd_sizes": {
         "id": "dJJ2",
         "kind": "figure"
@@ -216,6 +240,26 @@
       },
       "fig:exp_times": {
         "id": "Coe6",
+        "kind": "figure"
+      },
+      "fig:geom:doubling": {
+        "id": "nR9l",
+        "kind": "figure"
+      },
+      "fig:geom:guarantee": {
+        "id": "5tZV",
+        "kind": "figure"
+      },
+      "fig:geom:iterative": {
+        "id": "Jmxo",
+        "kind": "figure"
+      },
+      "fig:geom:regret": {
+        "id": "Clrk",
+        "kind": "figure"
+      },
+      "fig:geom:solution": {
+        "id": "NEb9",
         "kind": "figure"
       },
       "fig:geometric": {
@@ -242,6 +286,58 @@
         "id": "MvxD",
         "kind": "figure"
       },
+      "fig:toysg": {
+        "id": "FGUD",
+        "kind": "figure"
+      },
+      "obs:erci-pareto": {
+        "id": "aUKM",
+        "kind": "section"
+      },
+      "obs:semi-decision": {
+        "id": "2Sww",
+        "kind": "section"
+      },
+      "prob:core-erci": {
+        "id": "Jpus",
+        "kind": "section"
+      },
+      "prob:core-rci": {
+        "id": "3ZeC",
+        "kind": "section"
+      },
+      "prob:erci": {
+        "id": "TvzW",
+        "kind": "section"
+      },
+      "proc:approx-pareto": {
+        "id": "8Pvl",
+        "kind": "section"
+      },
+      "proof:convex": {
+        "id": "fLc4",
+        "kind": "section"
+      },
+      "proof:sg-completeness": {
+        "id": "GIdq",
+        "kind": "section"
+      },
+      "prop:conservative": {
+        "id": "3G9l",
+        "kind": "section"
+      },
+      "prop:convex": {
+        "id": "pQr9",
+        "kind": "section"
+      },
+      "prop:erci:monotone": {
+        "id": "elwd",
+        "kind": "section"
+      },
+      "rem:scalarwitnesses": {
+        "id": "K36i",
+        "kind": "section"
+      },
       "sec:1efJ": {
         "id": "1efJ",
         "kind": "section"
@@ -250,12 +346,32 @@
         "id": "4B9u",
         "kind": "section"
       },
+      "sec:4KRW": {
+        "id": "4KRW",
+        "kind": "section"
+      },
+      "sec:4jKv": {
+        "id": "4jKv",
+        "kind": "section"
+      },
       "sec:5fUd": {
         "id": "5fUd",
         "kind": "section"
       },
+      "sec:65oL": {
+        "id": "65oL",
+        "kind": "section"
+      },
       "sec:79vO": {
         "id": "79vO",
+        "kind": "section"
+      },
+      "sec:AZOs": {
+        "id": "AZOs",
+        "kind": "section"
+      },
+      "sec:CSIM": {
+        "id": "CSIM",
         "kind": "section"
       },
       "sec:E6a7": {
@@ -286,6 +402,22 @@
         "id": "Ht4m",
         "kind": "section"
       },
+      "sec:I23L": {
+        "id": "I23L",
+        "kind": "section"
+      },
+      "sec:IC4F": {
+        "id": "IC4F",
+        "kind": "section"
+      },
+      "sec:JwyX": {
+        "id": "JwyX",
+        "kind": "section"
+      },
+      "sec:KOfy": {
+        "id": "KOfy",
+        "kind": "section"
+      },
       "sec:KiIx": {
         "id": "KiIx",
         "kind": "section"
@@ -294,36 +426,120 @@
         "id": "LQSI",
         "kind": "section"
       },
+      "sec:LuqU": {
+        "id": "LuqU",
+        "kind": "section"
+      },
+      "sec:Rcei": {
+        "id": "Rcei",
+        "kind": "section"
+      },
       "sec:SXcM": {
         "id": "SXcM",
+        "kind": "section"
+      },
+      "sec:T4Ay": {
+        "id": "T4Ay",
         "kind": "section"
       },
       "sec:Tvdi": {
         "id": "Tvdi",
         "kind": "section"
       },
+      "sec:WmY7": {
+        "id": "WmY7",
+        "kind": "section"
+      },
       "sec:Wv2i": {
         "id": "Wv2i",
+        "kind": "section"
+      },
+      "sec:ZJmt": {
+        "id": "ZJmt",
         "kind": "section"
       },
       "sec:ZnYc": {
         "id": "ZnYc",
         "kind": "section"
       },
+      "sec:bnUH": {
+        "id": "bnUH",
+        "kind": "section"
+      },
+      "sec:ckPL": {
+        "id": "ckPL",
+        "kind": "section"
+      },
+      "sec:convex": {
+        "id": "uKtF",
+        "kind": "section"
+      },
+      "sec:dAl7": {
+        "id": "dAl7",
+        "kind": "section"
+      },
       "sec:dUY4": {
         "id": "dUY4",
+        "kind": "section"
+      },
+      "sec:empirical": {
+        "id": "K0AD",
+        "kind": "section"
+      },
+      "sec:erci-sgs": {
+        "id": "T2do",
         "kind": "section"
       },
       "sec:f8bD": {
         "id": "f8bD",
         "kind": "section"
       },
+      "sec:frdh": {
+        "id": "frdh",
+        "kind": "section"
+      },
+      "sec:jBaz": {
+        "id": "jBaz",
+        "kind": "section"
+      },
       "sec:l2uZ": {
         "id": "l2uZ",
         "kind": "section"
       },
+      "sec:lnFH": {
+        "id": "lnFH",
+        "kind": "section"
+      },
+      "sec:mQuZ": {
+        "id": "mQuZ",
+        "kind": "section"
+      },
+      "sec:mdps": {
+        "id": "70vr",
+        "kind": "section"
+      },
+      "sec:motivating": {
+        "id": "gDfG",
+        "kind": "section"
+      },
       "sec:nEqW": {
         "id": "nEqW",
+        "kind": "section"
+      },
+      "sec:oaRE": {
+        "id": "oaRE",
+        "kind": "section"
+      },
+      "sec:problem": {
+        "id": "RDbA",
+        "kind": "section"
+      },
+      "sec:proofs_erci": {
+        "id": "v5c8",
+        "kind": "section"
+      },
+      "sec:related": {
+        "id": "cMol",
         "kind": "section"
       },
       "sec:tak0": {
@@ -332,6 +548,18 @@
       },
       "sec:uB3X": {
         "id": "uB3X",
+        "kind": "section"
+      },
+      "sec:uIWb": {
+        "id": "uIWb",
+        "kind": "section"
+      },
+      "sec:v19p": {
+        "id": "v19p",
+        "kind": "section"
+      },
+      "sec:wllX": {
+        "id": "wllX",
         "kind": "section"
       },
       "sec:xeiv": {
@@ -930,12 +1158,68 @@
       }
     },
     "thesis.cob": {
+      "cite:DBLP:books/daglib/0040483": {
+        "id": "A1fP",
+        "kind": "citation"
+      },
+      "cite:DBLP:books/wi/Puterman94": {
+        "id": "2IkW",
+        "kind": "citation"
+      },
+      "cite:DBLP:conf/aaai/SpeicherS00K18": {
+        "id": "CYgT",
+        "kind": "citation"
+      },
+      "cite:DBLP:conf/adprl/ParisiPSBR14": {
+        "id": "UcBM",
+        "kind": "citation"
+      },
+      "cite:DBLP:conf/atal/Klaska0R20": {
+        "id": "7gM5",
+        "kind": "citation"
+      },
+      "cite:DBLP:conf/atal/ParuchuriPTOK07": {
+        "id": "KrZq",
+        "kind": "citation"
+      },
+      "cite:DBLP:conf/atva/ForejtKP12": {
+        "id": "VYPH",
+        "kind": "citation"
+      },
+      "cite:DBLP:conf/cav/ChatterjeeKWW20": {
+        "id": "9wiF",
+        "kind": "citation"
+      },
+      "cite:DBLP:conf/cav/FremontS18": {
+        "id": "U3ql",
+        "kind": "citation"
+      },
+      "cite:DBLP:conf/cav/QuatmannJK17": {
+        "id": "AtYO",
+        "kind": "citation"
+      },
+      "cite:DBLP:conf/cav/Vazquez-Chanlatte20": {
+        "id": "7AYa",
+        "kind": "citation"
+      },
+      "cite:DBLP:conf/cdc/GeM18": {
+        "id": "Ubpq",
+        "kind": "citation"
+      },
       "cite:DBLP:conf/cdc/KasenbergS17": {
         "id": "0rEr",
         "kind": "citation"
       },
       "cite:DBLP:conf/cie/Adriaans07": {
         "id": "fiif",
+        "kind": "citation"
+      },
+      "cite:DBLP:conf/dac/ChakrabortyMV14": {
+        "id": "wNEF",
+        "kind": "citation"
+      },
+      "cite:DBLP:conf/dimacs/Condon90": {
+        "id": "6Qzf",
         "kind": "citation"
       },
       "cite:DBLP:conf/esweek/LeeS10": {
@@ -954,6 +1238,10 @@
         "id": "3mFU",
         "kind": "citation"
       },
+      "cite:DBLP:conf/fsttcs/FremontDSW15": {
+        "id": "Eemy",
+        "kind": "citation"
+      },
       "cite:DBLP:conf/hri/DraganLS13": {
         "id": "mq4q",
         "kind": "citation"
@@ -962,24 +1250,64 @@
         "id": "V8Zt",
         "kind": "citation"
       },
+      "cite:DBLP:conf/icml/GeistSP19": {
+        "id": "Z8SG",
+        "kind": "citation"
+      },
       "cite:DBLP:conf/icml/IcarteKVM18": {
         "id": "X5Cg",
+        "kind": "citation"
+      },
+      "cite:DBLP:conf/icml/NatarajanT05": {
+        "id": "Y8OD",
+        "kind": "citation"
+      },
+      "cite:DBLP:conf/icml/NgR00": {
+        "id": "Crya",
         "kind": "citation"
       },
       "cite:DBLP:conf/icml/VermaMSKC18": {
         "id": "knTG",
         "kind": "citation"
       },
+      "cite:DBLP:conf/icml/XuTMRSM20": {
+        "id": "9R1g",
+        "kind": "citation"
+      },
+      "cite:DBLP:conf/icra/AgmonKK08": {
+        "id": "x8gr",
+        "kind": "citation"
+      },
+      "cite:DBLP:conf/icra/AmigoniBG09": {
+        "id": "fGZu",
+        "kind": "citation"
+      },
+      "cite:DBLP:conf/icra/AmigoniG05": {
+        "id": "dl9j",
+        "kind": "citation"
+      },
       "cite:DBLP:conf/icra/Yoon021": {
         "id": "9XKF",
+        "kind": "citation"
+      },
+      "cite:DBLP:conf/iotdi/AkkayaFVDLS16": {
+        "id": "hHPr",
         "kind": "citation"
       },
       "cite:DBLP:conf/iros/HorowitzWM14": {
         "id": "PVHI",
         "kind": "citation"
       },
+      "cite:DBLP:conf/iros/PortugalPRC14": {
+        "id": "I0WV",
+        "kind": "citation"
+      },
       "cite:DBLP:conf/lata/UlyantsevZS15": {
         "id": "f0fs",
+        "kind": "citation"
+      },
+      "cite:DBLP:conf/mfcs/ChenFKSW13": {
+        "id": "0Fvi",
         "kind": "citation"
       },
       "cite:DBLP:conf/nips/HoLMCA16": {
@@ -998,6 +1326,22 @@
         "id": "Utqf",
         "kind": "citation"
       },
+      "cite:DBLP:conf/soda/KannanSM95": {
+        "id": "zMS7",
+        "kind": "citation"
+      },
+      "cite:DBLP:conf/stacs/ChatterjeeMH06": {
+        "id": "bqgb",
+        "kind": "citation"
+      },
+      "cite:DBLP:conf/tacas/DelgrangeKQR20": {
+        "id": "XD7a",
+        "kind": "citation"
+      },
+      "cite:DBLP:conf/tacas/EtessamiKVY07": {
+        "id": "SdcE",
+        "kind": "citation"
+      },
       "cite:DBLP:conf/wsc/SkiscimG83": {
         "id": "olj8",
         "kind": "citation"
@@ -1006,8 +1350,52 @@
         "id": "V2iD",
         "kind": "citation"
       },
+      "cite:DBLP:journals/corr/abs-1104-3489": {
+        "id": "f782",
+        "kind": "citation"
+      },
       "cite:DBLP:journals/corr/abs-1711-09883": {
         "id": "ZqlU",
+        "kind": "citation"
+      },
+      "cite:DBLP:journals/corr/abs-1805-00909": {
+        "id": "kpJD",
+        "kind": "citation"
+      },
+      "cite:DBLP:journals/csur/Bryant92": {
+        "id": "KfVt",
+        "kind": "citation"
+      },
+      "cite:DBLP:journals/csysl/HaesaertNS21": {
+        "id": "fYho",
+        "kind": "citation"
+      },
+      "cite:DBLP:journals/eswa/NazarahariKD19": {
+        "id": "j9F4",
+        "kind": "citation"
+      },
+      "cite:DBLP:journals/fmsd/RandourRS17": {
+        "id": "I9OF",
+        "kind": "citation"
+      },
+      "cite:DBLP:journals/iandc/BellareGP00": {
+        "id": "r3Id",
+        "kind": "citation"
+      },
+      "cite:DBLP:journals/ijrr/LacerdaFPH19": {
+        "id": "UQX0",
+        "kind": "citation"
+      },
+      "cite:DBLP:journals/ior/AlpernMP11": {
+        "id": "OWCk",
+        "kind": "citation"
+      },
+      "cite:DBLP:journals/jar/HartmannsJKQ20": {
+        "id": "ESTz",
+        "kind": "citation"
+      },
+      "cite:DBLP:journals/jcss/BrazdilCFK17": {
+        "id": "HruA",
         "kind": "citation"
       },
       "cite:DBLP:journals/nips/Abel22": {
@@ -1018,12 +1406,36 @@
         "id": "BsCj",
         "kind": "citation"
       },
+      "cite:DBLP:journals/siamcomp/HickeyC83": {
+        "id": "FoC0",
+        "kind": "citation"
+      },
       "cite:DBLP:journals/sigact/Sipser96": {
         "id": "VfTu",
         "kind": "citation"
       },
+      "cite:DBLP:journals/sttt/KwiatkowskaPW18": {
+        "id": "tXvD",
+        "kind": "citation"
+      },
+      "cite:DBLP:journals/tac/SavasOCKT20": {
+        "id": "7UQ7",
+        "kind": "citation"
+      },
+      "cite:DBLP:journals/tcs/JerrumVV86": {
+        "id": "yjYY",
+        "kind": "citation"
+      },
       "cite:DBLP:phd/basesearch/Carrillo21": {
         "id": "wOwc",
+        "kind": "citation"
+      },
+      "cite:RSS21code": {
+        "id": "iVwQ",
+        "kind": "citation"
+      },
+      "cite:SmoothedAnalysis": {
+        "id": "ECGY",
         "kind": "citation"
       },
       "cite:amodei2016concrete": {
@@ -1068,6 +1480,10 @@
       },
       "cite:seshia-arxiv16": {
         "id": "Gfa3",
+        "kind": "citation"
+      },
+      "cite:simaan1973stackelberg": {
+        "id": "zUjv",
         "kind": "citation"
       },
       "cite:taylor1950purposeful": {

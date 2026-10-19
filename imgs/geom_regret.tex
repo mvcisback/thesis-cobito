@@ -1,0 +1,43 @@
+\begin{tikzpicture}[scale=2.5]	
+     	
+  	\node at (0.85,0.1) (x1) {};
+  		\node at (0.1,0.85) (x2) {};
+  		
+  		\node at (0.55,0.55) (x3) {};
+  		
+  		\node[anchor=north] at (0.85,0) {$\rndopt$};
+  		\node[anchor=north] at (0.55,0) {$\randomness_\delta$};
+  		
+  		\node[anchor=north] at (0.1,0) {$\rndmin$};
+  		
+  		\node[anchor=east] at (0,0.85) {$\scopt$};
+  		\node[anchor=east] at (0,0.55) {$\scthreshold_\epsilon$};
+  		
+  		\node[anchor=east] at (0,0.1) {$\scmin$};
+  	
+  		\draw[fill=green!10!white,draw=green] (0,0) rectangle (x1);
+  			\draw[fill=green!10!white,draw=green] (0,0) rectangle (x2);
+  			
+  			 \fill[draw=white,fill=green!10!white] (x1.center) -- (x2.center) -- (0.1, 0.1);
+    
+  			
+  		 \draw[thick, ->] (-0.05, 0) -- (1, 0) node[below]{\phantom{$\rndp$}};
+  	\draw[thick, ->] (0, -0.05) -- (0, 1) node[above] {\phantom{$\scp$}};
+  	
+  	\draw[dashed] (0,0) -| (x1);
+  	\draw[dashed] (0,0) -| (x2);
+  	 \draw[dashed] (0,0) |- (x1);
+  	\draw[dashed] (0,0) |- (x2);
+  	
+  	 \draw[dashed] (0,0) |- (x3);
+  	\draw[dashed] (0,0) -| (x3);
+  	 
+  	\draw (x1) node[circle,fill=green, inner sep=1.5pt,draw=green!50!black] {};
+  	
+  	\draw (x2) node[circle,fill=green, inner sep=1.5pt,draw=green!50!black] {};
+  
+  	
+  	
+  	\draw (x3) node[circle,draw,fill=white, inner sep=1.5pt,draw=black] {};
+  	
+\end{tikzpicture}

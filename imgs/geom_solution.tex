@@ -1,0 +1,36 @@
+\begin{tikzpicture}[scale=2.5]	
+     	
+  	\node at (0.6,0.3) (x1) {};
+  		\node at (0.3,0.8) (x2) {};
+  	
+  		\node at (0.5,0.57778) (x3) {};
+  	
+  		\draw[fill=green!10!white,draw=green] (0,0) rectangle (x1);
+  			\draw[fill=green!10!white,draw=green] (0,0) rectangle (x2);
+  			
+  			
+  		 \draw[thick, ->] (-0.05, 0) -- (1, 0) node[below]{$\rndp$};
+  	\draw[thick, ->] (0, -0.05) -- (0, 1) node[above] {$\scp$};
+  	
+  
+    \fill[ domain=0.3:0.6, smooth, variable=\x, green!10!white,thick] plot ({\x}, {-5.555*(\x-0.3)*(\x-0.3) + 0.8}) -- (0.3,0.3);
+    
+  		\draw[name path=f, domain=0.3:0.6, smooth, variable=\x, green!50!black,thick] plot ({\x}, {-5.555*(\x-0.3)*(\x-0.3) + 0.8});
+    
+  	
+  	\draw[dashed] (0,0) -| (x1);
+  	\draw[dashed] (0,0) -| (x2);
+  	 \draw[dashed] (0,0) |- (x1);
+  	\draw[dashed] (0,0) |- (x2);
+  	
+  		\draw[-,thick,color=green!50!black] (0,0.8) -- (x2);
+  	\draw[-,thick,color=green!50!black] (0.6,0.0) -- (x1);
+  	 
+  	\draw (x1) node[circle,fill=green, inner sep=1.5pt,draw=green!50!black] {};
+  \draw (x2) node[circle,fill=green, inner sep=1.5pt,draw=green!50!black] {};
+  \draw (x3) node[circle,fill=green, inner sep=1.5pt,draw=green!50!black] {};
+  
+  
+  	
+  	
+\end{tikzpicture}

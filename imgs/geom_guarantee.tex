@@ -1,0 +1,29 @@
+\begin{tikzpicture}[scale=2.5]	
+     	
+  	\draw (0.85, 0.3) node[cross=2pt,color=blue] (c1) {};
+  	\draw (0.78, 0.9) node[cross=2pt,color=blue] (c2) {};
+  	\draw (0.6, 0.8) node[cross=2pt,color=blue] (c3) {};
+  	
+  	\node at (0.6,0.3) (x1) {};
+  		\draw[fill=green!10!white,draw=green] (0,0) rectangle (x1);
+  		 \draw[thick, ->] (-0.05, 0) -- (1, 0) node[below]{$\rndp$};
+  	\draw[thick, ->] (0, -0.05) -- (0, 1) node[above] {$\scp$};
+
+\fill[fill=blue!10] (c1.center)--(c2.center)--(c3.center);
+	
+	  \fill[fill=blue!20,pattern=north west lines,pattern color=blue] (c1.center)--(c2.center)--(c3.center);
+	
+  	
+  	\draw[dashed] (0,0) |- (c1);
+  	\draw[dotted] (0,0) |- (c2);
+  	\draw[dotted] (0,0) |- (c3);
+  	\draw[dotted] (0,0) -| (c1);
+  	\draw[dotted] (0,0) -| (c2);
+  	\draw[dashed] (0,0) -| (c3);
+  	
+  	 
+  	\draw (x1) node[circle,fill=green, inner sep=1.5pt,draw=green!50!black] {};
+  
+  	
+  	
+\end{tikzpicture}
