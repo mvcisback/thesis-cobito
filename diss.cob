@@ -44,10 +44,8 @@ unstructured representation class such as DFAs, and even given unlabeled and
 possibly incomplete demonstrations. We close the chapter with how to handle
 violations of the Luce axiom, that is, redundant actions.
 
-\taxon{remark}
-
-### Why DFAs? {#rem:why-dfas}
-
+```node
+# \taxon{remark} \label{rem:why-dfas}
 We use DFAs as the representation class in our experiments for three reasons.
 First, a DFA encodes memory explicitly, which makes the contribution of
 identifying the relevant memory clear. Second, every other technique for learning
@@ -57,6 +55,7 @@ large and mostly unstructured class, so they let us study the search efficiency
 of DISS without baking in much inductive bias. By comparison, the existing
 techniques each carry the inductive bias of their own logic, so a direct
 comparison would confound search efficiency with that bias.
+```
 
 ## Running example {#sec:diss-running-example}
 

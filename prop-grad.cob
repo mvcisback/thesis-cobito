@@ -10,14 +10,13 @@ $$\frac{\partial \hat{\surprise}}{\partial \pival_k}=\sum_{(i,j)\in \Edges,\ i\t
 
 The proof proceeds via a supporting lemma.
 
-\taxon{lemma}
-
-### Surprisal gradient lemma {#lem:grad}
-
+```node
+# \taxon{lemma} \label{lem:grad}
 For any nodes $i$ and $k$ in the prefix tree,
 
 $$\frac{\partial}{\partial \pival_k}\hat{V}_i = p_{ik}.$$
 
 \emph{Proof sketch.} When $i$ is an environment node, the transition probabilities $\Pr(i \rightsquigarrow j \mid \pival)$ are constants, so the derivative of $\hat{V}_i$ reduces to the derivative of its child $\hat{V}_j$. When $i$ is an ego node, $\hat{V}_i=\log\sum_j e^{\hat{V}_j}$, whose derivative is the soft-max $\Pr(i \rightsquigarrow j \mid \pival)$ times the derivative of $\hat{V}_j$. By induction along the unique path from $i$ to $k$, we obtain $\partial \hat{V}_i/\partial \pival_k = p_{ik}$.
+```
 
 \emph{Proof of the proposition.} For an ego edge $(i,j)$ we have $\ln \Pr(i \rightsquigarrow j \mid \pival)=\hat{V}_j-\hat{V}_i$. Differentiating gives $\partial \ln \Pr/\partial \pival_k = p_{jk}-p_{ik}$ by the lemma (\ref{lem:grad}), which after re-ordering yields the stated expression.

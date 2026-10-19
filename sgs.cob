@@ -21,10 +21,8 @@ reason about the paths the agent did \emph{not} take.
 <img src="imgs/prefix_tree.svg" alt="Two demonstrated paths on the left and their 12-node prefix tree on the right.">
 ```
 
-\taxon{definition}
-
-### Prefix tree, ego and env nodes, and pivots {#def:prefix-tree}
-
+```node
+# \taxon{definition} \label{def:prefix-tree}
 Let $\Demos$ be a multiset of demonstrations (paths), and let $\prefixtree =
 (\Nodes, \Edges)$ be their prefix tree, where $\Nodes$ and $\Edges$ are the
 prefixes (nodes) and the edges. A node $\prefix$ is an \strong{ego node} if its
@@ -36,11 +34,10 @@ states that make a path pivot at $\prefix$:
 
 $$A_\prefix \eqdef \{\act \mid \prefix \concat \act \in \Path \setminus \Nodes\},
 \qquad S_\prefix \eqdef \{s \mid \prefix \concat s \in \Path \setminus \Nodes\}.$$
+```
 
-\taxon{example}
-
-### Pivots in the prefix tree {#ex:pivots}
-
+```node
+# \taxon{example} \label{ex:pivots}
 Consider the MDP in the prefix-tree figure above, with two demonstrations
 $\demo_1$ and $\demo_2$ — a green dashed line and a black solid line. Their prefix
 tree is on the right, with an index on each node. For example, $\prefix_1$ is the
@@ -50,6 +47,7 @@ outcomes — slipping and not slipping — appear in the demonstrations, so
 $S_{\prefix_2} = \emptyset$. The grey dotted line is a suffix $y$ for which
 $\prefix_7 \concat y$ pivots at $\prefix_7$, so $\prefix_7$ is not a complete
 path: $\prefix_7 \notin \CompletePaths$.
+```
 
 Because weighted averaging and log-sum-exp commute, we can aggregate the values
 of a set of actions or states. This motivates the \strong{pivot value} of a node
@@ -64,15 +62,14 @@ We write $\pival^\spec \in \Reals^{\Nodes}$ for the node-indexed vector of pivot
 values of task $\spec$ under the maximum-entropy agent. Pivot values have two
 properties. First, they strictly increase as the task's language grows.
 
-\taxon{proposition}
-
-### Pivot values respect subsets {#prop:monotone}
-
+```node
+# Pivot values respect subsets \taxon{proposition} \label{prop:monotone}
 Let $\trc$ be a complete path that pivots at node $i$. If $\spec \subsetneq \psi$
 and $\trc \in \psi \setminus \spec$, then $\pival^\spec_i < \pival^\psi_i$.
 
 \emph{Proof.} This follows inductively from the monotonicity of $\E$, $\sum$, and
 $\ln$.
+```
 
 Second, by the smooth Bellman backup, the pivot values \strong{entirely
 determine} the values $V$ of the prefixes of the demonstrations. Write
@@ -85,10 +82,8 @@ node $k$ under the local policy, $e^{\hat{V}_k(\pival) - \hat{V}_i(\pival)}$.
 imgs/computation_tree.pdf_tex
 ```
 
-\taxon{example}
-
-### Pivot values determine node values {#ex:pivot-determines}
-
+```node
+# \taxon{example} \label{ex:pivot-determines}
 Consider the prefix tree again. Node $3$ has $A(\last(\prefix_3)) = \{\uparrow,
 \downarrow, \rightarrow\}$ and $A_{\prefix_3} = \{\uparrow, \downarrow\}$. Suppose
 each action has value $1$. Since node $3$ is an ego node,
@@ -100,6 +95,7 @@ By definition $V(\prefix_3) = \ln(e^1 + e^1 + e^1) = 1 + \ln 3$, and by
 associativity $V(\prefix_3) = \ln(e^1 + e^{\ln(2e)}) = 1 + \ln 3$ as well. Either
 way, the probability of going from node $3$ to node $4$ is $\Pr(\prefix_3
 \rightsquigarrow \prefix_4 \mid \pival) = e^{1 - (1 + \ln 3)} \cdot e = \tfrac{1}{3}$.
+```
 
 ### Benefits of the local perspective {#sec:local-benefits}
 
@@ -147,10 +143,8 @@ values of the current task. We see how the description length changes as the
 pivot values change. And we turn a suggested change in pivot values into a change
 in the task.
 
-\taxon{definition}
-
-### Pivot and task surprisal {#def:surprisal}
-
+```node
+# \taxon{definition} \label{def:surprisal}
 Let $\prefixtree = (\Nodes, \Edges)$ be a prefix tree of demonstrations $\Demos$.
 The \strong{pivot surprisal} is a map $\hat{\surprise} : \Reals^d \to \Reals$,
 where $d$ is the number of nodes that can pivot, with
@@ -160,11 +154,10 @@ $$\hat{\surprise}(\pival) \eqdef -\sum_{(i,j) \in \Edges} \#_{(i,j)} \cdot \ln
 
 The \strong{task surprisal} of a task $\spec$ is the pivot surprisal of
 $\pival^\spec$: $\surprise(\spec \mid \Demos) \eqdef \hat{\surprise}(\pival^\spec)$.
+```
 
-\taxon{remark}
-
-### Surprisal is the negative log likelihood {#rem:surprisal-nll}
-
+```node
+# \taxon{remark} \label{rem:surprisal-nll}
 The task surprisal is the negative log likelihood of the demonstrations,
 $\Pr(\Demos \mid \spec, M) = e^{-\surprise(\spec \mid \Demos)}$. We work with
 surprisal, not likelihood, for two reasons. The gradient of $\hat{\surprise}$ has
@@ -173,6 +166,7 @@ combined description length of the demonstrations and the task as one object: a
 size prior on tasks gives $\Pr(\spec \mid \Demos, M) \propto \exp\big(-(\surprise(\spec
 \mid \Demos) + \size(\spec))\big)$. We seek a task that is easy to describe and
 also explains the demonstrations.
+```
 
 ### Pivot surprisal gradients {#sec:surprisal-gradients}
 
@@ -183,10 +177,8 @@ a pivot value changes the policy non-locally — changing $\pival_9$ in the
 computation tree also changes nodes 9, 8, 2, and 1 — but the gradient of
 $\hat{\surprise}$ summarizes these upstream effects.
 
-\taxon{proposition}
-
-### The surprisal gradient is set by the local policy {#prop:grad}
-
+```node
+# $\nabla \hat{\surprise}$ determined by local policy \taxon{proposition} \label{prop:grad}
 Let $p_{xy}(\pival)$ be the probability of starting at node $x$ and pivoting at
 $y$,
 
@@ -197,6 +189,7 @@ Then
 
 $$\frac{\partial \hat{\surprise}}{\partial \pival_k} = \sum_{\substack{(i,j) \in
 \Edges \\ i \text{ ego}}} \#_{(i,j)} \cdot \big(p_{ik}(\pival) - p_{jk}(\pival)\big).$$
+```
 
 The proof is mechanical and sits at the end of the chapter. The proposition shows
 the gradient is simple to compute from the policy on the prefix tree alone.
@@ -235,15 +228,14 @@ avoids lava". A negative gradient suggests a counter-factual path that should be
 \emph{added} to $\spec$ — "the agent moved near the ledge because, even if it
 slips, $\trc$ still completes the task".
 
-\taxon{remark}
-
-### The toggle criterion {#rem:toggle}
-
+```node
+# \taxon{remark} \label{rem:toggle}
 Let $\trc$ be a complete path with pivot $\prefix$ such that $\trc \in \spec \iff
 \frac{\partial \hat{\surprise}}{\partial \pival_\prefix} > 0$. If $\trc$ is likely
 under $\policy_\spec$, so it has a large effect on $\pival$, and the gradient
 $\frac{\partial \hat{\surprise}}{\partial \pival_\prefix}$ is large in absolute
 value, then $\spec$ may mislabel $\trc$.
+```
 
 ## Specification search {#sec:spec-search}
 
@@ -277,24 +269,22 @@ between three components (the DISS cycle, \ref{fig:diss-overview}):
 The candidate sampler is user-provided, so what remains is the surprisal guided
 sampler and the example buffer.
 
-\taxon{remark}
-
-### DISS is a guided random walk {#rem:diss-walk}
-
+```node
+# \taxon{remark} \label{rem:diss-walk}
 DISS is a random walk through labeled-example space, guided by the surprisal
 gradient of the sampled tasks. Each new labeled example constrains the next task
 to address a counter-factual, and this accumulation of corrective constraints
 focuses the candidate sampler on ever more probable — lower energy — tasks.
+```
 
-\taxon{remark}
-
-### DISS is representation-agnostic {#rem:diss-repr}
-
+```node
+# \taxon{remark} \label{rem:diss-repr}
 Adapting DISS to a new representation class only changes the identifier. We have
 discussed learning DFAs from positive examples; similar algorithms exist for
 decision diagrams \cite{DBLP:conf/fmcad/TorfahSCAS21}, linear temporal logic
 \cite{DBLP:conf/fmcad/NeiderG18}, and syntactically defined programs
 \cite{DBLP:conf/fmcad/AlurBJMRSSSTU13}.
+```
 
 ### Surprisal guided sampler {#sec:sgs}
 
@@ -326,10 +316,8 @@ say, is inconsistent with the class.
 imgs/sggs.pdf_tex
 ```
 
-\taxon{example}
-
-### The gradient flags the detour {#ex:sgs}
-
+```node
+# \taxon{example} \label{ex:sgs}
 Recall the ad-hoc analysis of the gridworld in the running example
 (\ref{sec:diss-running-example}). Under the "reach $\yellowTile$, avoid
 $\redTile$" hypothesis $\spec$, it is surprising that the agent moves up from
@@ -342,24 +330,23 @@ $\policy_\spec$, a new path $\trc$ that pivots at $k$ and satisfies $\spec$ — 
 red dashed suffix fits. Finally, the toggle criterion (\ref{rem:toggle})
 prescribes marking $\trc$ as a negative path, which matches the ad-hoc analysis
 at the start of the chapter.
+```
 
-\taxon{remark}
-
-### Rejection sampling over pivots {#rem:sgs-reject}
-
+```node
+# \taxon{remark} \label{rem:sgs-reject}
 For some pivots no path satisfies all three conditions — a pivot into a fail-sink
 of a DFA cannot yield a positive path, say. So we sample a pivot first, then an
 extension; a pivot where a condition is impossible has zero mass and drops out.
 This rejection sampling repeats until it finds a (pivot, path) pair.
+```
 
-\taxon{remark}
-
-### Only black-box planner access {#rem:sgs-blackbox}
-
+```node
+# \taxon{remark} \label{rem:sgs-blackbox}
 The sampler needs only black-box access to $\policy_\spec$ to assign edge
 probabilities $\Pr(i \rightsquigarrow j \mid \pival)$ and to sample suffixes from
 a pivot. If the satisfaction probability of an action is also known, Bayes' rule
 samples suffixes more efficiently.
+```
 
 ### Example buffer and backtracking {#sec:example-buffer}
 
@@ -396,15 +383,14 @@ task distribution is biased towards simpler tasks, where simplicity is the
 description length $\size(\spec)$, and towards tasks that explain $\Demos$, whose
 description length is the surprisal.
 
-\taxon{remark}
-
-### What the weight controls {#rem:theta}
-
+```node
+# \taxon{remark} \label{rem:theta}
 $\theta$ plays two roles. It makes $\surprise$ and $\size$ comparable — bits to
 nats — and it sets the geometric prior over $\size(\spec)$, with mean
 $\tfrac{1}{\theta}$. So set $\tfrac{1}{\theta}$ larger than the description length
 of a "large" representation. Below we use $\theta = \tfrac{1}{50}$, telling DISS
 the task needs not much more than 50 nats; the ground-truth DFA uses about 40.
+```
 
 ### Demonstration informed specification search {#sec:diss-algorithm}
 
@@ -443,15 +429,14 @@ restarts the task from $\identify(\bullet \mid \EX, \bot)$.
 \Return $\ConceptClass$
 ```
 
-\taxon{remark}
-
-### What annealing buys {#rem:annealing}
-
+```node
+# \taxon{remark} \label{rem:annealing}
 Annealing guides the search through labeled-example space for constraints on the
 identifier. Three mechanisms keep the examples useful. A proposal that does not
 lower the energy is only sometimes accepted. Each step may drop an example, so the
 examples that persist are the ones repeatedly re-conjectured when missing. And
 resets make global progress after a mistake leads to a local minimum.
+```
 
 ## Experiments {#sec:experiments}
 
@@ -492,10 +477,8 @@ entropy planner — described in a later part — uses a 15-step horizon; with o
 two demonstrations the rationality $\lambda$ of $\policy_\spec$ is $10$ for every
 specification.
 
-\taxon{example}
-
-### The concept sampler fixes a blind spot {#ex:concept-sampler}
-
+```node
+# \taxon{example} \label{ex:concept-sampler}
 The concept sampler $\identify(\bullet \mid \EX, \spec')$ respects the relative
 size prior,\sidenote{The relative size for a minimal DFA is the bits to describe
 the change — in states, edges, and the accepting set.} so $\identify(\spec \mid
@@ -508,6 +491,7 @@ of symbols $\alphabet'$ carries only negative examples, intersect the sampled
 DFA with the strings that avoid $\alphabet'$. For $\EX = \{(\yellowTile\redTile,
 1), (\blueTile\redTile, 0)\}$, say, $\alphabet' = \{\blueTile\}$ and the sampler
 returns a DFA that also rejects every string with $\blueTile$.
+```
 
 ### Baselines {#sec:baselines}
 
