@@ -1325,6 +1325,38 @@
       "sec:TjN1": {
         "id": "TjN1",
         "kind": "section"
+      },
+      "sec:outro-approximate-maxent": {
+        "id": "16hO",
+        "kind": "section"
+      },
+      "sec:outro-assume-guarantee": {
+        "id": "9iJm",
+        "kind": "section"
+      },
+      "sec:outro-beyond-dfas": {
+        "id": "MZbh",
+        "kind": "section"
+      },
+      "sec:outro-bib": {
+        "id": "i4Ob",
+        "kind": "section"
+      },
+      "sec:outro-diss-to-mcmc": {
+        "id": "WZKA",
+        "kind": "section"
+      },
+      "sec:outro-fixed-rewards": {
+        "id": "bR0m",
+        "kind": "section"
+      },
+      "sec:outro-hindsight-replay": {
+        "id": "trP4",
+        "kind": "section"
+      },
+      "sec:outro-hybrid-continuous": {
+        "id": "rvDL",
+        "kind": "section"
       }
     },
     "prelims.cob": {
@@ -2118,6 +2150,10 @@
         "id": "Z8SG",
         "kind": "citation"
       },
+      "cite:DBLP:conf/icml/HaarnojaZAL18": {
+        "id": "TDt3",
+        "kind": "citation"
+      },
       "cite:DBLP:conf/icml/IcarteKVM18": {
         "id": "X5Cg",
         "kind": "citation"
@@ -2170,8 +2206,32 @@
         "id": "f0fs",
         "kind": "citation"
       },
+      "cite:DBLP:conf/memocode/NuzzoITS14": {
+        "id": "daw6",
+        "kind": "citation"
+      },
+      "cite:DBLP:conf/memocode/RomeoSLK18": {
+        "id": "ynyc",
+        "kind": "citation"
+      },
       "cite:DBLP:conf/mfcs/ChenFKSW13": {
         "id": "0Fvi",
+        "kind": "citation"
+      },
+      "cite:DBLP:conf/nips/CarrollSHGSAD19": {
+        "id": "u6gQ",
+        "kind": "citation"
+      },
+      "cite:DBLP:conf/nips/EysenbachGLS20": {
+        "id": "erns",
+        "kind": "citation"
+      },
+      "cite:DBLP:conf/nips/GrillDMMV19": {
+        "id": "MjFT",
+        "kind": "citation"
+      },
+      "cite:DBLP:conf/nips/Hasselt10": {
+        "id": "Yppe",
         "kind": "citation"
       },
       "cite:DBLP:conf/nips/HoLMCA16": {
@@ -2202,6 +2262,10 @@
         "id": "bqgb",
         "kind": "citation"
       },
+      "cite:DBLP:conf/tacas/ChatterjeeH07": {
+        "id": "RgPz",
+        "kind": "citation"
+      },
       "cite:DBLP:conf/tacas/DelgrangeKQR20": {
         "id": "XD7a",
         "kind": "citation"
@@ -2228,6 +2292,10 @@
       },
       "cite:DBLP:journals/cacm/MalikZ09": {
         "id": "TgBt",
+        "kind": "citation"
+      },
+      "cite:DBLP:journals/corr/NeuJG17": {
+        "id": "bVrK",
         "kind": "citation"
       },
       "cite:DBLP:journals/corr/abs-1104-3489": {
@@ -2326,6 +2394,10 @@
         "id": "PbeY",
         "kind": "citation"
       },
+      "cite:DBLP:journals/mp/BassettD19": {
+        "id": "SPho",
+        "kind": "citation"
+      },
       "cite:DBLP:journals/mscs/ConnellyM95": {
         "id": "wn4b",
         "kind": "citation"
@@ -2364,6 +2436,10 @@
       },
       "cite:DBLP:journals/tcs/JerrumVV86": {
         "id": "yjYY",
+        "kind": "citation"
+      },
+      "cite:DBLP:journals/tecs/PasseroneRS19": {
+        "id": "K8Wv",
         "kind": "citation"
       },
       "cite:DBLP:phd/basesearch/Carrillo21": {
@@ -2466,6 +2542,14 @@
         "id": "ss2v",
         "kind": "citation"
       },
+      "cite:hastings1970monte": {
+        "id": "qcsL",
+        "kind": "citation"
+      },
+      "cite:hindsight": {
+        "id": "pgl2",
+        "kind": "citation"
+      },
       "cite:ho_teaching_2015": {
         "id": "RAqB",
         "kind": "citation"
@@ -2520,6 +2604,10 @@
       },
       "cite:model_counters_guide": {
         "id": "qwxv",
+        "kind": "citation"
+      },
+      "cite:pant2021model": {
+        "id": "8uLC",
         "kind": "citation"
       },
       "cite:pineau2003point": {

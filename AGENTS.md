@@ -37,11 +37,19 @@ at ratio 0.60 even though `10_learning/30_sgs.tex:777`'s whole
 `\section{Relaxing the Luce axiom}\label{sec:luce_cegis}` (counterexample-guided
 synthesis for the Luce axiom relaxation) is unported — the heading-fuzzy-match
 against `luce-axiom.cob` (which only holds `ex:luce-violation`) hides the gap, and
-the chapter's word-count ratio stays above the 0.55 THIN threshold regardless. Two
-refs already point at it in prose rather than as links, because the target
-doesn't exist yet: `circuits.cob`'s Contributions section ("as in the relaxation
-of the Luce axiom by counterexample-guided synthesis") and `bdd.cob`'s
-"Luce Axiom Relaxation with BDDs" section and Contributions. Port
+the chapter's word-count ratio stays above the 0.55 THIN threshold regardless.
+`diss-algorithm` is, as of this writing, the only chapter the audit does not
+clear cleanly: its heading-fuzzy-match also misses "maximum entropy planner",
+"results and analysis", and "search efficiency" in `30_sgs.tex`, and the four
+uncited keys it reports (`DBLP:conf/asplos/Solar-LezamaTBSS06`,
+`DBLP:journals/acta/JhaS17`, `DBLP:journals/pieee/Seshia15`,
+`Vazquez-Chanlatte_Demonstration_Informed_Specification`) are mostly the
+citations `sec:luce_cegis` itself would carry. Three refs already point at it
+in prose rather than as links, because the target doesn't exist yet:
+`circuits.cob`'s Contributions section ("as in the relaxation of the Luce
+axiom by counterexample-guided synthesis"), `bdd.cob`'s "Luce Axiom Relaxation
+with BDDs" section and Contributions, and `outro.cob`'s "Hybrid and
+Continuous Dynamics" future-work subsection. Port
 `sec:luce_cegis` into `sgs.cob`, then upgrade both to `\ref{sec:luce_cegis}`.
 
 ## Build and review loop
