@@ -139,7 +139,7 @@ We write $x \sim \f$ for drawing this biased coin, $x \in \Bool$, from the
 distribution in \ref{eq:model_count_coins}.
 
 ```custom[latexfig] \label{fig:bool_pred}
-\caption{Illustrations of \ref{obs:2} and \ref{obs:3}. Left: sharing inputs lets two bit-vector predicates that model biased coins also model a pair of \emph{correlated} coin flips. Right: feeding correlated biased coin flips into a bit-vector predicate yields a new bit-vector predicate, and so itself models a biased coin.}
+\caption{Illustrations of the two observations above. Left: sharing inputs lets two bit-vector predicates that model biased coins also model a pair of correlated coin flips. Right: feeding correlated biased coin flips into a bit-vector predicate yields a new bit-vector predicate, and so itself models a biased coin.}
 \begin{minipage}{0.45\linewidth}\centering\input{imgs/circ2.pdf_tex}\end{minipage}\hfill\begin{minipage}{0.45\linewidth}\centering\input{imgs/circ3.pdf_tex}\end{minipage}
 ```
 
@@ -345,7 +345,7 @@ imgs/seq_circ.pdf_tex
 ```
 
 ```custom[latexfig] \label{fig:histx}
-\caption{A sequential circuit that tests whether $x$ is currently $1$ \emph{and} ($\wedge$) whether $x$ has historically been $1$. The latch ($\vs_0 = 1$) cuts the circuit's cyclic dependency.}
+\caption{A sequential circuit that tests whether $x$ is currently $1$ and ($\wedge$) whether $x$ has historically been $1$. The latch ($\vs_0 = 1$) cuts the circuit's cyclic dependency.}
 imgs/historically.pdf_tex
 ```
 
@@ -376,7 +376,7 @@ $C = (\vs_0, F)$, back to a bit-vector function, simply by composing $F$ with
 itself — akin to bounded model checking \cite{biere2003bounded}.
 
 ```custom[latexfig] \label{fig:unroll}
-\caption{The sequential circuit of Figure \ref{fig:seq_circ} unrolled for $3$ steps. As in Figure \ref{fig:seq_circ}, the first two inputs and outputs of each copy of $F$ are the state. The first copy of $F$ has its state inputs grounded, to show that $\vs_0 = (0, 0)$.}
+\caption{The sequential circuit of the previous figure unrolled for $3$ steps. As before, the first two inputs and outputs of each copy of $F$ are the state. The first copy of $F$ has its state inputs grounded, to show that $\vs_0 = (0, 0)$.}
 imgs/unrolled_circ.pdf_tex
 ```
 

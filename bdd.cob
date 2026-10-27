@@ -342,7 +342,7 @@ Figure \ref{fig:linear_model_of_computation} (for more detail, see
 \cite{knuth2009art}).
 
 ```custom[latexfig] \label{fig:linear_model_of_computation}
-\caption{Generic network of Boolean modules for which \ref{thm:bdd_size} holds.}
+\caption{Generic network of Boolean modules for which the size bound below holds.}
 imgs/linear_model.pdf_tex
 ```
 
