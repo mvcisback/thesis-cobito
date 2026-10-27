@@ -1216,6 +1216,14 @@
         "id": "NfPO",
         "kind": "figure"
       },
+      "fig:communication": {
+        "id": "MboO",
+        "kind": "figure"
+      },
+      "fig:thesis_overview": {
+        "id": "MTXW",
+        "kind": "figure"
+      },
       "fig:yr2": {
         "id": "SyoK",
         "kind": "figure"
@@ -1228,8 +1236,48 @@
         "id": "N456",
         "kind": "section"
       },
+      "sec:communicating-tasks": {
+        "id": "CgFB",
+        "kind": "section"
+      },
+      "sec:intro-bib-causal-entropy-road": {
+        "id": "D6nN",
+        "kind": "section"
+      },
+      "sec:intro-bib-conceptualization": {
+        "id": "5gPG",
+        "kind": "section"
+      },
+      "sec:intro-bib-learning-teaching": {
+        "id": "uQEO",
+        "kind": "section"
+      },
+      "sec:intro-contributions": {
+        "id": "16xI",
+        "kind": "section"
+      },
+      "sec:intro:bib": {
+        "id": "Zftu",
+        "kind": "section"
+      },
       "sec:rW5R": {
         "id": "kfdo",
+        "kind": "section"
+      },
+      "sec:readers-guide": {
+        "id": "xUnw",
+        "kind": "section"
+      },
+      "sec:readers-guide-learning-teaching": {
+        "id": "anyd",
+        "kind": "section"
+      },
+      "sec:readers-guide-prediction-control": {
+        "id": "tRl0",
+        "kind": "section"
+      },
+      "sec:readers-guide-prelims": {
+        "id": "zfhg",
         "kind": "section"
       },
       "sec:zGkC": {
@@ -2142,6 +2190,10 @@
         "id": "Utqf",
         "kind": "citation"
       },
+      "cite:DBLP:conf/rss/Vazquez-Chanlatte21": {
+        "id": "zDk8",
+        "kind": "citation"
+      },
       "cite:DBLP:conf/soda/KannanSM95": {
         "id": "zMS7",
         "kind": "citation"
@@ -2174,6 +2226,10 @@
         "id": "V2iD",
         "kind": "citation"
       },
+      "cite:DBLP:journals/cacm/MalikZ09": {
+        "id": "TgBt",
+        "kind": "citation"
+      },
       "cite:DBLP:journals/corr/abs-1104-3489": {
         "id": "f782",
         "kind": "citation"
@@ -2188,6 +2244,18 @@
       },
       "cite:DBLP:journals/corr/abs-1805-00909": {
         "id": "kpJD",
+        "kind": "citation"
+      },
+      "cite:DBLP:journals/corr/abs-1903-09354": {
+        "id": "WNkM",
+        "kind": "citation"
+      },
+      "cite:DBLP:journals/corr/abs-2103-06257": {
+        "id": "qqkZ",
+        "kind": "citation"
+      },
+      "cite:DBLP:journals/corr/abs-2112-10807": {
+        "id": "DWIS",
         "kind": "citation"
       },
       "cite:DBLP:journals/csur/Bryant92": {
@@ -2306,12 +2374,20 @@
         "id": "Rlz3",
         "kind": "citation"
       },
+      "cite:Li:EECS-2014-20": {
+        "id": "OETW",
+        "kind": "citation"
+      },
       "cite:RSS21code": {
         "id": "iVwQ",
         "kind": "citation"
       },
       "cite:SmoothedAnalysis": {
         "id": "ECGY",
+        "kind": "citation"
+      },
+      "cite:Vazquez-Chanlatte_Demonstration_Informed_Specification": {
+        "id": "qBJU",
         "kind": "citation"
       },
       "cite:abbeel2004apprenticeship": {
@@ -2372,6 +2448,10 @@
       },
       "cite:de2010grammatical": {
         "id": "Tnjo",
+        "kind": "citation"
+      },
+      "cite:ehrenfest1911zuge": {
+        "id": "6ROp",
         "kind": "citation"
       },
       "cite:ghosh2018repair": {
@@ -2438,6 +2518,10 @@
         "id": "U5jh",
         "kind": "citation"
       },
+      "cite:model_counters_guide": {
+        "id": "qwxv",
+        "kind": "citation"
+      },
       "cite:pineau2003point": {
         "id": "wZBX",
         "kind": "citation"
@@ -2468,6 +2552,10 @@
       },
       "cite:taylor1950purposeful": {
         "id": "Y5Jn",
+        "kind": "citation"
+      },
+      "cite:teachingCphs": {
+        "id": "WNI2",
         "kind": "citation"
       },
       "cite:tenenbaum1999bayesian": {
