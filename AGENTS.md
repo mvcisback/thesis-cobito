@@ -76,6 +76,14 @@ W107 (backlinks/asset false alarms), and for each `custom[latexfig]` figure
 `grep -c '\$[^$]*\$' _site/imgs/fig-NAME.svg` is `0`. Do not pipe a check through
 `tail` or `grep` and read its exit code: a pipe hides the real one.
 
+**Trap:** never let a wrapped line of prose start with `- ` (hyphen, space) —
+even inside an inline `$...$` math span that continues from the previous
+line. Markdown reads a line-initial `- ` as a new list bullet and breaks the
+enclosing math span. The failure is `error[E022]: ... expected one of "$",
+"\\$", [_]`, reported at `file.cob:1` regardless of the real line — the
+position is useless, so this is easy to lose an hour to. Reflow the line (or
+move the minus sign off the left margin) instead of debugging the message.
+
 ## Publish for review
 
 The drop-box pages area is `/data/fast/pages/pi/` (pi-owned; do not write the

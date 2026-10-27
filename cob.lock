@@ -1800,16 +1800,64 @@
         "id": "c7Dr",
         "kind": "section"
       },
+      "eq:showing": {
+        "id": "ndto",
+        "kind": "equation"
+      },
+      "eq:showing_log": {
+        "id": "JqX0",
+        "kind": "equation"
+      },
+      "eq:teach_approx": {
+        "id": "YeD5",
+        "kind": "equation"
+      },
+      "eq:teach_obj": {
+        "id": "Sxb7",
+        "kind": "equation"
+      },
       "fig:teaching-demo": {
         "id": "KHnU",
+        "kind": "figure"
+      },
+      "fig:teaching:experiment": {
+        "id": "cDcK",
+        "kind": "figure"
+      },
+      "fig:teaching:score_dist": {
+        "id": "9Fza",
+        "kind": "figure"
+      },
+      "fig:teaching:score_improvement": {
+        "id": "1qRD",
         "kind": "figure"
       },
       "rem:gen-ped-demo": {
         "id": "CZFQ",
         "kind": "section"
       },
+      "rem:human-study-expressive": {
+        "id": "IOjD",
+        "kind": "section"
+      },
       "rem:proposal": {
         "id": "IRYy",
+        "kind": "section"
+      },
+      "rem:showing-arbitrary-rewards": {
+        "id": "1hxd",
+        "kind": "section"
+      },
+      "rem:showing-vs-doing-name": {
+        "id": "OvCn",
+        "kind": "section"
+      },
+      "rem:teaching-cegis": {
+        "id": "TQKK",
+        "kind": "section"
+      },
+      "rem:teaching-key-takeaway": {
+        "id": "39he",
         "kind": "section"
       },
       "sec:0IOg": {
@@ -1840,6 +1888,34 @@
         "id": "WYkb",
         "kind": "section"
       },
+      "sec:description-length-perspective": {
+        "id": "EBqI",
+        "kind": "section"
+      },
+      "sec:generating-pedagogic-demos": {
+        "id": "4i4R",
+        "kind": "section"
+      },
+      "sec:human-study-results": {
+        "id": "fX1T",
+        "kind": "section"
+      },
+      "sec:tasks-to-teach": {
+        "id": "qtSx",
+        "kind": "section"
+      },
+      "sec:teach:failure": {
+        "id": "Vetw",
+        "kind": "section"
+      },
+      "sec:teaching-limitations": {
+        "id": "gmqR",
+        "kind": "section"
+      },
+      "sec:trajectory-optimization": {
+        "id": "NY0d",
+        "kind": "section"
+      },
       "sec:vCFR": {
         "id": "H8ZU",
         "kind": "section"
@@ -1866,6 +1942,10 @@
         "id": "A1fP",
         "kind": "citation"
       },
+      "cite:DBLP:books/lib/SuttonB98": {
+        "id": "4YlP",
+        "kind": "citation"
+      },
       "cite:DBLP:books/siam/Wegener00": {
         "id": "iagL",
         "kind": "citation"
@@ -1880,6 +1960,10 @@
       },
       "cite:DBLP:conf/adprl/ParisiPSBR14": {
         "id": "UcBM",
+        "kind": "citation"
+      },
+      "cite:DBLP:conf/asplos/Solar-LezamaTBSS06": {
+        "id": "sb5a",
         "kind": "citation"
       },
       "cite:DBLP:conf/atal/Klaska0R20": {
@@ -2114,6 +2198,10 @@
         "id": "fYho",
         "kind": "citation"
       },
+      "cite:DBLP:journals/eor/Lemarechal06": {
+        "id": "kzEj",
+        "kind": "citation"
+      },
       "cite:DBLP:journals/eswa/NazarahariKD19": {
         "id": "j9F4",
         "kind": "citation"
@@ -2246,6 +2334,10 @@
         "id": "Tavk",
         "kind": "citation"
       },
+      "cite:bobu2020less": {
+        "id": "S1O6",
+        "kind": "citation"
+      },
       "cite:bryant1992symbolic": {
         "id": "0hSE",
         "kind": "citation"
@@ -2288,6 +2380,10 @@
       },
       "cite:goodman2016pragmatic": {
         "id": "cOHD",
+        "kind": "citation"
+      },
+      "cite:grice1975logic": {
+        "id": "ss2v",
         "kind": "citation"
       },
       "cite:ho_teaching_2015": {
@@ -2344,6 +2440,10 @@
       },
       "cite:pineau2003point": {
         "id": "wZBX",
+        "kind": "citation"
+      },
+      "cite:prolific": {
+        "id": "ejHS",
         "kind": "citation"
       },
       "cite:rabe2014symbolic": {
