@@ -476,6 +476,14 @@
         "id": "R5ng",
         "kind": "section"
       },
+      "cor:mce-worst-case": {
+        "id": "nUr9",
+        "kind": "section"
+      },
+      "def:causal-entropy": {
+        "id": "lDBt",
+        "kind": "section"
+      },
       "def:distributions": {
         "id": "Bp1E",
         "kind": "section"
@@ -484,16 +492,184 @@
         "id": "xl4p",
         "kind": "macro"
       },
+      "def:entropy": {
+        "id": "vcv3",
+        "kind": "section"
+      },
+      "def:irl": {
+        "id": "83dY",
+        "kind": "section"
+      },
+      "def:joint-conditional-entropy": {
+        "id": "FZAR",
+        "kind": "section"
+      },
+      "def:kl-divergence": {
+        "id": "x7Om",
+        "kind": "section"
+      },
       "def:mdp": {
         "id": "2LCA",
+        "kind": "section"
+      },
+      "def:path": {
+        "id": "qDOL",
+        "kind": "section"
+      },
+      "def:policy": {
+        "id": "Rq3P",
+        "kind": "section"
+      },
+      "eq:causal-entropy": {
+        "id": "B6G2",
+        "kind": "equation"
+      },
+      "eq:conditional_entropy": {
+        "id": "Re7n",
+        "kind": "equation"
+      },
+      "eq:entropy-chain-rule": {
+        "id": "cOZV",
+        "kind": "equation"
+      },
+      "eq:mdp-goal": {
+        "id": "wYIk",
+        "kind": "equation"
+      },
+      "eq:path": {
+        "id": "EeWs",
+        "kind": "equation"
+      },
+      "eq:policy-causal-entropy-T": {
+        "id": "Dimw",
+        "kind": "equation"
+      },
+      "eq:policy_dist": {
+        "id": "wEvv",
+        "kind": "equation"
+      },
+      "eq:prefix-free-prob": {
+        "id": "NaNk",
+        "kind": "equation"
+      },
+      "eq:soft_bellman_backup": {
+        "id": "RCJ4",
+        "kind": "equation"
+      },
+      "eq:uncertainty-decrease": {
+        "id": "bZ6X",
+        "kind": "equation"
+      },
+      "ex:mdp_example": {
+        "id": "RSwN",
+        "kind": "section"
+      },
+      "ex:mdp_example_prob": {
+        "id": "tDfe",
+        "kind": "section"
+      },
+      "fig:mdp_example": {
+        "id": "zLNs",
+        "kind": "figure"
+      },
+      "rem:causal-entropy-infinite-horizon": {
+        "id": "gSgi",
+        "kind": "section"
+      },
+      "rem:causal-entropy-padding": {
+        "id": "825f",
+        "kind": "section"
+      },
+      "rem:causal-entropy-recursive": {
+        "id": "AoWl",
+        "kind": "section"
+      },
+      "rem:causal-vs-static": {
+        "id": "pIUY",
+        "kind": "section"
+      },
+      "rem:cmid-notation": {
+        "id": "G94V",
+        "kind": "section"
+      },
+      "rem:conflate-mdp-plts": {
+        "id": "Fhkj",
+        "kind": "section"
+      },
+      "rem:entropy-base": {
+        "id": "npgE",
+        "kind": "section"
+      },
+      "rem:entropy-chain-rule": {
+        "id": "64q3",
+        "kind": "section"
+      },
+      "rem:entropy-relabeling": {
+        "id": "0wxG",
+        "kind": "section"
+      },
+      "rem:exponential-bias": {
+        "id": "j9ri",
+        "kind": "section"
+      },
+      "rem:history-dependent-policies": {
+        "id": "kLmY",
+        "kind": "section"
+      },
+      "rem:kl-fundamental": {
+        "id": "8Rf7",
+        "kind": "section"
+      },
+      "rem:kl-nonneg": {
+        "id": "tAxa",
+        "kind": "section"
+      },
+      "rem:paths-as-strings": {
+        "id": "OCLG",
+        "kind": "section"
+      },
+      "rem:rationality-coefficient": {
+        "id": "rBZZ",
         "kind": "section"
       },
       "rem:smooth": {
         "id": "Mm72",
         "kind": "section"
       },
+      "rem:soft-bellman-backup": {
+        "id": "6cqn",
+        "kind": "section"
+      },
+      "rem:uncertainty-decrease": {
+        "id": "6fzW",
+        "kind": "section"
+      },
+      "rem:v-q-conflated": {
+        "id": "paGi",
+        "kind": "section"
+      },
       "sec:2fDB": {
         "id": "2wzp",
+        "kind": "section"
+      },
+      "sec:behavior-prediction": {
+        "id": "kCj3",
+        "kind": "section"
+      },
+      "sec:causal-entropy": {
+        "id": "Xhah",
+        "kind": "section"
+      },
+      "sec:dynamics-bib": {
+        "id": "sgoU",
+        "kind": "section"
+      },
+      "sec:entropy-regularized": {
+        "id": "CXOa",
+        "kind": "section"
+      },
+      "sec:max-causal-entropy-irl": {
+        "id": "gVSP",
         "kind": "section"
       }
     },
@@ -2050,12 +2226,20 @@
         "id": "ECGY",
         "kind": "citation"
       },
+      "cite:abbeel2004apprenticeship": {
+        "id": "uhnl",
+        "kind": "citation"
+      },
       "cite:amodei2016concrete": {
         "id": "sofm",
         "kind": "citation"
       },
       "cite:bacchus2003algorithms": {
         "id": "MYtq",
+        "kind": "citation"
+      },
+      "cite:bellman1957dynamic": {
+        "id": "ZwOP",
         "kind": "citation"
       },
       "cite:biere2003bounded": {
@@ -2114,6 +2298,10 @@
         "id": "uw3q",
         "kind": "citation"
       },
+      "cite:jaynes1957information": {
+        "id": "ni0G",
+        "kind": "citation"
+      },
       "cite:kalman1964linear": {
         "id": "cTn7",
         "kind": "citation"
@@ -2138,6 +2326,10 @@
         "id": "GRJv",
         "kind": "citation"
       },
+      "cite:mce": {
+        "id": "zQez",
+        "kind": "citation"
+      },
       "cite:mceThesis": {
         "id": "a7Pe",
         "kind": "citation"
@@ -2156,6 +2348,10 @@
       },
       "cite:rabe2014symbolic": {
         "id": "Tegc",
+        "kind": "citation"
+      },
+      "cite:ramachandran2007bayesian": {
+        "id": "ytag",
         "kind": "citation"
       },
       "cite:sang2005performing": {
