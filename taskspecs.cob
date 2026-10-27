@@ -251,7 +251,9 @@ second with many. Either way, a competency estimator and the principle of
 maximum causal entropy define a map from a task to a policy, and so to a
 likelihood,
 
-$$\operatorname{maxEntPlanner} : \spec \mapsto \policy_\spec,$$
+```math \label{eq:maxEntPlanner}
+\operatorname{maxEntPlanner} : \spec \mapsto \policy_\spec,
+```
 
 where $\policy_\spec$ belongs to the entropy-regularized family defined by the
 smooth Bellman backup

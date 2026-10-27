@@ -6,12 +6,64 @@
         "id": "frGi",
         "kind": "section"
       },
+      "corr:bdd_size": {
+        "id": "PXhz",
+        "kind": "section"
+      },
+      "def:bdd-notation": {
+        "id": "OGBU",
+        "kind": "macro"
+      },
+      "eq:2": {
+        "id": "u041",
+        "kind": "equation"
+      },
+      "eq:bdd_bound": {
+        "id": "Mvpw",
+        "kind": "equation"
+      },
+      "eq:eliminated_value": {
+        "id": "mxsY",
+        "kind": "equation"
+      },
+      "eq:eliminated_value_seq": {
+        "id": "529r",
+        "kind": "equation"
+      },
+      "eq:find_coins": {
+        "id": "vPTR",
+        "kind": "equation"
+      },
       "fig:bdd-size-horizon": {
         "id": "7Fg8",
         "kind": "figure"
       },
+      "fig:bdd_example": {
+        "id": "BJSW",
+        "kind": "figure"
+      },
+      "fig:bdd_example_not_equiv": {
+        "id": "Dh1H",
+        "kind": "figure"
+      },
+      "fig:corr_picture": {
+        "id": "UlsP",
+        "kind": "figure"
+      },
+      "fig:linear_model_of_computation": {
+        "id": "VEbS",
+        "kind": "figure"
+      },
+      "fig:overview": {
+        "id": "37cx",
+        "kind": "figure"
+      },
       "sec:2c8S": {
         "id": "2c8S",
+        "kind": "section"
+      },
+      "sec:4fUd": {
+        "id": "4fUd",
         "kind": "section"
       },
       "sec:70WG": {
@@ -20,6 +72,26 @@
       },
       "sec:8hba": {
         "id": "8hba",
+        "kind": "section"
+      },
+      "sec:9Dr2": {
+        "id": "9Dr2",
+        "kind": "section"
+      },
+      "sec:C0i1": {
+        "id": "C0i1",
+        "kind": "section"
+      },
+      "sec:EcWm": {
+        "id": "EcWm",
+        "kind": "section"
+      },
+      "sec:G4XQ": {
+        "id": "G4XQ",
+        "kind": "section"
+      },
+      "sec:GhsB": {
+        "id": "GhsB",
         "kind": "section"
       },
       "sec:J0az": {
@@ -34,16 +106,72 @@
         "id": "TT6l",
         "kind": "section"
       },
+      "sec:TWCQ": {
+        "id": "TWCQ",
+        "kind": "section"
+      },
+      "sec:Ttbc": {
+        "id": "Ttbc",
+        "kind": "section"
+      },
+      "sec:a9Fa": {
+        "id": "a9Fa",
+        "kind": "section"
+      },
+      "sec:c2RU": {
+        "id": "c2RU",
+        "kind": "section"
+      },
+      "sec:construct": {
+        "id": "Ho9p",
+        "kind": "section"
+      },
+      "sec:dJ0t": {
+        "id": "dJ0t",
+        "kind": "section"
+      },
+      "sec:demo": {
+        "id": "BcZl",
+        "kind": "section"
+      },
+      "sec:dneI": {
+        "id": "dneI",
+        "kind": "section"
+      },
+      "sec:eA5d": {
+        "id": "eA5d",
+        "kind": "section"
+      },
       "sec:guUb": {
         "id": "guUb",
+        "kind": "section"
+      },
+      "sec:i60W": {
+        "id": "i60W",
+        "kind": "section"
+      },
+      "sec:lZn0": {
+        "id": "lZn0",
         "kind": "section"
       },
       "sec:nw7P": {
         "id": "nw7P",
         "kind": "section"
       },
+      "sec:qD7R": {
+        "id": "qD7R",
+        "kind": "section"
+      },
+      "sec:yms2": {
+        "id": "yms2",
+        "kind": "section"
+      },
       "sec:yvK9": {
         "id": "yvK9",
+        "kind": "section"
+      },
+      "thm:bdd_size": {
+        "id": "D2Fq",
         "kind": "section"
       }
     },
@@ -1214,6 +1342,10 @@
         "id": "KCQs",
         "kind": "section"
       },
+      "eq:maxEntPlanner": {
+        "id": "MowL",
+        "kind": "equation"
+      },
       "ex:intro": {
         "id": "JSkx",
         "kind": "section"
@@ -1330,8 +1462,16 @@
       }
     },
     "thesis.cob": {
+      "cite:DBLP:books/daglib/0007403-2": {
+        "id": "3dJO",
+        "kind": "citation"
+      },
       "cite:DBLP:books/daglib/0040483": {
         "id": "A1fP",
+        "kind": "citation"
+      },
+      "cite:DBLP:books/siam/Wegener00": {
+        "id": "iagL",
         "kind": "citation"
       },
       "cite:DBLP:books/wi/Puterman94": {
@@ -1364,6 +1504,10 @@
       },
       "cite:DBLP:conf/cav/FremontS18": {
         "id": "U3ql",
+        "kind": "citation"
+      },
+      "cite:DBLP:conf/cav/HoltzenJVMSB20": {
+        "id": "KW72",
         "kind": "citation"
       },
       "cite:DBLP:conf/cav/QuatmannJK17": {
@@ -1416,6 +1560,10 @@
       },
       "cite:DBLP:conf/hri/DraganLS13": {
         "id": "mq4q",
+        "kind": "citation"
+      },
+      "cite:DBLP:conf/iccad/SrinivasanKMB90": {
+        "id": "zr4W",
         "kind": "citation"
       },
       "cite:DBLP:conf/icgi/HeuleV10": {
@@ -1514,6 +1662,10 @@
         "id": "SdcE",
         "kind": "citation"
       },
+      "cite:DBLP:conf/tacas/KwiatkowskaNP02": {
+        "id": "hsQk",
+        "kind": "citation"
+      },
       "cite:DBLP:conf/wsc/SkiscimG83": {
         "id": "olj8",
         "kind": "citation"
@@ -1582,6 +1734,10 @@
         "id": "rZUG",
         "kind": "citation"
       },
+      "cite:DBLP:journals/pacmpl/HoltzenBM20": {
+        "id": "XSPj",
+        "kind": "citation"
+      },
       "cite:DBLP:journals/pieee/Seshia15": {
         "id": "BsCj",
         "kind": "citation"
@@ -1602,12 +1758,20 @@
         "id": "7UQ7",
         "kind": "citation"
       },
+      "cite:DBLP:journals/tc/Bryant86": {
+        "id": "L54o",
+        "kind": "citation"
+      },
       "cite:DBLP:journals/tcs/JerrumVV86": {
         "id": "yjYY",
         "kind": "citation"
       },
       "cite:DBLP:phd/basesearch/Carrillo21": {
         "id": "wOwc",
+        "kind": "citation"
+      },
+      "cite:KNP11": {
+        "id": "Rlz3",
         "kind": "citation"
       },
       "cite:RSS21code": {
@@ -1670,8 +1834,16 @@
         "id": "RAqB",
         "kind": "citation"
       },
+      "cite:hoey1999spudd": {
+        "id": "uw3q",
+        "kind": "citation"
+      },
       "cite:kalman1964linear": {
         "id": "cTn7",
+        "kind": "citation"
+      },
+      "cite:knuth2009art": {
+        "id": "iuUf",
         "kind": "citation"
       },
       "cite:littman_environment-independent_2017": {
@@ -1692,6 +1864,10 @@
       },
       "cite:metropolis1949monte": {
         "id": "c0V9",
+        "kind": "citation"
+      },
+      "cite:mishchenko2001introduction": {
+        "id": "U5jh",
         "kind": "citation"
       },
       "cite:pineau2003point": {
