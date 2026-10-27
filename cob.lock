@@ -58,9 +58,97 @@
         "id": "M2nS",
         "kind": "section"
       },
+      "def:bv_pred": {
+        "id": "8gYy",
+        "kind": "section"
+      },
       "def:circuits-notation": {
         "id": "1CO7",
         "kind": "macro"
+      },
+      "eq:8": {
+        "id": "zEUw",
+        "kind": "equation"
+      },
+      "eq:arb_coin": {
+        "id": "kpQP",
+        "kind": "equation"
+      },
+      "eq:bool_pred": {
+        "id": "9030",
+        "kind": "equation"
+      },
+      "eq:chain": {
+        "id": "7HIU",
+        "kind": "equation"
+      },
+      "eq:count": {
+        "id": "KtN4",
+        "kind": "equation"
+      },
+      "eq:model_count_coins": {
+        "id": "PU0v",
+        "kind": "equation"
+      },
+      "eq:model_count_conditioned": {
+        "id": "hLpt",
+        "kind": "equation"
+      },
+      "eq:mux_gadget": {
+        "id": "Kbfp",
+        "kind": "equation"
+      },
+      "eq:random_bit_flip": {
+        "id": "u74K",
+        "kind": "equation"
+      },
+      "eq:random_draw": {
+        "id": "TG27",
+        "kind": "equation"
+      },
+      "eq:range_mux": {
+        "id": "yxiQ",
+        "kind": "equation"
+      },
+      "eq:range_mux_bv": {
+        "id": "axSz",
+        "kind": "equation"
+      },
+      "eq:seqcirc_sample": {
+        "id": "vVoE",
+        "kind": "equation"
+      },
+      "eq:unroll": {
+        "id": "AGtx",
+        "kind": "equation"
+      },
+      "ex:dice": {
+        "id": "TXO7",
+        "kind": "section"
+      },
+      "ex:lt_models": {
+        "id": "J9Kh",
+        "kind": "section"
+      },
+      "ex:mux": {
+        "id": "ccI5",
+        "kind": "section"
+      },
+      "ex:sailor": {
+        "id": "P5rQ",
+        "kind": "section"
+      },
+      "fig:1dgrid_circ": {
+        "id": "je0W",
+        "kind": "figure"
+      },
+      "fig:bool_pred": {
+        "id": "hj4d",
+        "kind": "figure"
+      },
+      "fig:chain": {
+        "id": "VCh4",
+        "kind": "figure"
       },
       "fig:circuit-1": {
         "id": "Ilm7",
@@ -74,28 +162,104 @@
         "id": "Aihg",
         "kind": "figure"
       },
+      "fig:drunken_sailor": {
+        "id": "SZVo",
+        "kind": "figure"
+      },
+      "fig:gw8x8_bits": {
+        "id": "p3ya",
+        "kind": "figure"
+      },
       "fig:historical-circuit": {
         "id": "PhvV",
+        "kind": "figure"
+      },
+      "fig:histx": {
+        "id": "wpVt",
+        "kind": "figure"
+      },
+      "fig:monitor": {
+        "id": "rqL1",
         "kind": "figure"
       },
       "fig:mux-mapping": {
         "id": "sDgy",
         "kind": "figure"
       },
+      "fig:pred": {
+        "id": "8P3f",
+        "kind": "figure"
+      },
+      "fig:range_mux": {
+        "id": "pA7C",
+        "kind": "figure"
+      },
+      "fig:seq_circ": {
+        "id": "tcTd",
+        "kind": "figure"
+      },
       "fig:sequential-circuit": {
         "id": "WLqN",
         "kind": "figure"
       },
+      "fig:unroll": {
+        "id": "6hWF",
+        "kind": "figure"
+      },
+      "obs:1": {
+        "id": "XdN2",
+        "kind": "section"
+      },
+      "obs:2": {
+        "id": "cfYr",
+        "kind": "section"
+      },
+      "obs:3": {
+        "id": "fjIE",
+        "kind": "section"
+      },
+      "prob:encode": {
+        "id": "54Vb",
+        "kind": "section"
+      },
+      "prop:biased_query": {
+        "id": "Fz90",
+        "kind": "section"
+      },
       "sec:1r74": {
         "id": "1r74",
+        "kind": "section"
+      },
+      "sec:C5Gp": {
+        "id": "C5Gp",
         "kind": "section"
       },
       "sec:C5HO": {
         "id": "C5HO",
         "kind": "section"
       },
+      "sec:EoAP": {
+        "id": "EoAP",
+        "kind": "section"
+      },
       "sec:Gg7a": {
         "id": "Gg7a",
+        "kind": "section"
+      },
+      "sec:LqG8": {
+        "id": "LqG8",
+        "kind": "section"
+      },
+      "sec:MrQa": {
+        "id": "MrQa",
+        "kind": "section"
+      },
+      "sec:RV9e": {
+        "id": "RV9e",
+        "kind": "section"
+      },
+      "sec:arb_dist": {
+        "id": "57Hb",
         "kind": "section"
       },
       "sec:diiN": {
@@ -112,6 +276,14 @@
       },
       "sec:p9ny": {
         "id": "p9ny",
+        "kind": "section"
+      },
+      "sec:qbPD": {
+        "id": "qbPD",
+        "kind": "section"
+      },
+      "sec:seq_circuits": {
+        "id": "qXh8",
         "kind": "section"
       },
       "sec:stYr": {
@@ -1358,6 +1530,10 @@
         "id": "ZqlU",
         "kind": "citation"
       },
+      "cite:DBLP:journals/corr/abs-1801-08979": {
+        "id": "bWVF",
+        "kind": "citation"
+      },
       "cite:DBLP:journals/corr/abs-1805-00909": {
         "id": "kpJD",
         "kind": "citation"
@@ -1388,6 +1564,10 @@
       },
       "cite:DBLP:journals/ior/AlpernMP11": {
         "id": "OWCk",
+        "kind": "citation"
+      },
+      "cite:DBLP:journals/jacm/DavisP60": {
+        "id": "IAKk",
         "kind": "citation"
       },
       "cite:DBLP:journals/jar/HartmannsJKQ20": {
@@ -1442,6 +1622,38 @@
         "id": "sofm",
         "kind": "citation"
       },
+      "cite:bacchus2003algorithms": {
+        "id": "MYtq",
+        "kind": "citation"
+      },
+      "cite:biere2003bounded": {
+        "id": "Tavk",
+        "kind": "citation"
+      },
+      "cite:bryant1992symbolic": {
+        "id": "0hSE",
+        "kind": "citation"
+      },
+      "cite:chakraborty2014distribution": {
+        "id": "vC7R",
+        "kind": "citation"
+      },
+      "cite:chakraborty2016algorithmic": {
+        "id": "tPGC",
+        "kind": "citation"
+      },
+      "cite:chavira2008probabilistic": {
+        "id": "JB2i",
+        "kind": "citation"
+      },
+      "cite:choi2013dynamic": {
+        "id": "fyHb",
+        "kind": "citation"
+      },
+      "cite:dalvi2007efficient": {
+        "id": "0KU9",
+        "kind": "citation"
+      },
       "cite:de2010grammatical": {
         "id": "Tnjo",
         "kind": "citation"
@@ -1470,12 +1682,28 @@
         "id": "sXWG",
         "kind": "citation"
       },
+      "cite:lumbroso2013optimal": {
+        "id": "GRJv",
+        "kind": "citation"
+      },
       "cite:mceThesis": {
         "id": "a7Pe",
         "kind": "citation"
       },
+      "cite:metropolis1949monte": {
+        "id": "c0V9",
+        "kind": "citation"
+      },
       "cite:pineau2003point": {
         "id": "wZBX",
+        "kind": "citation"
+      },
+      "cite:rabe2014symbolic": {
+        "id": "Tegc",
+        "kind": "citation"
+      },
+      "cite:sang2005performing": {
+        "id": "RDPf",
         "kind": "citation"
       },
       "cite:seshia-arxiv16": {
@@ -1490,8 +1718,16 @@
         "id": "Y5Jn",
         "kind": "citation"
       },
+      "cite:von1963various": {
+        "id": "GBR6",
+        "kind": "citation"
+      },
       "cite:watanabe2021probabilistic": {
         "id": "i7O4",
+        "kind": "citation"
+      },
+      "cite:weighted2unweighted": {
+        "id": "ITf4",
         "kind": "citation"
       },
       "cite:ziebart2008maximum": {
