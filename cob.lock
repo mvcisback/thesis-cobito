@@ -1108,8 +1108,24 @@
         "id": "Cu8R",
         "kind": "section"
       },
+      "def:coloring": {
+        "id": "X3PI",
+        "kind": "section"
+      },
       "def:concept-class": {
         "id": "Ern0",
+        "kind": "section"
+      },
+      "def:dfa": {
+        "id": "ONfi",
+        "kind": "section"
+      },
+      "def:identification-map": {
+        "id": "Z6KA",
+        "kind": "section"
+      },
+      "def:labeled-example": {
+        "id": "w1My",
         "kind": "section"
       },
       "def:language": {
@@ -1120,16 +1136,108 @@
         "id": "q2XV",
         "kind": "macro"
       },
+      "def:prefix-tree": {
+        "id": "7F5U",
+        "kind": "section"
+      },
+      "def:prefix-tree-concepts": {
+        "id": "Ktwn",
+        "kind": "section"
+      },
+      "def:regular": {
+        "id": "6h4A",
+        "kind": "section"
+      },
+      "def:representation-class": {
+        "id": "DFb5",
+        "kind": "section"
+      },
       "def:string": {
         "id": "wrfo",
         "kind": "section"
+      },
+      "eq:coloring-label": {
+        "id": "spOt",
+        "kind": "equation"
+      },
+      "eq:coloring-prefix": {
+        "id": "3MEZ",
+        "kind": "equation"
+      },
+      "eq:delta-star": {
+        "id": "EImu",
+        "kind": "equation"
+      },
+      "eq:relative-size": {
+        "id": "QkYY",
+        "kind": "equation"
+      },
+      "eq:size": {
+        "id": "JBU3",
+        "kind": "equation"
       },
       "ex:concepts-nat": {
         "id": "HXqw",
         "kind": "section"
       },
+      "ex:pt_augmentation": {
+        "id": "xsps",
+        "kind": "section"
+      },
+      "fig:big-parity-dfa": {
+        "id": "HCq6",
+        "kind": "figure"
+      },
+      "fig:coloring2": {
+        "id": "s05h",
+        "kind": "figure"
+      },
+      "fig:coloring3": {
+        "id": "Zc2a",
+        "kind": "figure"
+      },
+      "fig:min-parity-dfa": {
+        "id": "3Ev2",
+        "kind": "figure"
+      },
+      "fig:prefix-tree-example": {
+        "id": "JeUM",
+        "kind": "figure"
+      },
+      "fig:pt_dfas": {
+        "id": "Gjj5",
+        "kind": "figure"
+      },
+      "sec:0sxj": {
+        "id": "0sxj",
+        "kind": "section"
+      },
+      "sec:MD9r": {
+        "id": "MD9r",
+        "kind": "section"
+      },
+      "sec:aVlw": {
+        "id": "aVlw",
+        "kind": "section"
+      },
+      "sec:ar5p": {
+        "id": "ar5p",
+        "kind": "section"
+      },
+      "sec:formal_lang": {
+        "id": "OXKF",
+        "kind": "section"
+      },
+      "sec:hJkf": {
+        "id": "hJkf",
+        "kind": "section"
+      },
       "sec:kKQ7": {
         "id": "tHiy",
+        "kind": "section"
+      },
+      "sec:m3I7": {
+        "id": "m3I7",
         "kind": "section"
       }
     },
@@ -1690,6 +1798,10 @@
         "id": "V8Zt",
         "kind": "citation"
       },
+      "cite:DBLP:conf/icgi/LangPP98": {
+        "id": "Tkau",
+        "kind": "citation"
+      },
       "cite:DBLP:conf/iclr/ScobeeS20": {
         "id": "aiPs",
         "kind": "citation"
@@ -1834,8 +1946,24 @@
         "id": "I9OF",
         "kind": "citation"
       },
+      "cite:DBLP:journals/iandc/Angluin87": {
+        "id": "5xLc",
+        "kind": "citation"
+      },
       "cite:DBLP:journals/iandc/BellareGP00": {
         "id": "r3Id",
+        "kind": "citation"
+      },
+      "cite:DBLP:journals/iandc/Gold67": {
+        "id": "7TDc",
+        "kind": "citation"
+      },
+      "cite:DBLP:journals/iandc/Gold78": {
+        "id": "Zfjy",
+        "kind": "citation"
+      },
+      "cite:DBLP:journals/iandc/Solomonoff64a": {
+        "id": "WwPq",
         "kind": "citation"
       },
       "cite:DBLP:journals/ijrr/LacerdaFPH19": {
@@ -1844,6 +1972,10 @@
       },
       "cite:DBLP:journals/ior/AlpernMP11": {
         "id": "OWCk",
+        "kind": "citation"
+      },
+      "cite:DBLP:journals/is/Martinez-Prieto16": {
+        "id": "awbt",
         "kind": "citation"
       },
       "cite:DBLP:journals/jacm/DavisP60": {
@@ -1856,6 +1988,14 @@
       },
       "cite:DBLP:journals/jcss/BrazdilCFK17": {
         "id": "HruA",
+        "kind": "citation"
+      },
+      "cite:DBLP:journals/ml/Denis01": {
+        "id": "PbeY",
+        "kind": "citation"
+      },
+      "cite:DBLP:journals/mscs/ConnellyM95": {
+        "id": "wn4b",
         "kind": "citation"
       },
       "cite:DBLP:journals/nips/Abel22": {
@@ -1942,6 +2082,10 @@
         "id": "fyHb",
         "kind": "citation"
       },
+      "cite:coste1997regular": {
+        "id": "M6pn",
+        "kind": "citation"
+      },
       "cite:cover2012elements": {
         "id": "q5gH",
         "kind": "citation"
@@ -1972,6 +2116,10 @@
       },
       "cite:kalman1964linear": {
         "id": "cTn7",
+        "kind": "citation"
+      },
+      "cite:kearns1994introduction": {
+        "id": "Rcwd",
         "kind": "citation"
       },
       "cite:knuth2009art": {
@@ -2040,6 +2188,10 @@
       },
       "cite:weighted2unweighted": {
         "id": "ITf4",
+        "kind": "citation"
+      },
+      "cite:yang2022one": {
+        "id": "0pxS",
         "kind": "citation"
       },
       "cite:ziebart2008maximum": {

@@ -1,0 +1,72 @@
+%% Creator: Inkscape 1.1.2 (0a00cf5339, 2022-02-04, custom), www.inkscape.org
+%% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
+%% Accompanies image file 'prefix_tree_example_augmented_2.pdf' (pdf, eps, ps)
+%%
+%% To include the image in your LaTeX document, write
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics{<filename>.pdf}
+%% To scale the image, write
+%%   \def\svgwidth{<desired width>}
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics[width=<desired width>]{<filename>.pdf}
+%%
+%% Images with a different path to the parent latex file can
+%% be accessed with the `import' package (which may need to be
+%% installed) using
+%%   \usepackage{import}
+%% in the preamble, and then including the image with
+%%   \import{<path to file>}{<filename>.pdf_tex}
+%% Alternatively, one can specify
+%%   \graphicspath{{<path to file>/}}
+%% 
+%% For more information, please see info/svg-inkscape on CTAN:
+%%   http://tug.ctan.org/tex-archive/info/svg-inkscape
+%%
+\begingroup%
+  \makeatletter%
+  \providecommand\color[2][]{%
+    \errmessage{(Inkscape) Color is used for the text in Inkscape, but the package 'color.sty' is not loaded}%
+    \renewcommand\color[2][]{}%
+  }%
+  \providecommand\transparent[1]{%
+    \errmessage{(Inkscape) Transparency is used (non-zero) for the text in Inkscape, but the package 'transparent.sty' is not loaded}%
+    \renewcommand\transparent[1]{}%
+  }%
+  \providecommand\rotatebox[2]{#2}%
+  \newcommand*\fsize{\dimexpr\f@size pt\relax}%
+  \newcommand*\lineheight[1]{\fontsize{\fsize}{#1\fsize}\selectfont}%
+  \ifx\svgwidth\undefined%
+    \setlength{\unitlength}{180.94624329bp}%
+    \ifx\svgscale\undefined%
+      \relax%
+    \else%
+      \setlength{\unitlength}{\unitlength * \real{\svgscale}}%
+    \fi%
+  \else%
+    \setlength{\unitlength}{\svgwidth}%
+  \fi%
+  \global\let\svgwidth\undefined%
+  \global\let\svgscale\undefined%
+  \makeatother%
+  \begin{picture}(1,0.65136158)%
+    \lineheight{1}%
+    \setlength\tabcolsep{0pt}%
+    \put(0,0){\includegraphics[width=\unitlength,page=1]{prefix_tree_example_augmented_2.pdf}}%
+    \put(-0.0177361,0.31248621){\color[rgb]{0.07843137,0.07058824,0.21568627}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}$\emptystring$\end{tabular}}}}%
+    \put(0.24025428,0.12625489){\color[rgb]{0.07843137,0.07058824,0.21568627}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}x\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=2]{prefix_tree_example_augmented_2.pdf}}%
+    \put(0.5790682,0.00410199){\color[rgb]{0.07843137,0.07058824,0.21568627}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}xx\end{tabular}}}}%
+    \put(0.92854351,0.00265067){\color[rgb]{0.36862745,0.3372549,1}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}xxz\end{tabular}}}}%
+    \put(0.93378493,0.19596867){\color[rgb]{1,0.3372549,0.3372549}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}xyy\end{tabular}}}}%
+    \put(0.93096175,0.32791787){\color[rgb]{0.36862745,0.3372549,1}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}xyz\end{tabular}}}}%
+    \put(0.57737377,0.25745853){\color[rgb]{1,0.3372549,0.3372549}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}xy\end{tabular}}}}%
+    \put(0.932224,0.45904156){\color[rgb]{0.36862745,0.3372549,1}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}yzz\end{tabular}}}}%
+    \put(0.58073227,0.57815914){\color[rgb]{1,0.3372549,0.3372549}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}yy\end{tabular}}}}%
+    \put(0.57319787,0.45183046){\color[rgb]{0.36862745,0.3372549,1}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}yz\end{tabular}}}}%
+    \put(0.93251611,0.58983513){\color[rgb]{1,0.3372549,0.3372549}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}yyy\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=3]{prefix_tree_example_augmented_2.pdf}}%
+    \put(0.23731947,0.51282014){\color[rgb]{1,0.3372549,0.3372549}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}y\end{tabular}}}}%
+  \end{picture}%
+\endgroup%
