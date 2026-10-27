@@ -56,9 +56,10 @@ Luce axiom holds (at least on the visited states and actions of the prefix
 tree), any entropy-regularized planner
 \cite{DBLP:journals/corr/NeuJG17} could serve as the Surprisal Guided
 Sampler. One might, in particular, adapt the counterexample-driven
-algorithm for relaxing the Luce axiom to maintain approximate value
-distinguishability — treating actions (and states) as equivalent if their
-values never deviate by more than $\delta \in \Reals$ for any task. This
+algorithm for relaxing the Luce axiom (\ref{sec:luce-axiom}) to maintain
+approximate value distinguishability — treating actions (and states) as
+equivalent if their values never deviate by more than $\delta \in \Reals$
+for any task. This
 would let any black-box entropy-regularized planner automatically adapt to
 work with DISS, even over a continuous action (and state) space.
 

@@ -32,25 +32,22 @@ until the audit does not flag it. **Never write a section the source does not
 have.** A placeholder such as "In this section, we describe ..." is a defect; the
 audit flags it as `PLACEHOLDER`.
 
-**Known audit blind spot:** `sgs.cob` (group `diss-algorithm`) clears the audit
-at ratio 0.60 even though `10_learning/30_sgs.tex:777`'s whole
-`\section{Relaxing the Luce axiom}\label{sec:luce_cegis}` (counterexample-guided
-synthesis for the Luce axiom relaxation) is unported — the heading-fuzzy-match
-against `luce-axiom.cob` (which only holds `ex:luce-violation`) hides the gap, and
-the chapter's word-count ratio stays above the 0.55 THIN threshold regardless.
-`diss-algorithm` is, as of this writing, the only chapter the audit does not
-clear cleanly: its heading-fuzzy-match also misses "maximum entropy planner",
-"results and analysis", and "search efficiency" in `30_sgs.tex`, and the four
-uncited keys it reports (`DBLP:conf/asplos/Solar-LezamaTBSS06`,
-`DBLP:journals/acta/JhaS17`, `DBLP:journals/pieee/Seshia15`,
-`Vazquez-Chanlatte_Demonstration_Informed_Specification`) are mostly the
-citations `sec:luce_cegis` itself would carry. Three refs already point at it
-in prose rather than as links, because the target doesn't exist yet:
-`circuits.cob`'s Contributions section ("as in the relaxation of the Luce
-axiom by counterexample-guided synthesis"), `bdd.cob`'s "Luce Axiom Relaxation
-with BDDs" section and Contributions, and `outro.cob`'s "Hybrid and
-Continuous Dynamics" future-work subsection. Port
-`sec:luce_cegis` into `sgs.cob`, then upgrade both to `\ref{sec:luce_cegis}`.
+**Resolved false alarm (kept as a lesson):** an earlier pass of this file
+claimed `30_sgs.tex:777`'s `\section{Relaxing the Luce axiom}\label{sec:luce_cegis}`
+was unported, reasoning from the audit's heading-fuzzy-match and from a
+`\ref{sec:luce_cegis}` grep that came up empty. Both were red herrings — the
+content was already ported, three sections ago, into its own files
+(`luce-axiom.cob`, `prop-grad.cob`, `bibliographic-notes-30s.cob`, all listed
+in `cob.toml` right after `sgs.cob`) under the forest's own label
+`sec:luce-axiom`, not the source's `sec:luce_cegis`. The actual gap was much
+smaller: four citations missing from already-correct prose
+(`DBLP:conf/asplos/Solar-LezamaTBSS06`, `DBLP:journals/acta/JhaS17`,
+`DBLP:journals/pieee/Seshia15`, `Vazquez-Chanlatte_Demonstration_Informed_Specification`)
+and three prose mentions (`bdd.cob` Contributions, `outro.cob` "Hybrid and
+Continuous Dynamics") that could already have been real `\ref{sec:luce-axiom}`
+links. Both are fixed. **The lesson:** before writing a chapter off as
+unported, `grep -rn` the *forest's own* label namespace for near-miss names —
+a chapter can rename a source label and still carry all the content.
 
 ## Build and review loop
 

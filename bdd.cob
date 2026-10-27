@@ -37,8 +37,8 @@ horizon. This compressed encoding of time-unrolled stochastic games can also be
 repeatedly expanded as the time horizon grows, which keeps the dynamics model
 compressed throughout planning. Finally, we close with the observation that
 BDDs give a natural way to detect and enforce the Luce axiom, as in the
-relaxation of the Luce axiom by counterexample-guided synthesis. Without
-further ado!
+counterexample-guided relaxation of the Luce axiom (\ref{sec:luce-axiom}).
+Without further ado!
 
 ```node
 # \taxon{definition}

@@ -1,4 +1,4 @@
-## Relaxing the Luce axiom {#sec:luce-axiom}
+## Relaxing the Luce axiom $\dagger$ {#sec:luce-axiom}
 
 Our design assumed the Luce axiom: all actions reachable from a state are distinct, i.e.
 

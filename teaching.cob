@@ -252,7 +252,7 @@ Our implementation relies on mitigation 3, since MinDFA is expressive enough
 and places a high prior on the two one-state DFAs representing the trivially
 true and false tasks.
 
-### Handling Similar Specifications {#sec:0IOg}
+### Handling Similar Specifications $\dagger$ {#sec:0IOg}
 
 A subtler issue arises when the target task is effectively equivalent to many
 tasks already in the representation class. Then $\hat{\RepresentationClass}$

@@ -470,11 +470,13 @@ symbol, biasing towards DFAs that do not count — for example $\square \blueTil
 
 ### DISS parameters {#sec:diss-params}
 
-Our DISS resets every 30 iterations, uses $p_{\text{drop}} = \tfrac{1}{20}$, and
-the cooling schedule $T_t = 100 \cdot (1 - \tfrac{t}{100}) + 1$. The experiment
-sweeps the SGS temperature $\beta \in [2^{-10}, \infty)$. The maximum causal
-entropy planner — described in a later part — uses a 15-step horizon; with one or
-two demonstrations the rationality $\lambda$ of $\policy_\spec$ is $10$ for every
+Our implementation of DISS
+\cite{Vazquez-Chanlatte_Demonstration_Informed_Specification} resets every 30
+iterations, uses $p_{\text{drop}} = \tfrac{1}{20}$, and the cooling schedule
+$T_t = 100 \cdot (1 - \tfrac{t}{100}) + 1$. The experiment sweeps the SGS
+temperature $\beta \in [2^{-10}, \infty)$. The \strong{maximum entropy
+planner} — described in a later part — uses a 15-step horizon; with one or two
+demonstrations the rationality $\lambda$ of $\policy_\spec$ is $10$ for every
 specification.
 
 ```node
@@ -504,7 +506,7 @@ demonstrations. \strong{Random-pivot DISS} is the $\beta = \infty$ ablation: the
 same mutation search, but it samples pivots uniformly rather than by the
 surprisal gradient (it still conditions the suffix on the gradient's sign).
 
-### Results {#sec:results}
+### Results and analysis {#sec:results}
 
 ```custom[latexfig] \label{fig:mass-mono}
 \caption{The monolithic experiment: DISS finds the minimum-energy DFA far faster than enumeration.}
@@ -524,7 +526,8 @@ enumeration explores far more \emph{unique} DFAs than DISS. And enumeration
 first lists DFAs without planning, then computes energies, a sizeable fixed
 overhead. Wall-clock time would therefore flatter DISS.
 
-For both experiments (\ref{fig:mass-mono}, \ref{fig:mass-inc}) DISS beats the
+\strong{Search efficiency.} For both experiments (\ref{fig:mass-mono},
+\ref{fig:mass-inc}) DISS beats the
 enumeration baseline and degrades as $\beta$ grows. For $\ln \beta < -5$ the
 monolithic run finds an energy-minimizing DFA in 10–30 iterations; the
 incremental run needs only 1–2, against enumeration's 13. The takeaways: DISS is
@@ -543,3 +546,15 @@ before $\yellowTile$.
 \caption{The most probable DFA DISS found — monolithic (left), incremental (right).}
 <img src="imgs/learned_dfas.svg" alt="The most probable learned DFAs for the two experiments.">
 ```
+
+Still, the learned DFAs differ from ground truth, particularly in what they
+accept \emph{after} a visit to $\yellowTile$. A large part of this is that our
+domain and planning horizon make the leftmost $\yellowTile$ act effectively as
+a sink state, so the resulting sequences are nearly indistinguishable — many
+even share the same energy; \ref{fig:learned-dfas} lightens such edges, and the
+rest of the DFAs agree well with ground truth. This nonetheless points to a
+fundamental limitation of learning from demonstrations: if two tasks induce
+very correlated policies in a workspace, nothing short of a strong prior or
+side information can distinguish them. If a task requires avoiding
+$\redTile$, say, but no $\redTile$ ever appears in the workspace, one cannot
+hope to learn that part of the task.
