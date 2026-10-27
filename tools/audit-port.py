@@ -19,8 +19,10 @@ from pathlib import Path
 GROUPS = [
     ("front-matter",    ["abstract.tex"], ["thesis.cob"]),
     ("intro",           ["00_intro/10_intro.tex"], ["intro.cob"]),
-    ("concepts",        ["00_intro/20_prelims.tex"], ["prelims.cob"]),
-    ("dynamics",        ["00_intro/25_dynamics.tex"], ["dynamics.cob"]),
+    ("concepts",        ["00_intro/20_prelims.tex", "00_intro/22_examples_to_tasks.tex"],
+     ["prelims.cob"]),
+    ("dynamics",        ["00_intro/25_dynamics.tex", "00_intro/40_entropy_based_planning.tex",
+                         "00_intro/50_bib.tex"], ["dynamics.cob"]),
     ("learning-part",   ["10_learning/00_root.tex"], ["learning.cob"]),
     ("task-specs",      ["10_learning/01_taskspecs.tex", "10_learning/45_tricks.tex",
                          "10_learning/46_neurips.tex"], ["taskspecs.cob"]),
