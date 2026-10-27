@@ -428,12 +428,13 @@ corresponds to an MDP.
 
 ```node
 # \taxon{remark}
-Recall that when maximum causal entropy coincides with maximum entropy, the
-forecasting policy $\policy_\spec$ and the likelihood of the demonstrations
-depend entirely on the estimated competency of the agent, $p_\spec$, and the
-competency of an agent that applies actions uniformly at random, $q_\spec$. A
-circuit representation of the dynamics reduces computing $q_\spec$ to a model
-counting query.
+Recall that when maximum causal entropy coincides with maximum entropy
+(\ref{eq:no_feedback}), the forecasting policy $\policy_\spec$ and the
+likelihood of the demonstrations depend entirely (\ref{prop:ratio},
+\ref{eq:rationality_no_feedback}) on the estimated competency of the agent,
+$p_\spec$, and the competency of an agent that applies actions uniformly at
+random, $q_\spec$. A circuit representation of the dynamics reduces computing
+$q_\spec$ to a model counting query.
 ```
 
 ````node

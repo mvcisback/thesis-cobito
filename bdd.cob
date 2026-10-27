@@ -174,7 +174,7 @@ So, if $b_i = \tfrac{1}{2}$, then $\#(f) = 2^n \Pr(\text{reach}(s^*)\mid s)$, as
 desired. Further, if $f$ encoded the unrolled probabilistic circuit for the
 task in a workspace MDP, then $\Pr(\text{reach}(s^*)\mid s) = q_\spec$, giving
 efficient maximum entropy planning whenever maximum causal entropy coincides
-with maximum entropy.
+with maximum entropy (\ref{eq:no_feedback}).
 
 ### Multi-Terminal BDDs {#sec:4fUd}
 

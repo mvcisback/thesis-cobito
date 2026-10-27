@@ -443,14 +443,15 @@ to risk a narrow corridor if no other option is available.
 
 Modeling slipping is useful for a preference to keep distance from obstacles,
 but it does not address an agent's incentive to skim a goal region — the paths
-are still not robust to uncertainty in the goal regions. A lightweight trick
-to model this uncertainty makes the observation map stochastic,
+are still not robust to uncertainty in the goal regions. A lightweight
+trick\sidenote{The "heavyweight" alternative moves to partially observed
+Markov decision processes, which, while expressive, are in general
+intractable, or even undecidable.} to model this uncertainty makes the
+observation map stochastic,
 
 $$f : \Path \to \Distr(\alphabet^*),$$
 
-\sidenote{The "heavyweight" alternative moves to partially observed Markov
-decision processes, which, while expressive, are in general intractable, or
-even undecidable.} where $\alphabet$ marks whether the agent left or entered a
+where $\alphabet$ marks whether the agent left or entered a
 region, the probability of observing a change grows as the agent nears the
 center of the obstacle, and it shrinks given the previous observation.
 
@@ -565,13 +566,13 @@ likelihood of a path $\trc$ under $\policy_\spec$ is
 transitions,
 
 ```math \label{eq:trace_weight}
-w_\trc \eqdef \prod_{i=0}^{\tau-1}P(s_{i+1}\mid s_i, a_i), \qquad W_\spec \eqdef \sum_{\trc \in \spec} w_\trc,
+w_\trc \eqdef \prod_{i=0}^{\tau-1}P(s_{i+1}\mid s_i, \act_i), \qquad W_\spec \eqdef \sum_{\trc \in \spec} w_\trc,
 ```
 
-where $\trc = s_0 \xrightarrow{a_0} s_1 \xrightarrow{a_1} \ldots
-\xrightarrow{a_n} s_n$, and define $c \eqdef e^{\rat}$. By assumption,
+where $\trc = s_0 \xrightarrow{\act_0} s_1 \xrightarrow{\act_1} \ldots
+\xrightarrow{\act_n} s_n$, and define $c \eqdef e^{\rat}$. By assumption,
 
-$$Z_\spec\cdot p_\spec = \sum_{\trc \in \spec} c\cdot w_\trc = c W_\spec, \qquad Z_\spec = c \sum_{\trc \in \spec} w_\trc + \sum_{\trc \notin \spec} w_\trc = c W_\spec + W_{\neg \spec}.$$
+$$Z_\spec\cdot p_\spec = 1\cdot\sum_{\trc \in \spec} c^1\cdot w_\trc + 0\cdot\sum_{\trc \notin \spec} c^0\cdot w_\trc = c W_\spec, \qquad Z_\spec = c^1 \sum_{\trc \in \spec} w_\trc + c^0\sum_{\trc \notin \spec} w_\trc = c W_\spec + W_{\neg \spec}.$$
 
 Combining gives $Z_\spec = W_{\neg \spec}/(1 - p_\spec)$. If $\trc \notin
 \spec$, then $e^{\rat \cdot \spec(\trc)} = 1$, so substituting into
@@ -610,15 +611,16 @@ competency $q_\spec$.
 ### Likelihood of multiple demonstrations {#sec:0Sgg}
 
 If the teacher gives a sequence of demonstrations $\Demos$, drawn i.i.d. from
-\ref{eq:max_ent_dist2}, the log likelihood of $\Demos$ is
+\ref{eq:max_ent_dist2}, the log likelihood of $\Demos$
+is\sidenote{We suppress the multinomial coefficient needed if two
+demonstrations are the same; this term does not change as $\spec$ varies, so
+it cancels when comparing specifications.}
 
 ```math \label{eq:max_ent_dist3}
 \ln\Prob(\Demos\mid \policy_\spec, M) = N_\spec \ln\left(\frac{p_\spec}{ q_\spec}\right) + (m - N_\spec) \ln\left(\frac{1 - p_\spec}{ 1 - q_\spec}\right) + C,
 ```
 
-\sidenote{We suppress the multinomial coefficient needed if two demonstrations
-are the same; this term does not change as $\spec$ varies, so it cancels when
-comparing specifications.} where $N_\spec \eqdef \sum_{\trc\in \Demos}
+where $N_\spec \eqdef \sum_{\trc\in \Demos}
 \spec(\trc)$, we take $0\cdot \ln(\ldots) = 0$, and $C$ is a constant that does
 not depend on $\spec$. If $\Demos$ is "representative", so that $N_\spec
 \approx p_{\spec}\cdot|\Demos|$, we can approximate \ref{eq:max_ent_dist3} (up
