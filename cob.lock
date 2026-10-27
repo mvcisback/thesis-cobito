@@ -1334,6 +1334,10 @@
         "id": "VFeI",
         "kind": "section"
       },
+      "def:maxentcase-notation": {
+        "id": "NOa3",
+        "kind": "macro"
+      },
       "def:spec-notation": {
         "id": "7NUr",
         "kind": "macro"
@@ -1342,8 +1346,44 @@
         "id": "KCQs",
         "kind": "section"
       },
+      "eq:discount_rewards": {
+        "id": "h3dA",
+        "kind": "equation"
+      },
       "eq:maxEntPlanner": {
         "id": "MowL",
+        "kind": "equation"
+      },
+      "eq:max_ent_dist2": {
+        "id": "c5qH",
+        "kind": "equation"
+      },
+      "eq:max_ent_dist3": {
+        "id": "7mPl",
+        "kind": "equation"
+      },
+      "eq:max_ent_dist5": {
+        "id": "PSen",
+        "kind": "equation"
+      },
+      "eq:max_ent_dist6": {
+        "id": "Bh99",
+        "kind": "equation"
+      },
+      "eq:no_feedback": {
+        "id": "fJqN",
+        "kind": "equation"
+      },
+      "eq:path_dist": {
+        "id": "VVDO",
+        "kind": "equation"
+      },
+      "eq:rationality_no_feedback": {
+        "id": "X8GF",
+        "kind": "equation"
+      },
+      "eq:trace_weight": {
+        "id": "ePDR",
         "kind": "equation"
       },
       "ex:intro": {
@@ -1354,6 +1394,10 @@
         "id": "lD1E",
         "kind": "section"
       },
+      "ex:reach_avoid": {
+        "id": "kxi8",
+        "kind": "section"
+      },
       "fig:bug": {
         "id": "zrqT",
         "kind": "figure"
@@ -1362,12 +1406,32 @@
         "id": "mcwf",
         "kind": "figure"
       },
+      "fig:model_mismatch1": {
+        "id": "nJlT",
+        "kind": "figure"
+      },
+      "fig:model_mismatch2": {
+        "id": "oZCA",
+        "kind": "figure"
+      },
+      "fig:model_mismatch3": {
+        "id": "oO5l",
+        "kind": "figure"
+      },
+      "fig:model_mismatch4": {
+        "id": "v0B1",
+        "kind": "figure"
+      },
       "fig:yr": {
         "id": "39Xf",
         "kind": "figure"
       },
       "prob:tifd": {
         "id": "TqfV",
+        "kind": "section"
+      },
+      "prop:ratio": {
+        "id": "KEsn",
         "kind": "section"
       },
       "rem:planner-blackbox": {
@@ -1382,8 +1446,48 @@
         "id": "6brm",
         "kind": "section"
       },
+      "sec:0Sgg": {
+        "id": "0Sgg",
+        "kind": "section"
+      },
+      "sec:AjRt": {
+        "id": "AjRt",
+        "kind": "section"
+      },
+      "sec:FaYs": {
+        "id": "FaYs",
+        "kind": "section"
+      },
+      "sec:aET8": {
+        "id": "aET8",
+        "kind": "section"
+      },
+      "sec:binco": {
+        "id": "WuMx",
+        "kind": "section"
+      },
       "sec:bool-case": {
         "id": "SHOg",
+        "kind": "section"
+      },
+      "sec:discount": {
+        "id": "ORwH",
+        "kind": "section"
+      },
+      "sec:max-ent-planners": {
+        "id": "xpb9",
+        "kind": "section"
+      },
+      "sec:maxEntcase": {
+        "id": "19C6",
+        "kind": "section"
+      },
+      "sec:nZxY": {
+        "id": "nZxY",
+        "kind": "section"
+      },
+      "sec:o0UD": {
+        "id": "o0UD",
         "kind": "section"
       },
       "sec:task-behavior": {
@@ -1394,8 +1498,16 @@
         "id": "sLUv",
         "kind": "section"
       },
+      "sec:tricks": {
+        "id": "Xvp9",
+        "kind": "section"
+      },
       "sec:ts-contributions": {
         "id": "xldf",
+        "kind": "section"
+      },
+      "sec:ySaR": {
+        "id": "ySaR",
         "kind": "section"
       }
     },
@@ -1518,6 +1630,10 @@
         "id": "7AYa",
         "kind": "citation"
       },
+      "cite:DBLP:conf/ccta/McPhersonSS21": {
+        "id": "phLf",
+        "kind": "citation"
+      },
       "cite:DBLP:conf/cdc/GeM18": {
         "id": "Ubpq",
         "kind": "citation"
@@ -1528,6 +1644,10 @@
       },
       "cite:DBLP:conf/cie/Adriaans07": {
         "id": "fiif",
+        "kind": "citation"
+      },
+      "cite:DBLP:conf/cyphy/HermannsKN15": {
+        "id": "tnCf",
         "kind": "citation"
       },
       "cite:DBLP:conf/dac/ChakrabortyMV14": {
@@ -1568,6 +1688,10 @@
       },
       "cite:DBLP:conf/icgi/HeuleV10": {
         "id": "V8Zt",
+        "kind": "citation"
+      },
+      "cite:DBLP:conf/iclr/ScobeeS20": {
+        "id": "aiPs",
         "kind": "citation"
       },
       "cite:DBLP:conf/icml/GeistSP19": {
@@ -1664,6 +1788,10 @@
       },
       "cite:DBLP:conf/tacas/KwiatkowskaNP02": {
         "id": "hsQk",
+        "kind": "citation"
+      },
+      "cite:DBLP:conf/wafr/ChouBO18": {
+        "id": "4f46",
         "kind": "citation"
       },
       "cite:DBLP:conf/wsc/SkiscimG83": {
@@ -1814,6 +1942,10 @@
         "id": "fyHb",
         "kind": "citation"
       },
+      "cite:cover2012elements": {
+        "id": "q5gH",
+        "kind": "citation"
+      },
       "cite:dalvi2007efficient": {
         "id": "0KU9",
         "kind": "citation"
@@ -1892,6 +2024,10 @@
       },
       "cite:taylor1950purposeful": {
         "id": "Y5Jn",
+        "kind": "citation"
+      },
+      "cite:tenenbaum1999bayesian": {
+        "id": "qyGl",
         "kind": "citation"
       },
       "cite:von1963various": {
