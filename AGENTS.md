@@ -32,6 +32,18 @@ until the audit does not flag it. **Never write a section the source does not
 have.** A placeholder such as "In this section, we describe ..." is a defect; the
 audit flags it as `PLACEHOLDER`.
 
+**Known audit blind spot:** `sgs.cob` (group `diss-algorithm`) clears the audit
+at ratio 0.60 even though `10_learning/30_sgs.tex:777`'s whole
+`\section{Relaxing the Luce axiom}\label{sec:luce_cegis}` (counterexample-guided
+synthesis for the Luce axiom relaxation) is unported — the heading-fuzzy-match
+against `luce-axiom.cob` (which only holds `ex:luce-violation`) hides the gap, and
+the chapter's word-count ratio stays above the 0.55 THIN threshold regardless. Two
+refs already point at it in prose rather than as links, because the target
+doesn't exist yet: `circuits.cob`'s Contributions section ("as in the relaxation
+of the Luce axiom by counterexample-guided synthesis") and `bdd.cob`'s
+"Luce Axiom Relaxation with BDDs" section and Contributions. Port
+`sec:luce_cegis` into `sgs.cob`, then upgrade both to `\ref{sec:luce_cegis}`.
+
 ## Build and review loop
 
 The flake's `cobito` input is the path `/home/mvc/work/llm-literate`. On a machine
