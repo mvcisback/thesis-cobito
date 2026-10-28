@@ -1,0 +1,51 @@
+name: Deploy thesis site
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          lfs: true
+
+      - uses: DeterminateSystems/nix-installer-action@main
+
+      - name: Build the site
+        run: nix build .#site -L
+
+      - name: Copy out of the nix store
+        # result is a symlink into the read-only store; copy it to a plain
+        # writable directory so the upload action has no symlink to chase.
+        # cp -L preserves the store's read-only mode bits, so chmod after.
+        run: |
+          rm -rf _site-out
+          cp -rL result _site-out
+          chmod -R u+w _site-out
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site-out
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
