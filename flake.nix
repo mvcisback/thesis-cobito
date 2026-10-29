@@ -2,18 +2,10 @@
   description = "PhD thesis as a cob forest — dogfooding cobito";
 
   # The public GitHub mirror, not the local checkout: this flake must evaluate
-  # on a machine (or CI runner) that has never seen /home/mvc/work/llm-literate.
+  # on a machine (or CI runner) that has never seen /home/mvc/work/cobito.
   # During active cobito development, override it back to a local checkout:
-  # `nix build --override-input cobito path:/home/mvc/work/llm-literate`.
+  # `nix build --override-input cobito path:/home/mvc/work/cobito`.
   inputs.cobito.url = "github:mvcisback/cobito";
-  # cobito's own flake needs a `seed` (a pinned tangled snapshot, §13) to
-  # bootstrap-compile; its default points at the private self-hosted forge over
-  # ssh, which CI cannot reach. Redirect it to the same tag on the public
-  # mirror — keep this in sync with cobito/flake.nix's own `inputs.seed`.
-  inputs.cobito.inputs.seed = {
-    url = "github:mvcisback/cobito/v0.1.2";
-    flake = false;
-  };
 
   outputs = { self, cobito }:
     let

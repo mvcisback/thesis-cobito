@@ -10,11 +10,11 @@
         "tree-sitter-rust": "tree-sitter-rust"
       },
       "locked": {
-        "lastModified": 1792397168,
-        "narHash": "sha256-bGkYHlfdH1xgoIxTLtZevYoWRmLMivfeYG5eZW2jikI=",
+        "lastModified": 1793252713,
+        "narHash": "sha256-zDNSu7p/FvgkW8Zhgh9qhV/Q6hm67k0xl4uSwbIcABI=",
         "owner": "mvcisback",
         "repo": "cobito",
-        "rev": "fbf8d88518e8a17b43b837d00429c3daf8c8e657",
+        "rev": "a1940233dac5c2ff8082225a68939c422ebb96c1",
         "type": "github"
       },
       "original": {
