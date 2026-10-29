@@ -1,8 +1,8 @@
 ---
 name: port-thesis-chapter
 description: >
-  Port one section or chapter of the LaTeX PhD thesis at /home/mvc/work/thesis
-  into the cob literate forest at /home/mvc/work/thesis-forest, then weave,
+  Port one section or chapter of the LaTeX PhD thesis at ../thesis
+  into the cob literate forest at <thesis-forest checkout>, then weave,
   verify, publish, and commit. Use for the mechanical, repeatable parts of the
   port. NEVER invent text: every sentence must come from the LaTeX source. A
   chapter is done only when tools/audit-port.py does not flag it. STOP and hand
@@ -20,14 +20,14 @@ improvise cob features; if a source construct is not in this skill, escalate.
 
 ## The setup
 
-- **Source** (read-only): `/home/mvc/work/thesis`, LaTeX (ucbthesis). Chapters in
+- **Source** (read-only): `../thesis`, LaTeX (ucbthesis). Chapters in
   `src/{00_intro,10_learning,30_control,40_outro}/*.tex`; each dir rooted by
   `00_root.tex` whose `\input{..}` lines give the file order. `src/macros.tex`
   and `src/math_commands.tex` hold `\newcommand`/`\def`/`\DeclareMathOperator`.
-- **Target**: `/home/mvc/work/thesis-forest`, a **plain git + git-LFS** repo (NOT
+- **Target**: `<thesis-forest checkout>`, a **plain git + git-LFS** repo (NOT
   jj). One `.cob` per thesis source file. The book is the ordered file list in
   the `files` list of the `[[document]]` table in `thesis-forest/cob.toml`.
-- **cob binary**: `/home/mvc/work/llm-literate/target/debug/cob` (already built).
+- **cob binary**: `<cobito checkout>/target/debug/cob` (already built).
 - **Weave environment**: every `cob` command runs inside the cobito devShell for
   `COB_KATEX_ASSETS`, and a figure that uses `custom[latexfig]` also needs
   `python3`, `pdf2svg`, and a texlive-with-`standalone` on `PATH`. Use the
@@ -149,7 +149,7 @@ in your report.
 
 ## Figures — three cases
 
-First find the source in `/home/mvc/work/thesis/imgs/`. Decide by what exists:
+First find the source in `../thesis/imgs/`. Decide by what exists:
 
 1. **Plain SVG, no LaTeX in its text** (check: `grep -c '\$[^$]*\$' imgs/NAME.svg`
    is 0). Copy it into `thesis-forest/imgs/`, run the **white-background pass**
@@ -250,7 +250,7 @@ claims.
 
 ## Commands — the verify loop
 
-Run from `/home/mvc/work/llm-literate`. The book is read from `cob.toml`, so
+Run from `<cobito checkout>`. The book is read from `cob.toml`, so
 `cob lock` and `cob weave` take no file arguments. This wrapper puts the figure
 toolchain on PATH (python3, pdf2svg, node, texlive); it is harmless when no
 `custom` figure is present. The `tikzfig` handler needs `npm ci` once in
@@ -258,9 +258,9 @@ toolchain on PATH (python3, pdf2svg, node, texlive); it is harmless when no
 
 ```sh
 nix develop --override-input seed "path:/tmp/seed010" --command bash -c '
-  export PATH="$(nix build --no-link --print-out-paths nixpkgs#python3)/bin:$(nix build --no-link --print-out-paths nixpkgs#pdf2svg)/bin:$(nix build --no-link --print-out-paths --impure --expr "let np=(builtins.getFlake \"git+file:///home/mvc/work/llm-literate\").inputs.nixpkgs; pkgs=import np {system=\"x86_64-linux\";}; in pkgs.texlive.withPackages (ps: with ps; [ scheme-small standalone xcolor amsmath pgf ])" 2>/dev/null | grep -v -- "-man\$" | head -1)/bin:$PATH"
-  COB=/home/mvc/work/llm-literate/target/debug/cob
-  cd /home/mvc/work/thesis-forest
+  export PATH="$(nix build --no-link --print-out-paths nixpkgs#python3)/bin:$(nix build --no-link --print-out-paths nixpkgs#pdf2svg)/bin:$(nix build --no-link --print-out-paths --impure --expr "let np=(builtins.getFlake \"git+file://<cobito checkout>\").inputs.nixpkgs; pkgs=import np {system=\"x86_64-linux\";}; in pkgs.texlive.withPackages (ps: with ps; [ scheme-small standalone xcolor amsmath pgf ])" 2>/dev/null | grep -v -- "-man\$" | head -1)/bin:$PATH"
+  COB=<cobito checkout>/target/debug/cob
+  cd <thesis-forest checkout>
   $COB lock
   $COB weave --out _site > /tmp/weave.log 2>&1; echo "WEAVE_EXIT=$?"
   grep -iE "error|E0[0-9][0-9]|W10[0-6]" /tmp/weave.log | grep -v W107
@@ -286,13 +286,13 @@ Capture `echo "WEAVE_EXIT=$?"` right after the command, as above.
 Publish (tailnet-only, overwrites the live copy):
 ```sh
 DEST=/data/fast/pages/tmp/thesis
-rm -rf "$DEST" && mkdir -p "$DEST" && cp -r /home/mvc/work/thesis-forest/_site/. "$DEST/"
+rm -rf "$DEST" && mkdir -p "$DEST" && cp -r <thesis-forest checkout>/_site/. "$DEST/"
 ```
 
 Commit (thesis-forest is git + LFS — stage only sources, never `_site` or
 `.cob-cache`; a message file avoids shell-quoting bugs):
 ```sh
-cd /home/mvc/work/thesis-forest
+cd <thesis-forest checkout>
 cat > /tmp/msg.txt <<'EOF'
 port: <chapter/section> (<file>.cob)
 
@@ -319,7 +319,7 @@ text.
 - A figure has no plain `.svg`, no `.pdf_tex`, and no plot `.pdf` — or `latexfig`
   fails with a LaTeX error you cannot fix by adding a macro.
 - The weave errors in a way that is not an obvious typo you introduced.
-- Anything would require changing cob itself (`/home/mvc/work/llm-literate`).
+- Anything would require changing cob itself (`<cobito checkout>`).
 - A cross-reference target does not exist and you cannot tell whether it is a
   not-yet-ported chapter or a genuine mistake.
 

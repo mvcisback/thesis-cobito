@@ -1,10 +1,10 @@
 {
   description = "PhD thesis as a cob forest — dogfooding cobito";
 
-  # The public GitHub mirror, not the local checkout: this flake must evaluate
-  # on a machine (or CI runner) that has never seen /home/mvc/work/cobito.
+  # The public GitHub mirror, not a local checkout: this flake must evaluate
+  # on a machine (or CI runner) that has never seen a cobito checkout.
   # During active cobito development, override it back to a local checkout:
-  # `nix build --override-input cobito path:/home/mvc/work/cobito`.
+  # `nix build --override-input cobito path:/path/to/your/cobito/checkout`.
   inputs.cobito.url = "github:mvcisback/cobito";
 
   outputs = { self, cobito }:

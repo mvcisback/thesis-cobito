@@ -20,9 +20,9 @@
 %%
 %% Matplotlib used the following preamble
 %%   \usepackage{fontspec}
-%%   \setmainfont{DejaVuSerif.ttf}[Path=\detokenize{/home/mvc/.cache/pypoetry/virtualenvs/diss-6lxiNb92-py3.10/lib/python3.10/site-packages/matplotlib/mpl-data/fonts/ttf/}]
-%%   \setsansfont{DejaVuSans.ttf}[Path=\detokenize{/home/mvc/.cache/pypoetry/virtualenvs/diss-6lxiNb92-py3.10/lib/python3.10/site-packages/matplotlib/mpl-data/fonts/ttf/}]
-%%   \setmonofont{DejaVuSansMono.ttf}[Path=\detokenize{/home/mvc/.cache/pypoetry/virtualenvs/diss-6lxiNb92-py3.10/lib/python3.10/site-packages/matplotlib/mpl-data/fonts/ttf/}]
+%%   \setmainfont{DejaVuSerif.ttf}[Path=\detokenize{<matplotlib fonts dir>/}]
+%%   \setsansfont{DejaVuSans.ttf}[Path=\detokenize{<matplotlib fonts dir>/}]
+%%   \setmonofont{DejaVuSansMono.ttf}[Path=\detokenize{<matplotlib fonts dir>/}]
 %%
 \begingroup%
 \makeatletter%

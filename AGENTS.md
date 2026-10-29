@@ -51,9 +51,10 @@ a chapter can rename a source label and still carry all the content.
 
 ## Build and review loop
 
-The flake's `cobito` input is the path `/home/mvc/work/llm-literate`. On a machine
-where that path differs, override it: `--override-input cobito path:<checkout>`.
-These commands run from the repo root with the toolchain on `PATH`:
+The flake's `cobito` input tracks the public GitHub mirror
+(`github:mvcisback/cobito`). During active cobito development, override it to a
+local checkout: `--override-input cobito path:<checkout>`. These commands run
+from the repo root with the toolchain on `PATH`:
 
 ```sh
 COBBIN=$(nix build <cobito checkout>#cob --no-link --print-out-paths)/bin
